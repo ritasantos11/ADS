@@ -1,0 +1,13 @@
+*** Setuid e setgid ***
+Ferramenta de segurança que permite aos users executar determinados programas com privelégios.
+
+When the kernel runs an executable file that has its “setuid” or “setgid” permis-
+sion bits set, it changes the effective UID or GID of the resulting process to the
+UID or GID of the file containing the program image rather than the UID and
+GID of the user that ran the command. The user’s privileges are thus promoted for
+the execution of that specific command only.
+
+
+
+P.106
+

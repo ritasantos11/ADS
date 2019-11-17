@@ -1,0 +1,128 @@
+*** RAID (REDUNDANT ARRAYS OF INEXPENSIVE DISKS) ***
+RAID pode:
+	-melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados.
+	-replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.
+
+Replicação assume 2 formas:
+	-mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes.
+	-esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior.
+
+RAID 0:
+	-usado estritamente para aumentar o desempenho.
+	-combina 2 ou mais drivers de tamanho igual, mas em vez de empilhá-los de ponta aponta, distribui os dados alternadamente entre os discos no pool.
+	-as leituras e as escritas sequenciais são distribuídas entre vários discos, diminuindo os tempos de escrita e acesso.
+
+RAID 1:
+	-as escritas são duplicadas para 2 ou mais drivers simultaneamente.
+	-as escritas são mais lentas do que o que seria se fosse num único driver.
+	-oferece velocidade de leitura comparável ao RAID 0, porque as leituras podem ser realizadas entre vários drivers de disco duplicados.
+
+RAID 5:
+	-reduz as informações de dados e de paridade, adicionando redundância e melhorando simultanemante o desempenho de leitura.
+	-mais eficienre no uso de espaço em disco do que o raid 1.
+	-se houver N drives numa matriz (são necessários pelo menos 3), N-1 delas pode armazenar dados.
+
+RAID 6
+	-semelhante ao raid 5 com 2 discos de paridade.
+	-uma matriz raid 6 pode suportar a falha completa de 1 drivers sem perder dados.
+
+RAID 5 e RAID 1 de 2 discos podem tolerar apenas a falha de um único dispositivo. Depois de ocorrer uma falha, a matriz fica vulnerável a uma segunda falha.
+The specifics of the process are usually pretty simple. You replace the failed disk
+with another of similar or greater size, then tell the RAID implementation to re-
+place the old disk with the new one. What follows is an extended period during
+which the parity or mirror information is rewritten to the new, blank disk. Often,
+this is an overnight operation. The array remains available to clients during this
+phase, but performance is likely to be very poor.
+
+First, it’s critically important to note that RAID 5 does not replace regular off-line
+backups. It protects the system against the failure of one disk—that’s it. It does not
+protect against the accidental deletion of files. It does not protect against control-
+ler failures, fires, hackers, or any number of other hazards.
+Second, RAID 5 isn’t known for its great write performance. RAID 5 writes data
+blocks to N–1 disks and parity blocks to the N th disk. 14 Whenever a random block s written, at least one data block and the parity block for that stripe must be up-
+dated. Furthermore, the RAID system doesn’t know what the new parity block
+should contain until it has read the old parity block and the old data. Each ran-
+dom write therefore expands into four operations: two reads and two writes. (Se-
+quential writes may fare better if the implementation is smart.)
+Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incre-
+mental updating of parity data is more efficient than reading the entire stripe and
+recalculating the stripe’s parity based on the original data. On the other hand, it
+means that at no point is parity data ever validated or recalculated. If any block in
+a stripe should fall out of sync with the parity block, that fact will never become
+evident in normal use; reads of the data blocks will still return the correct data.
+
+
+
+The virtual file /proc/mdstat always contains a summary of md’s status and the
+status of all the system’s RAID arrays. It is especially useful to keep an eye on the
+/proc/mdstat file after adding a new disk or replacing a faulty drive. (watch cat
+/proc/mdstat is a handy idiom.)
+
+mdadm --detail --scan dumps the current RAID setup into a configuration file.
+
+Criar um raid 5 com 3 dispositivos:
+	sudo mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
+	mdadm: array /dev/md0 started.
+Permitir o raid na inicialização:
+	$ sudo mdadm -As /dev/md0
+Parar o raid:
+	$ sudo mdadm -S /dev/md0
+Marcar um disco como failed:
+	$ sudo mdadm /dev/md0 -f /dev/sdc1
+	mdadm: set /dev/sdc1 faulty in /dev/md0
+Remover o drive da configuração do raid:
+	$ sudo mdadm /dev/md0 -r /dev/sdc1
+Adicionar o drive ao array sem substituir o hardware:
+	$ sudo mdadm /dev/md0 -a /dev/sdc1
+
+
+*** LOGICAL VOLUME MANAGEMENT (LVM) ***
+Permite para realocar espaço dinamicamente da partição greedy para a partição necessária.
+Agrupa dispositivos de armazenamento individuais em volume de grupos. Os blocos num volume de grupo podem ser alocados a volumes lógicos, que são representados por ficheiros de dispositivos de blocos e agem como partições de disco.
+
+Configuração LVM:
+	-Criar (definir) e inicializar volumes físicos.
+	-Adicionar os volumes físicos a um volume de grupo.
+	-Criar volumes lógicos no volume de grupo.
+
+Criar volume físico:
+	$ sudo pvcreate /dev/md0
+	Physical volume "/dev/md0" successfully created
+Adicionar volume físico a um volume de grupo:
+	$ sudo vgcreate DEMO /dev/md0
+	Volume group "DEMO" successfully created
+Criar volume lógico dentro do DEMO e depois criar um filesystem dentro desse volume. Volume lógico com 100GB:
+	$ sudo lvcreate -L 100G -n web1 DEMO
+	Logical volume "web1" created
+
+Criar /dev/DEMO/web1-snap como um snapshot do /dev/DEMO/web1
+	$ sudo lvcreate -L 100G -s -n web1-snap DEMO/web1
+
+O LVM não sabe nada sobre o coneúdo dos seus volumos, logo deve-se ajustar o size dos volumes e dos filesystems. Para reduzir o size, faz-se primeiro no filesystem e para aumentar no volume.
+EX: Aumentar size:
+	-verificar se o volume tem free space.
+	-unmount filesystem.
+	-usar lvresize para adicioanr espaço ao volume lógico.
+	-ajustar size do filesystem: resize2fs.
+	-mount filesystem.
+
+	$ sudo umount /mnt/web1
+	$ sudo lvchange -an DEMO/web1
+	$ sudo lvresize -L +10G DEMO/web1
+	$ sudo lvchange -ay DEMO/web1
+	Extending logical volume web1 to 110.00 GB
+	Logical volume web1 successfully resized
+
+	-Necessário lvchange porque se criou um snapshot do web1.
+
+Maior parte dos filesystems criam um diretório lost+found na raiz de cada filesystem onde o comando fsck pode depositar files cujo diretório pai não pode ser determinado. Este diretório lost+found tem algum espaço extra prealocado para que o fsck consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
+
+
+*** fstab file ***
+Fstab is your operating system’s file system table.
+O file fstab inclui mounts de sistemas remotos, o primeiro cawpo contém o caminho NFS.
+
+
+
+P.262
+

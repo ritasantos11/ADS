@@ -1,0 +1,79 @@
+*** WORKSTATION ***
+
+*** RAID 5 E FALHAS ***
+for i in {1..8}
+do
+	dd if=/dev/zero of=diski bs=1024 count=100000
+	losetup -f --show disk
+done
+
+Cria os ficheiros:
+	dd if=/dev/zero of=file1.fs bs=1024 count=100000
+Cria os dispositivos (loop devices) associados:
+	losetup --find --show file1.fs
+	ou
+	losetup /dev/loop0 /mnt/file1.fs
+
+Construir o raid5: Definindo 2 vetores com 4 discos cada em /dev/md0 e /dev/md1:
+	# mdadm --create /dev/md0 --level=5 --raid-devices=4 /dev/loop[0-3]
+	# mdadm --create /dev/md1 --level=5 --raid-devices=4 /dev/loop[4-7]
+Veja também o resultado de mdadm /dev/md0.
+
+Construit o raid1 em /dev/md2 com os dispositivos /dev/md0 e /dev/md1: Mirroring de 2 raids 5:
+	# mdadm --create /dev/md2 --level=1 --raid-devices=2 /dev/md[0-1]
+Veja com mdadm -Q /dev/md0 a que pertence o md0.
+
+Criar um filesystem:
+	mkfs.ext4 /dev/md2
+Montar o filesystem:
+	mkdir /mnt/testing
+	mount /dev/md2 /mnt/testing
+	cp dos ficheiros p lá
+5b) 4 no minimo , 2 dum lado 2 do outro
+
+Monitorizar o sistema:
+	# mdadm --detail
+Marcar um disco com defeito: indicar uma falha no dispositivo loop0 que está no RAID md0:
+	# mdadm /dev/md0 -f /dev/loop0
+Remover os dispositivos defeituosos usando -r: remove o loop0 do md0:
+	# mdadm /dev/md0 -r /dev/loop0
+Desmontar o filesystem:
+	unnmount /dev/md2
+Parar os dispositivos antes de os reconstrui (após a falha não se pode adicionar novos discos):
+	mdaddm --stop
+Se um dispositivo fizer parte de um raid deve se parar o raid primeiro
+Remontar os dispositivos (pode ter de forçar):
+	# mdadm --assemble --force /dev/md0 /dev/loop[0-3]
+E mesmo adicionar discos que não foram colocados automaticamente:
+	# mdadm --manage /dev/md0 --add /dev/loop3
+
+
+*** RAID 10 ***
+Parar todos os raids existentes:
+	# mdadm --stop --scan 
+
+Mostrar os detalhes dos loop:
+	wipefs /dev/loop*
+Limpar os loop:
+	wipefs -a /dev/md0
+
+Construir um raid 10 com 4 discos de /dev/loop:
+	# mdadm --create /dev/md0 --level=10 --raid-devices=4 /dev/loop[0-3] ?
+
+Verificar:
+	mdadm --detail --scan
+Espaço que tem:
+	array size: 200M
+	file com 100M , sao 4: 400M
+	raid 1: /2: 200M
+
+Criar um filesystem:
+	mkfs.ex4 /dev/md0
+Montar o filesystem:
+	mount /dev/md0 testing
+Espaço disponível:
+	df -h
+
+
+
+

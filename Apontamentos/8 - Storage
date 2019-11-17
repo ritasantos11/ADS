@@ -1,0 +1,31 @@
+*** Linux recipe ***
+Run sudo fdisk -l to list the system’s disks and identify the new drive.
+
+Then run any convenient partitioning utility to create a partition table for the drive.
+For drives 2TB and below, install a Windows MBR partition table. cfdisk is the easiest utility for this, but you can also use fdisk, sfdisk, parted, or gparted. Larger disks require a GPT partition table, so you must partition with parted or its GNOME GUI, gparted. gparted is a lot easier to use but isn’t usually installed by default.
+
+Put all the drive’s space into one partition of unspecified or “unformatted” type.
+Do not install a filesystem. Note the device name of the new partition before you leave the partitioning utility; let’s say it’s /dev/sdc1.
+
+Next, run the following command sequence, selecting appropriate names for the volume group (vgname), logical volume (volname), and mount point. (Examples of reasonable choices: homevg, home, and /home.)
+Prepare for use w/LVM:
+	$ sudo pvcreate /dev/sdc1
+Create volume group:
+	$ sudo vgcreate vgname /dev/sdc1
+Create logical volume:
+	$ sudo lvcreate -l 100%FREE -n volname vgname
+Create filesystem:
+	$ sudo mkfs -t ext4 /dev/vgname/volname
+Create mount point:
+	$ sudo mkdir mountpoint
+Set mount opts, mntpoint:
+	$ sudo vi /etc/fstab
+
+In the /etc/fstab file, copy the line for an existing filesystem and adjust it. The device to be mounted is /dev/vgname/volname. If your existing fstab file identifies volumes by UUID, replace the UUID= xxx clause with the device file; UUID identification is not necessary for LVM volumes.
+
+Finally, run sudo mount mountpoint to mount the filesystem.
+
+
+
+
+
