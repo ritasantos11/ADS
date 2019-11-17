@@ -1,31 +1,40 @@
 *** Linux recipe ***
-Run sudo fdisk -l to list the system’s disks and identify the new drive.
+Listar os discos do sistema e identificar um novo drive:
+	$ sudo fdisk -l
+A seguir, execute qualquer utilitário de particionamento conveniente para criar uma tabela de partição para o drive.
+Coloque todo o espaço do drive numa partição do tipo não especificado ou não formatado.
+Não instalar filesystem.
+Dispositivo da nova partição: /dev/sdc1
 
-Then run any convenient partitioning utility to create a partition table for the drive.
-For drives 2TB and below, install a Windows MBR partition table. cfdisk is the easiest utility for this, but you can also use fdisk, sfdisk, parted, or gparted. Larger disks require a GPT partition table, so you must partition with parted or its GNOME GUI, gparted. gparted is a lot easier to use but isn’t usually installed by default.
-
-Put all the drive’s space into one partition of unspecified or “unformatted” type.
-Do not install a filesystem. Note the device name of the new partition before you leave the partitioning utility; let’s say it’s /dev/sdc1.
-
-Next, run the following command sequence, selecting appropriate names for the volume group (vgname), logical volume (volname), and mount point. (Examples of reasonable choices: homevg, home, and /home.)
-Prepare for use w/LVM:
+Preparar para uso de LVM:
 	$ sudo pvcreate /dev/sdc1
-Create volume group:
+Criar volume de grupo:
 	$ sudo vgcreate vgname /dev/sdc1
-Create logical volume:
+Criar volume lógico:
 	$ sudo lvcreate -l 100%FREE -n volname vgname
-Create filesystem:
+Criar um filesystem:
 	$ sudo mkfs -t ext4 /dev/vgname/volname
-Create mount point:
+Criar um mount point:
 	$ sudo mkdir mountpoint
-Set mount opts, mntpoint:
+Definir as opções de montagem, mntpoint:
 	$ sudo vi /etc/fstab
 
-In the /etc/fstab file, copy the line for an existing filesystem and adjust it. The device to be mounted is /dev/vgname/volname. If your existing fstab file identifies volumes by UUID, replace the UUID= xxx clause with the device file; UUID identification is not necessary for LVM volumes.
+No file /etc/fstab, copie a linha para um filesystem existente e ajuste-a. O dispositivo a ser montado é /dev/vgname/volname. Se o file fstab existente identificar volumes pelo UUID substitua a cláusula UUID = xxx pelo file do dispositivo. A identificação UUID não é necessária para volumes LVM.
 
-Finally, run sudo mount mountpoint to mount the filesystem.
+Por fim, execute o sudo mount mountpoint para montar o filesystem.
 
 
+*** Partição ***
+Subsecção de tamanho fixo de um dispositivo de armazenamento.
+Cada partição possui o seu próprio file de sipositivo e atua como um dispositivo de armazenamento independente.
 
+
+*** RAID ***
+Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
+
+
+*** Volume de grupos e volumes lógicos associados a gerenciadores de volumes lógicos (LVMs) ***
+Esses sistemas agregam dispositivos físicos para formar conjuntos de armazenamentos chamados volumes de grupos.
+Como o LVM adiciona uma camada de indireção entre blocos lógicos e físicos, ele pode congelar o estado lógico de um volume simplesmente fazendo uma cópia da dabela de mapeamento. Logo, os LVMs geralmente fornecem algum tipo de recurso de snapshot. As escritas no volume são direcionadas para novos blosoc e o LVM mantém tabelas de mapeamento antigas e novas. O LVM precisa de armazenar a imagem original e todos os blocos modificados para que eventualmente fique sem espaço se um snapshot nunca for excluído.
 
 
