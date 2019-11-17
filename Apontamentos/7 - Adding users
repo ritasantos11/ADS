@@ -21,14 +21,20 @@ O comando useradd por default coloca os users nos seus grupos pessoais.
 Guarda os files de startup.
 
 *** LDAP ***
-É um repositório generalizado, semelhante a um banco de dados, que pode armazenar dados de gerenciamento de users e outros
+É um repositório generalizado, semelhante a um banco de dados, que pode armazenar dados de gerenciamento de users e outros​
+30
+​
+31
+​
+32
+Run sudo fdisk -l to list the system’s disks and identify the new drive
+33
+​
+34
+​
+35
+
 tipos de dados.
 Usa um modelo hierárquico de cliente/servidor que suporta vários servidores e vários clientes simultâneamente.
 Uma das grandes vantagens do LDAP como repositório em todo o site para dados de login é que ele pode impor UIDs e GIDs únicos
 em todos os sistemas.
-
-
-
-Run sudo fdisk -l to list the system’s disks and identify the new drive
-
-
