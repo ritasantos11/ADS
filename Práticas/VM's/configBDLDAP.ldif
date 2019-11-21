@@ -1,0 +1,36 @@
+# Configurar as permissões de acesso aos logs do LDAP. Troque o grupoE
+	dn: olcDatabase={1}monitor,cn=config
+	changetype: modify
+	replace: olcAccess
+	olcAccess: {0}to * 
+	  by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" read 
+	  by dn.base="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write 
+	  by * none
+
+	# Mudar o sufixo para o novo, trocar o grupoE
+	dn: olcDatabase={2}mdb,cn=config
+	changetype: modify
+	replace: olcSuffix
+	olcSuffix: dc=grupoE,dc=ads,dc=dcc
+
+	# Mudar o DN do gestor de acordo com o novo sufixo. Troque o grupoE
+	dn: olcDatabase={2}mdb,cn=config
+	changetype: modify
+	replace: olcRootDN
+	olcRootDN: cn=Manager,dc=grupoE,dc=ads,dc=dcc
+	-
+	#   Continuamos a mudar dn: olcDatabase={2}mdb,cn=config, 
+	# desse modo não precisamos de colocar o DN, nem indicar que estamos a modify
+	# mas a linha anterior tem um - 
+	# Mudar a password para a 2ª gerada
+	replace: olcRootPW
+	olcRootPW: {SSHA}2ª password gerada
+	-
+	# Continuando no dn:: olcDatabase={2}mdb,cn=config
+	# Vamos mudar permissões de acesso. Troque o grupoE
+	add: olcAccess
+	olcAccess: {1}to dn.base=""
+	   by * read
+	olcAccess: {2}to *
+	   by dn="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write
+	   by * read

@@ -1,0 +1,23 @@
+# Criar a organização
+dn: dc=grupoE,dc=ads,dc=dcc
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: Grupo Nome
+dc: grupoE
+
+# Criar o papel de Manager
+dn: cn=Manager,dc=grupoE,dc=ads,dc=dcc
+objectClass: organizationalRole
+cn: Manager
+description: Manager do Grupo
+
+# Criar a unidade da organização Administrativos
+dn: ou=Administrativos,dc=grupoE,dc=ads,dc=dcc
+objectClass: organizationalUnit
+ou: Administrativos
+
+# Criar a unidade da organização Developers
+dn: ou=Developers,dc=grupoE,dc=ads,dc=dcc
+objectClass: organizationalUnit
+ou: Developers
