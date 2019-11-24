@@ -1,45 +1,45 @@
 *** CONFIGURAR O SERVER ***
-*** PASTA ldap-configs/ NA HOME DO ROOT NO SERVER ***
+*** PASTA ldap-configs NA HOME DO ROOT NO SERVER ***
 1
 Instalar o servidor, cliente e ferramentas de migração do OpenLDAP:
 	# dnf install openldap-servers openldap-clients migrationtools
 
 2
-Inspecione o conteúdo dos diretórios e os ficheiros:
+Inspecionar o conteúdo dos diretórios e dos ficheiros:
 	ls /etc/openldap/slapd.d/
 	ls /etc/openldap/slapd.d/cn=config/
 	cat /etc/openldap/slapd.d/cn=config/olcDatabase={0}config.ldif
 
 3
 	# cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
-Mude o dono do ficheiro /var/lib/ldap/DB_CONFIG para ser do utilizador ldap:
+Mudar o dono do ficheiro /var/lib/ldap/DB_CONFIG para ser do utilizador ldap:
 	# chown ldap /var/lib/ldap/DB_CONFIG
 
 4
-Veja se a configuração está correta:
+Ver se a configuração está correta:
 	# slaptest -u
 	config file testing succeeded
-		-u: não falha se as bases de dados não puderem ser aberta mas o config está bem
+		-u: não falha se as bases de dados não puderem ser abertas mas o config está bem
 
 5
-Inicie o serviço slapd (faça também o enable ou use --now).
+Iniciar o serviço slapd:
 	# systemctl status slapd
 	# systemctl start slapd
 	# systemctl enable slapd
 
 6
-Crie um diretório ldap-configs para colocar os vários ficheiros ldif que se vão criar nas alíneas seguintes. Estes ficheiros servirão para configurar o openldap: home do root
+Criar um diretório ldap-configs para colocar os vários ficheiros ldif que se vão criar nas alíneas seguintes (estes ficheiros servirão para configurar o openldap):
 	mkdir ldap-configs
 
 7
 Criar password de acesso ao LDAP:
 	# slappasswd
-Use o output desse comando para criar o ficheiro chanceBDpw.ldif com o seguinte input:
+Usar o output desse comando para criar o ficheiro chanceBDpw.ldif com o seguinte input:
 	dn: olcDatabase={0}config,cn=config
 	changetype: modify
 	add: olcRootPW
 	olcRootPW: a_password_gerada_acima
-Para adicionar a configuração do ficheiro acima execute:
+Executar para  adicionar a configuração do ficheiro acima:
 	# ldapmodify -Y EXTERNAL -H ldapi:/// -f changeBDpw.ldif
 		man ldapmodify
 Abra novamente o ficheiro /etc/openldap/slapd.d/cn=config/olcDatabase={0}config.ldif e verifique que a password foi acrescentada (eventualmente noutro formato). Veja também a data de modificação.
@@ -47,15 +47,15 @@ Abra novamente o ficheiro /etc/openldap/slapd.d/cn=config/olcDatabase={0}config.
 8
 Criar nova password:
 	# slappaswd
-Criar file configBDLDAP.ldif contendo: (MUDAR NOME_GRUPO)
+Criar file configBDLDAP.ldif contendo: (MUDAR
 	# Configurar as permissões de acesso aos logs do LDAP
 	dn: olcDatabase={1}monitor,cn=config
 	changetype: modify
 	replace: olcAccess
 	olcAccess: {0}to * 
-	  by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" read 
-	  by dn.base="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write 
-	  by * none
+	    by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" read 
+	    by dn.base="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write 
+	    by * none
 
 	# Mudar o sufixo para o novo
 	dn: olcDatabase={2}mdb,cn=config
@@ -69,7 +69,7 @@ Criar file configBDLDAP.ldif contendo: (MUDAR NOME_GRUPO)
 	replace: olcRootDN
 	olcRootDN: cn=Manager,dc=grupoE,dc=ads,dc=dcc
 	-
-	#   Continuamos a mudar dn: olcDatabase={2}mdb,cn=config, 
+	# Continuamos a mudar dn: olcDatabase={2}mdb,cn=config, 
 	# desse modo não precisamos de colocar o DN, nem indicar que estamos a modify
 	# mas a linha anterior tem um - 
 	# Mudar a password para a 2ª gerada
@@ -77,16 +77,17 @@ Criar file configBDLDAP.ldif contendo: (MUDAR NOME_GRUPO)
 	olcRootPW: {SSHA}2ª password gerada
 	-
 	# Continuando no dn:: olcDatabase={2}mdb,cn=config
-	# Vamos mudar permissões de acesso. Troque o grupoE
+	# Vamos mudar permissões de acesso
 	add: olcAccess
 	olcAccess: {1}to dn.base=""
-	   by * read
+	    by * read
 	olcAccess: {2}to *
-	   by dn="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write
-	   by * read
-Modifique a configuração com
+	    by dn="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write
+	    by * read
+
+Modificar a configuração:
 	# ldapmodify -Y EXTERNAL -H ldapi:/// -f configBDLDAP.ldif  
-Pode listar a configuração que tem até agora com o comando seguinte, usando a password que criou para acesso ao LDAP (a primeira):
+Listar a configuração que tem até agora (usando a password que criou para acesso ao LDAP (a primeira)):
 	# ldapsearch -x -LLL -D cn=config -W -b cn=config
 		man ldapsearch
 
@@ -95,7 +96,7 @@ Adicionar esquemas associados aos users:
 	# ldapadd -v -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
 	# ldapadd -v -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
 	# ldapadd -v -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
-Criar o ficheiro userAccess.ldif contendo: (MUDAR NOME_GRUPO)
+Criar o ficheiro userAccess.ldif contendo:
 	dn: olcDatabase={2}mdb,cn=config
 	changetype: modify
 	add: olcAccess
@@ -104,19 +105,20 @@ Criar o ficheiro userAccess.ldif contendo: (MUDAR NOME_GRUPO)
 	   by anonymous auth 
 	   by self write 
 	   by * none
-Para verificar o controlo de acesso criado no último ponto liste os mesmos com:
+
+Verificar o controlo de acesso criado no último ponto listando os mesmos com:
 	# ldapsearch -x -LLL -D cn=config -W -b "olcDatabase={2}mdb,cn=config"
 Note que pode também fazer sem o pedido de password e sem o binding (-D) dado que está no servidor LDAP:
 	# ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b "olcDatabase={2}mdb,cn=config"
 		O -Q silencia o output sobre a ligação e o -Y indica o mecanismo de autenticação. 			O -b indica o nível a partir do qual se inicia a busca.
-Para ver todas as estruturas que têm controlo de acesso definido, com o acesso e o sufixo faça:
+Ver todas as estruturas que têm controlo de acesso definido, com o acesso e o sufixo:
 	# ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config '(olcAccess=*)' olcAccess olcSuffix
 Note que o '(olcAccess=*)' indica um filtro indicando que se quer qualquer valor (*) para olcAccess (atributo que tem de existir no que se encontrar). olcAccess olcSuffix indica os atributos que se pretende visualizar.
 
 
 *** CONFIGURAR A BD DE DADOS ***
 1
-Crie o ficheiro organizacao.ldif contendo:
+Criar o ficheiro organizacao.ldif contendo:
 	# Criar a organização
 	dn: dc=grupoE,dc=ads,dc=dcc
 	objectClass: top
@@ -147,17 +149,17 @@ Adicionar com a password de administração do domínio:
 		2ºpassword
 
 3
-Veja o resultado da adicção correndo a busca:
+Ver o resultado da adicção:
 	# ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
 		2ºpassword
 
 4
-Apague a entrada dos developers com:
+Apagar a entrada dos developers:
 	# ldapdelete -x -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" "ou=Developers,dc=grupoE,dc=ads,dc=dcc"
 		2ºpassword
 
 5
-Recriar:
+Recriar a entrada dos Developers:
 	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
 		# Criar a unidade da organização Developers
 		dn: ou=Developers,dc=grupoE,dc=ads,dc=dcc
@@ -165,7 +167,7 @@ Recriar:
 		ou: Developers
 
 6
-Adicione a entrada sobre o aauser com o seguinte ldif: ??????????
+Adicionar a entrada sobre o aauser:
 	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W 
 		dn: uid=aauser,ou=Developers,dc=grupoE,dc=ads,dc=dcc
 		uid: aauser
@@ -183,7 +185,7 @@ Adicione a entrada sobre o aauser com o seguinte ldif: ??????????
 		homeDirectory: /home/aauser
 
 7
-Visualizar a entrada com:
+Visualizar a entrada:
 	# ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(objectClass=account)' loginShell homeDirectory uidNumber
 
 8
@@ -198,16 +200,17 @@ Abrir a porta do NFS no server:
 	# firewall-cmd --reload
 
 2
-No Desktop instalar o pacote openldap-clients:
+Instalar o pacote openldap-clients no Desktop:
 	# dnf install openldap-clients
 
 3
-No Desktop executar o comando de busca:
+Executar no Desktop:
 	$ ldapsearch -x -L -W -H ldap://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
 		Note que aqui não tem o i no protocolo do ldap:.
 
 4
-Recrie a conta LDAP do aauser que apagou no ponto 17 acima (pode fazê-lo do server ou do Desktop). Faça a busca no Desktop para saber o uidNumber do aauser no LDAP:
+Recriar a conta LDAP do aauser que se apagou acima (pode fazê-lo do server ou do Desktop).
+Fazer a busca no Desktop para saber o uidNumber do aauser no LDAP:
 	$ ldapsearch -x -L -W -H ldap://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(objectClass=account)' loginShell homeDirectory uidNumber
 
 
