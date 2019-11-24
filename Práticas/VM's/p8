@@ -1,4 +1,5 @@
 *** CONFIGURAR O SERVER ***
+*** PASTA ldap-configs/ NA HOME DO ROOT NO SERVER ***
 1
 Instalar o servidor, cliente e ferramentas de migração do OpenLDAP:
 	# dnf install openldap-servers openldap-clients migrationtools
@@ -47,7 +48,7 @@ Abra novamente o ficheiro /etc/openldap/slapd.d/cn=config/olcDatabase={0}config.
 Criar nova password:
 	# slappaswd
 Criar file configBDLDAP.ldif contendo: (MUDAR NOME_GRUPO)
-	# Configurar as permissões de acesso aos logs do LDAP. Troque o grupoE
+	# Configurar as permissões de acesso aos logs do LDAP
 	dn: olcDatabase={1}monitor,cn=config
 	changetype: modify
 	replace: olcAccess
@@ -56,13 +57,13 @@ Criar file configBDLDAP.ldif contendo: (MUDAR NOME_GRUPO)
 	  by dn.base="cn=Manager,dc=grupoE,dc=ads,dc=dcc" write 
 	  by * none
 
-	# Mudar o sufixo para o novo, trocar o grupoE
+	# Mudar o sufixo para o novo
 	dn: olcDatabase={2}mdb,cn=config
 	changetype: modify
 	replace: olcSuffix
 	olcSuffix: dc=grupoE,dc=ads,dc=dcc
 
-	# Mudar o DN do gestor de acordo com o novo sufixo. Troque o grupoE
+	# Mudar o DN do gestor de acordo com o novo sufixo
 	dn: olcDatabase={2}mdb,cn=config
 	changetype: modify
 	replace: olcRootDN
@@ -121,7 +122,7 @@ Crie o ficheiro organizacao.ldif contendo:
 	objectClass: top
 	objectClass: dcObject
 	objectclass: organization
-	o: Grupo Nome
+	o: Grupo E
 	dc: grupoE
 
 	# Criar o papel de Manager
@@ -142,7 +143,7 @@ Crie o ficheiro organizacao.ldif contendo:
 
 2
 Adicionar com a password de administração do domínio:
-	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W -f organizacao.ldif
+	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W -f ldap-configs/organizacao.ldif
 		2ºpassword
 
 3
@@ -157,10 +158,14 @@ Apague a entrada dos developers com:
 
 5
 Recriar:
-	# ldapadd -x -D cn=Manager,dc=nome_grupo,dc=ads,dc=dcc -W -f organizacao.ldif
+	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
+		# Criar a unidade da organização Developers
+		dn: ou=Developers,dc=grupoE,dc=ads,dc=dcc
+		objectClass: organizationalUnit
+		ou: Developers
 
 6
-Adicione a entrada sobre o aauser com o seguinte ldif:
+Adicione a entrada sobre o aauser com o seguinte ldif: ??????????
 	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W 
 		dn: uid=aauser,ou=Developers,dc=grupoE,dc=ads,dc=dcc
 		uid: aauser
@@ -201,5 +206,8 @@ No Desktop executar o comando de busca:
 	$ ldapsearch -x -L -W -H ldap://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
 		Note que aqui não tem o i no protocolo do ldap:.
 
+4
+Recrie a conta LDAP do aauser que apagou no ponto 17 acima (pode fazê-lo do server ou do Desktop). Faça a busca no Desktop para saber o uidNumber do aauser no LDAP:
+	$ ldapsearch -x -L -W -H ldap://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(objectClass=account)' loginShell homeDirectory uidNumber
 
 
