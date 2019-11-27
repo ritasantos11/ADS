@@ -1,0 +1,84 @@
+*** CONFIGURAR O SERVER ***
+Nesta parte do exercício vamos configurar o servidor de LDAP para acesso por TLS e vamos adicionar utilizadores ao LDAP. No ponto seguinte vamos colocar o LDAP a fazer autenticação dos utilizadores pelo LDAP.
+Vamos começar por configurar o uso de TLS para as ligações serem cifradas/autenticadas.
+
+1
+Criar certificado pelo próprio (self-signed certificate):
+	cd /etc/openldap/certs
+	sudo openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out server.crt -keyout server.key
+	sudo chown ldap server.crt
+	sudo chown ldap server.key
+
+2
+Ainda dentro deste diretório, criar um link (ln) para o ficheiro /etc/pki/tls/certs/ca-bundle.crt:
+	sudo ln /etc/pki/tls/certs/ca-bundle.crt
+
+3
+Configurar o OpenLDAP para usar os certificados:
+	# ldapmodify -Y EXTERNAL -H ldapi:/// -f ldap-configs/cert.ldif
+		dn: cn=config
+		changetype: modify
+		add: olcTLSCACertificateFile
+		olcTLSCACertificateFile: /etc/openldap/certs/ca-bundle.crt
+		-
+		add: olcTLSCertificateFile
+		olcTLSCertificateFile: /etc/openldap/certs/server.crt
+		-
+		add: olcTLSCertificateKeyFile
+		olcTLSCertificateKeyFile: /etc/openldap/certs/server.key
+
+
+*** adicionar users do server ***
+1
+Executar o script das ferramentas de migrações /usr/share/migrationtools/migrate_passwd.pl indicando-lhe o ficheiro /etc/passwd:
+	perl /usr/share/migrationtools/migrate_passwd.pl /etc/passwd > users.ldif
+
+2
+Escolher os users relevantes para adicionar ao LDAP: auser e aauser
+
+3
+Adicionar os users:
+	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W 
+		auser e aauser
+
+4
+Verificar que se tem os users e outra info:
+	$ ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b "dc=grupoE,dc=ads,dc=dcc"
+
+5
+Criar novo user e adicioná-lo ao LDAP:
+	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
+		dn: uid=adsdevil,ou=Administrativos,dc=grupoE,dc=ads,dc=dcc
+		uid: adsdevil
+		cn: adsdevil
+		objectClass: account
+		objectClass: posixAccount
+		objectClass: top
+		objectClass: shadowAccount
+		shadowLastChange: 17838
+		shadowMax: 99999
+		shadowWarning: 7
+		loginShell: /bin/bash
+		uidNumber: 1002
+		gidNumber: 1002
+		homeDirectory: /home/adsdevil
+	
+	# ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
+
+6
+Visualizar as passwords:
+	$ ldapsearch -x -W -LLL  -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '' userPassword
+
+7
+Modificar a password:
+	$ ldappasswd  -S -x -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" "uid=adsdevil,ou=Administrativos,dc=grupoE,dc=ads,dc=dcc"
+
+
+
+*** ACESSO DO DESKTOP ***
+Neste ponto vamos começar por configurar o acesso pelo Desktop ao LDAP do server usando o TLS.
+
+1
+
+
+
