@@ -2,6 +2,7 @@
 Nesta parte do exercício vamos configurar o servidor de LDAP para acesso por TLS e vamos adicionar utilizadores ao LDAP. No ponto seguinte vamos colocar o LDAP a fazer autenticação dos utilizadores pelo LDAP.
 Vamos começar por configurar o uso de TLS para as ligações serem cifradas/autenticadas.
 
+*** configurar o uso de TLS para as ligações serem cifradas/autentucadas ***
 1
 Criar certificado pelo próprio (self-signed certificate):
 	cd /etc/openldap/certs
@@ -18,13 +19,13 @@ Configurar o OpenLDAP para usar os certificados:
 	# ldapmodify -Y EXTERNAL -H ldapi:/// -f ldap-configs/cert.ldif
 		dn: cn=config
 		changetype: modify
-		add: olcTLSCACertificateFile
+		replace: olcTLSCACertificateFile
 		olcTLSCACertificateFile: /etc/openldap/certs/ca-bundle.crt
 		-
-		add: olcTLSCertificateFile
+		replace: olcTLSCertificateFile
 		olcTLSCertificateFile: /etc/openldap/certs/server.crt
 		-
-		add: olcTLSCertificateKeyFile
+		replace: olcTLSCertificateKeyFile
 		olcTLSCertificateKeyFile: /etc/openldap/certs/server.key
 
 
@@ -39,7 +40,7 @@ Escolher os users relevantes para adicionar ao LDAP: auser e aauser
 3
 Adicionar os users:
 	# ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W 
-		auser e aauser
+		auser e root
 
 4
 Verificar que se tem os users e outra info:
@@ -59,8 +60,8 @@ Criar novo user e adicioná-lo ao LDAP:
 		shadowMax: 99999
 		shadowWarning: 7
 		loginShell: /bin/bash
-		uidNumber: 1002
-		gidNumber: 1002
+		uidNumber: 1011
+		gidNumber: 1011
 		homeDirectory: /home/adsdevil
 	
 	# ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
@@ -76,9 +77,52 @@ Modificar a password:
 
 
 *** ACESSO DO DESKTOP ***
-Neste ponto vamos começar por configurar o acesso pelo Desktop ao LDAP do server usando o TLS.
+	*** workstation ***
 
+*** configurar o acesso pelo Desktop ao LDAP do server usando o TLS ***
 1
+	$ ldapsearch  -x -L -W -H ldaps://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
+
+2
+	ldapsearch  -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc"
+
+3
+Mudar outra vez a password do adsdevil:
+	ldappasswd  -S -x -W -D "uid=adsDevil,ou=Administrativos,dc=grupoE,dc=ads,dc=dcc" "uid=adsdevil,ou=Administrativos,dc=grupoE,dc=ads,dc=dcc"
+
+		aqui a password do LDAP é a primeria que se pôs para o adsdevil
 
 
+*** configurar a autenticação ***
+1
+Instalar o pacote oddjob-mkhomedir:
+	dnf install oddjob-mkhomedir
 
+4
+Mudar as permissões do file::
+	chmod 600 sssh.conf
+
+	systemctl restart sssd
+
+5
+De facto o adsdevil está só criado no ldap: não existe nada sobre ele no /etc/passwd nem /etc/group nem /etc/shadow
+
+6
+Ocorreu um erro devido ao grupo adsdevil não estar definido. Use a ferramenta /usr/share/migrationtools/migrate_group.pl para ver o formato para criar um grupo. Note que o ou=Group não está criado. Veja na aula anterior no ponto 10 como se criou as ou. Crie o grupo adsdevil e tente o login novamente.
+	perl /usr/share/migrationtools/migrate_group.pl /etc/group > grupos.ldif
+	
+Criar o ou=Group:
+	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
+		dn: ou=Group,dc=grupoE,dc=ads,dc=dcc
+		objectClass: organizationalUnit
+		ou: Group
+	
+Criar o grupo adsdevil:
+	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
+		dn: cn=adsdevil,ou=Group,dc=grupoE,dc=ads,dc=dcc
+		cn: adsdevil
+		objectClass: posixGroup
+		objectClass: top
+		gidNumber: 1011
+
+Já faz o login do adsdevil sem erros
