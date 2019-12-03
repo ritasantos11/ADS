@@ -9,7 +9,7 @@ Os mount points são geralmente diretórios vazios.
 ### fuser command
 find out which processes hold references to that filesystem.
 
-## FILE ATTRIBUTES
+# FILE ATTRIBUTES
 Cada file possui um conjunto de 9 bits de permissão que controlam quem pode ler, escrever e executar o conteúdo do file. Juntamente com outros 3 bits que afetam principalmente a operação de programas executáveis, esses bits constituem o "modo" do file (file's mode).
 Os 12 mode bits são guardados juntos com 4 bits de informação do tipo de file.
 Os 4 bits do tipo de file são definidos quando o file é criado pela 1ºvez e não podem ser alterados, mas o owner do file ou o superuser podem modifcar os 12 mode bits com o comando chmod.
