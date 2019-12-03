@@ -1,4 +1,4 @@
-*** CONFIGURAR O SERVER ***
+### CONFIGURAR O SERVER
 Nesta parte do exercício vamos configurar o servidor de LDAP para acesso por TLS e vamos adicionar utilizadores ao LDAP. No ponto seguinte vamos colocar o LDAP a fazer autenticação dos utilizadores pelo LDAP.
 Vamos começar por configurar o uso de TLS para as ligações serem cifradas/autenticadas.
 
