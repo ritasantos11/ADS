@@ -1,17 +1,17 @@
-*** Processo ***
+## Processo
 O kernel atribui um ID uníco a cada processo.
 Cada processo tem um parent pid que corresponde ao pid do processo que o criou.
 
 P.122
 
 
-*** Niceness ***
+## Niceness
 A prioridade de agendamento de um processo determina quanto tempo de CPU ele recebe.
 O kernel usa um algoritmo para calcular prioridades.
 O kernel presta atenção a um valor definido administrativamente, chamado de nice value ou niceness.
 
 
-*** Sinais ***
+## Sinais
 kill consegue enviar qualquer sinal, por default envia o sinal TERM.
 
 kill [-signal] pid
@@ -23,6 +23,4 @@ kill -9 pid
 O comando killall em Linuxx mata processos por nome. Noutros sistemas, mata todos os processos correntes do user, fazendo-o como root mata o init e a máquina desliga-se.
 
 
-
 P.128
-
