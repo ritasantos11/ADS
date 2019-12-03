@@ -1,10 +1,11 @@
+
 Cada processo tem pelo menos 3 canais de comunicação: STDIN (0), STDOUT (1) e STDERR (2).
 Normalmente, STDIN lê do terminal e o STDOUT e STDERR escreve para o ecrâ.
 Maior parte dos comandos lêem o input do STDIN e escrevem o seu OUTPUT para o STDOUT e as mensagens de erro para o STDERR.
 
-< conecta o STDIN do comando ao conteúdo dum ficheiro.
-> e >> redirecionam o STDOUT.
-> substitui o conteúdo dum ficheiro existente e >> adiciona ao ficheiro.
+	< conecta o STDIN do comando ao conteúdo dum ficheiro.
+	> e >> redirecionam o STDOUT.
+	> substitui o conteúdo dum ficheiro existente e >> adiciona ao ficheiro.
 
 Para redirecionar o STDOUT e o STDERR para o mesmo sítio usa-se >&.
 Para redirecionar apenas o STDERR usa-se 2>.
@@ -24,36 +25,36 @@ Ex:
 	Existem 28 linhas.
 
 
-*** cut ***
+## cut
 Separa linhas em campos.
 Imprime partes selecionadas de cada linha do input.
 O delimiter default é o tab.
 
-*** sort ***
+## sort
 Ordena linhas de input.
 
-*** uniq ***
+## uniq
 Imprime linhas únicas.
 
-*** wc ***
+## wc
 Conta linhas, palavras e caracteres num ficheiro.
 
-*** tee ***
+## tee
 Copia input para 2 sítios.
 Copia input para o STDOUT e para o ficheiro especificado no comando.
 
-*** head e tail ***
+## head e tail
 Lê o início e o fim do ficheiro respetivamente.
 Default: 10 linhas
 
-*** tail -f ***
+## tail -f
 Espera por novas linhas no ficheiro e imprime-as à medida que são adicionadas.
 
-*** grep ***
+## grep
 Procura texto no input dado e imprime as linhas q correspondem ao que se está a procurar.
 
 
-*** BASH SCRIPTING ***
+## BASH SCRIPTING
 Iniício do script: #!/bin/bash
 Preparar o ficheiro para correr: chmod +x nome_do_script.sh
 Executar: ./nome_do_script.sh
@@ -61,12 +62,4 @@ Executar: ./nome_do_script.sh
 bash nome_do_script.sh
 
 P.40
-
-
-
-
-
-
-
-
 
