@@ -81,10 +81,17 @@ Modificar a password:
 
 *** configurar o acesso pelo Desktop ao LDAP do server usando o TLS ***
 1
-	$ ldapsearch  -x -L -W -H ldaps://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
+Dado o certificado criado no server é self-signed temos de configurar o ldap confiar nele. Assim coloque a seguinte linha no /etc/openldap/ldap.conf:
+	TLS_REQCERT     allow
+		
+		$ ldapsearch  -x -L -W -H ldaps://10.0.0.1/ -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc"
 
 2
-	ldapsearch  -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc"
+Para não estar sempre a colocar o URI na linha de comando (e permitir assumir este por omissão) podemos voltar ao /etc/openldap/ldap.conf e editar as entradas de modo a ficar com:
+	URI ldaps://10.0.0.1/
+	BASE dc=nome_grupo,dc=ads,dc=dcc
+	
+		ldapsearch  -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc"
 
 3
 Mudar outra vez a password do adsdevil:
@@ -125,4 +132,6 @@ Criar o grupo adsdevil:
 		objectClass: top
 		gidNumber: 1011
 
-Já faz o login do adsdevil sem erros
+*** Já faz o login do adsdevil sem erros ***
+
+*** falta fazer o exercício 7 e 8 ***
