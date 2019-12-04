@@ -19,7 +19,9 @@
 			Volume group "SQUAD" successfully created
 
 # Falta o lógico
-		lvcreate -L TAMANHODOCOISG -n NOMEDONOVOCOISO SQUAD
+Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados, contanto que o tamanho se enquadre à capacidade da partição criada — se necessário, estenda o volume físico.
+		lvcreate -L TAMANHODOCOISG -n NOME_PARA_O_LOGICAL_VOLUME SQUAD
+
 
 
 	exportar diretórios da máquina omv por NFS ou SAMBA:
@@ -28,8 +30,10 @@
 
 
 	ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
+# CHECK
 		pgina fork instalado no windows
-		entrar no windows c o login do ldap nos campos do pgina fork
+# NOT CHECK
+		entrar no windows com o login do ldap nos campos do pgina fork
 
 
 	usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
@@ -48,62 +52,62 @@
 	haver pelo menos 3 utilizadores configurados no LDAP:
 
 		ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
-		dn: uid=church,ou=Users,dc=grupoE,dc=ads,dc=dcc
-		uid: church
-		cn: church
-		objectClass: account
-		objectClass: posixAccount
-		objectClass: top
-		objectClass: shadowAccount
-		shadowLastChange: 17839
-		shadowMax: 99999
-		shadowWarning: 7
-		loginShell: /bin/bash
-		uidNumber: 1055
-		gidNumber: 1055
-		homeDirectory: /home/church
+			dn: uid=church,ou=Users,dc=grupoE,dc=ads,dc=dcc
+			uid: church
+			cn: church
+			objectClass: account
+			objectClass: posixAccount
+			objectClass: top
+			objectClass: shadowAccount
+			shadowLastChange: 17839
+			shadowMax: 99999
+			shadowWarning: 7
+			loginShell: /bin/bash
+			uidNumber: 1055
+			gidNumber: 1055
+			homeDirectory: /home/church
 
 		ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
-		dn: uid=turing,ou=Admins,dc=grupoE,dc=ads,dc=dcc
-		uid: turing
-		cn: turing
-		objectClass: account
-		objectClass: posixAccount
-		objectClass: top
-		objectClass: shadowAccount
-		shadowLastChange: 17839
-		shadowMax: 99999
-		shadowWarning: 7
-		loginShell: /bin/bash
-		uidNumber: 1050
-		gidNumber: 1050
-		homeDirectory: /home/turing
+			dn: uid=turing,ou=Admins,dc=grupoE,dc=ads,dc=dcc
+			uid: turing
+			cn: turing
+			objectClass: account
+			objectClass: posixAccount
+			objectClass: top
+			objectClass: shadowAccount
+			shadowLastChange: 17839
+			shadowMax: 99999
+			shadowWarning: 7
+			loginShell: /bin/bash
+			uidNumber: 1050
+			gidNumber: 1050
+			homeDirectory: /home/turing
 
 		ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
-		dn: cn=turing,ou=Group,dc=grupoE,dc=ads,dc=dcc
-		cn: turing
-		objectClass: posixGroup
-		objectClass: top
-		gidNumber: 1050
+			dn: cn=turing,ou=Group,dc=grupoE,dc=ads,dc=dcc
+			cn: turing
+			objectClass: posixGroup
+			objectClass: top
+			gidNumber: 1050
 
 		ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
-		dn: cn=church,ou=Group,dc=grupoE,dc=ads,dc=dcc
-		cn: church
-		objectClass: posixGroup
-		objectClass: top
-		gidNumber: 1055
+			dn: cn=church,ou=Group,dc=grupoE,dc=ads,dc=dcc
+			cn: church
+			objectClass: posixGroup
+			objectClass: top
+			gidNumber: 1055
 
 # CHECK
 	haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP: 
 		ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
-		dn: ou=Users,dc=grupoE,dc=ads,dc=dcc
-		objectClass: organizationalUnit
-		ou: Users
+			dn: ou=Users,dc=grupoE,dc=ads,dc=dcc
+			objectClass: organizationalUnit
+			ou: Users
 
 		ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
-		dn: ou=Admins,dc=grupoE,dc=ads,dc=dcc
-		objectClass: organizationalUnit
-		ou: Admins
+			dn: ou=Admins,dc=grupoE,dc=ads,dc=dcc
+			objectClass: organizationalUnit
+			ou: Admins
 	
 	
 
@@ -119,7 +123,8 @@
 
 
 ### Será também verificado o que foi pedido nas aulas práticas:
-	auser ter sudo no desktop: check ($ groups auser    auser : wheel)
+# CHECK
+	auser ter sudo no desktop: ($ groups auser    auser : wheel)
 		sudo usermod -Ga wheel auser		
 
 	acesso de root nas máquinas por ssh negado: CHECK ir ao /etc/ssh sshd_config
@@ -129,13 +134,12 @@
 		Save and close the file
 		Reload sshd server in order to deny root log in
 
+# NOT CHECK
 	root nao ter password no server:
 
 
 	aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
-		Aqui será utilizando o que foi feito nas teóricas (não está diretamente nos slides). Será para usar o disco extra no desktop e adicioná-lo ao LVM. Usando este espaço extra para redimensionar os lv e fazer o resize dos sistemas de ficheiros (ver opção do lvresize para fazer logo).
+
 
 	utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
-
-
 
