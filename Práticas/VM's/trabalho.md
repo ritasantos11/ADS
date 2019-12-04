@@ -30,6 +30,7 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 
 exportar diretórios da máquina omv por NFS ou SAMBA:
 	NFS -> Linux
+	<br />
 	SAMBA -> Windows e Linux
 
 
@@ -45,6 +46,7 @@ usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
 
 montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 	NFS -> Linux
+	<br />
 	SAMBA -> Windows e Linux
 
 
@@ -121,8 +123,11 @@ o Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não s�
 
 ### Na avaliação do trabalho será pedido exemplos para testar o acima, ex.:
 ver atributos de um utilizador: ldapsearch
+<br />
 autenticar-se no sistema Desktop e Win10:
+<br />
 aceder aos diretórios da home no Desktop:
+<br />
 remover um disco do RAID ou LVM:
 
 
@@ -141,7 +146,7 @@ acesso de root nas máquinas por ssh negado: CHECK ir ao /etc/ssh sshd_config
 # NOT CHECK
 root nao ter password no server:
 
-
+<br />
 aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
 
