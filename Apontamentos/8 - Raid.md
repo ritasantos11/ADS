@@ -1,4 +1,5 @@
 # RAID (REDUNDANT ARRAYS OF INEXPENSIVE DISKS)
+Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
 RAID pode:
 	-melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados.
 	-replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.
@@ -59,7 +60,8 @@ status of all the system’s RAID arrays. It is especially useful to keep an eye
 /proc/mdstat file after adding a new disk or replacing a faulty drive. (watch cat
 /proc/mdstat is a handy idiom.)
 
-	mdadm --detail --scan dumps the current RAID setup into a configuration file.
+###  mdadm --detail --scan
+Dumps the current RAID setup into a configuration file.
 
 ### Criar um raid 5 com 3 dispositivos:
 	
@@ -86,5 +88,3 @@ status of all the system’s RAID arrays. It is especially useful to keep an eye
 ### Adicionar o drive ao array sem substituir o hardware:
 
 	$ sudo mdadm /dev/md0 -a /dev/sdc1
-
-
