@@ -13,39 +13,39 @@ ter um sistema de RAID/LVM na máquina de omv:
 	fica de fora o sda
 
 # CHECK		RAID
-		mdadm --create /dev/md0 --level=6 --raid-devices=4 /dev/sd[b-e]
-		mdadm --create /dev/md1 --level=6 --raid-devices=4 /dev/sd[f-i]
+	mdadm --create /dev/md0 --level=6 --raid-devices=4 /dev/sd[b-e]
+	mdadm --create /dev/md1 --level=6 --raid-devices=4 /dev/sd[f-i]
 		
 # CHECK		LVM
-		pvcreate /dev/md1
-			Physical volume "/dev/md1" successfully created.
-		vgcreate SQUAD /dev/md1
-			Volume group "SQUAD" successfully created
+	pvcreate /dev/md1
+		Physical volume "/dev/md1" successfully created.
+	vgcreate SQUAD /dev/md1
+		Volume group "SQUAD" successfully created
 
 # Falta o lógico
 Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados, contanto que o tamanho se enquadre à capacidade da partição criada — se necessário, estenda o volume físico.
-		lvcreate -L TAMANHODOCOISG -n NOME_PARA_O_LOGICAL_VOLUME SQUAD
+	lvcreate -L TAMANHODOCOISG -n NOME_PARA_O_LOGICAL_VOLUME SQUAD
 
 
 
 exportar diretórios da máquina omv por NFS ou SAMBA:
-		NFS -> Linux
-		SAMBA -> Windows e Linux
+	NFS -> Linux
+	SAMBA -> Windows e Linux
 
 
 ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
 # CHECK
-		pgina fork instalado no windows
+	pgina fork instalado no windows
 # NOT CHECK
-		entrar no windows com o login do ldap nos campos do pgina fork
+	entrar no windows com o login do ldap nos campos do pgina fork
 
 
 usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
 
 
 montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
-		NFS -> Linux
-		SAMBA -> Windows e Linux
+	NFS -> Linux
+	SAMBA -> Windows e Linux
 
 
 
