@@ -2,11 +2,15 @@
 
 ### Os objetivos serão:
 ter um sistema de RAID/LVM na máquina de omv:
-		ver os discos da máquina: lsblk
-		usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
-		raid 6 com 4 discos
-		lvm com 4 discos
-		fica de fora o sda
+	ver os discos da máquina: lsblk
+<br />
+	usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
+<br />
+	raid 6 com 4 discos
+<br />
+	lvm com 4 discos
+<br />
+	fica de fora o sda
 
 # CHECK		RAID
 		mdadm --create /dev/md0 --level=6 --raid-devices=4 /dev/sd[b-e]
