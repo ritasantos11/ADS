@@ -152,6 +152,6 @@ root nao ter password no server:
 <br />
 aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
-
+<br />
 utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
 
