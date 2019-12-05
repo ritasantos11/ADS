@@ -2,12 +2,12 @@
 Esses sistemas agregam dispositivos físicos para formar conjuntos de armazenamentos chamados volumes de grupos.
 Como o LVM adiciona uma camada de indireção entre blocos lógicos e físicos, ele pode congelar o estado lógico de um volume simplesmente fazendo uma cópia da dabela de mapeamento. Logo, os LVMs geralmente fornecem algum tipo de recurso de snapshot. As escritas no volume são direcionadas para novos blosoc e o LVM mantém tabelas de mapeamento antigas e novas. O LVM precisa de armazenar a imagem original e todos os blocos modificados para que eventualmente fique sem espaço se um snapshot nunca for excluído.
 
-# LOGICAL VOLUME MANAGEMENT (LVM)
+## LOGICAL VOLUME MANAGEMENT (LVM)
 Em vez de formatar uma fração do disco rígido, o LVM cria unidades abstratas dentro do HD, mesmo que ele esteja alocando arquivos e sistemas.
 Permite realocar espaço dinamicamente da partição greedy para a partição necessária.
 Agrupa dispositivos de armazenamento individuais em volume de grupos. Os blocos num volume de grupo podem ser alocados a volumes lógicos, que são representados por ficheiros de dispositivos de blocos e agem como partições de disco.
 
-## Configuração LVM:
+### Configuração LVM:
 	-Criar (definir) e inicializar volumes físicos.
 	-Adicionar os volumes físicos a um volume de grupo.
 	-Criar volumes lógicos no volume de grupo: servem para enviar os dados que serão gravados nos volumes físicos nos quais estão integrados os grupos de volume.
