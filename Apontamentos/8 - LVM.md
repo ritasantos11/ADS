@@ -8,9 +8,9 @@ Permite realocar espaço dinamicamente da partição greedy para a partição ne
 Agrupa dispositivos de armazenamento individuais em volume de grupos. Os blocos num volume de grupo podem ser alocados a volumes lógicos, que são representados por ficheiros de dispositivos de blocos e agem como partições de disco.
 
 ### Configuração LVM:
--Criar (definir) e inicializar volumes físicos.
--Adicionar os volumes físicos a um volume de grupo.
--Criar volumes lógicos no volume de grupo: servem para enviar os dados que serão gravados nos volumes físicos nos quais estão integrados os grupos de volume.
+-Criar (definir) e inicializar volumes físicos. <br />
+-Adicionar os volumes físicos a um volume de grupo. <br />
+-Criar volumes lógicos no volume de grupo: servem para enviar os dados que serão gravados nos volumes físicos nos quais estão integrados os grupos de volume. <br />
 
 Os PVs (physical volumes) são a base e representam os discos físicos. Os PVs são combinados em VGs (volume groups) de modo a formar uma pool de storage. Por sua vez, sobre os VGs, criam-se os LVs (logic volumes) e a estes podem ser atribuídos sistemas de ficheiros (ext3, ext4…) e associados mount points.
 
