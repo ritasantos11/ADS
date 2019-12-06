@@ -5,30 +5,28 @@ ter um sistema de RAID/LVM na máquina de omv:
 	ver os discos da máquina: lsblk
 <br />
 	usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
-<br />
-	raid 6 com 4 discos
-<br />
-	lvm com 4 discos
-<br />
-	fica de fora o sda
 
-#### CHECK		RAID
-	mdadm --create /dev/md0 --level=6 --raid-devices=4 /dev/sd[b-e]
-	mdadm --create /dev/md1 --level=6 --raid-devices=4 /dev/sd[f-i]
-		
-#### CHECK		LVM
-	pvcreate /dev/md1
-		Physical volume "/dev/md1" successfully created.
-	vgcreate SQUAD /dev/md1
-		Volume group "SQUAD" successfully created
+#### CHECK RAID
+	/dev/sd[b-e]
 
-#### Falta o lógico
+#### CHECK LVM
+	/dev/sd[f-g]
+
 Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados, contanto que o tamanho se enquadre à capacidade da partição criada — se necessário, estenda o volume físico.
 
-	lvcreate -L TAMANHODOCOISG -n NOME_PARA_O_LOGICAL_VOLUME SQUAD
+#### Montar filesystem no lv1, lv2 e rd10
+
+	mkdir /srv/dev-disk-bylabel-gandadisco
+	mount /dev/md-0 /srv/dev-disk-bylabel-gandadisco
+
+	mkdir /srv/dev-disk-bylabel-outrogandadisco
+	mount /dev/md-1 /srv/dev-disk-bylabel-outrogandadisco
+
+	mkdir /srv/dev-disk-bylabel-ultimogandadisco
+	mount /dev/md0 /srv/dev-disk-bylabel-ultimogandadisco
 
 
-
+#### NOT CHECK
 exportar diretórios da máquina omv por NFS ou SAMBA:
 
 	NFS -> Linux
@@ -42,6 +40,7 @@ ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA
 	entrar no windows com o login do ldap nos campos do pgina fork
 
 
+#### NOT CHECK
 usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
 
 
@@ -153,5 +152,7 @@ root nao ter password no server:
 aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
 <br />
+
 utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
+
 
