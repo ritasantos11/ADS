@@ -1,4 +1,5 @@
 ## CONFIGURAR O PGINA NO WINDOWS
+Instalar o pgina normal para ter a secção Simulation.
 
 
 ##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
@@ -12,28 +13,19 @@ Adicionar o disco /dev/sdb (tem 4GB, estávazio e nao está montado) do Desktop 
 
 ##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
 
-##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
+##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv):
+Configurar o ldap no omv.
 
 
-## NFS
-#### CHECK
-Desktop:
+### Mounting the remote NFS directories at boot
+We can mount the remote NFS shares automatically at boot by adding them to /etc/fstab file on the client.
 
-	sudo mkdir /nfs
-	sudo mount 10.0.0.4:/export/radi-sh /nfs
-
-#### NOT CHECK
 ##### Exportar diretórios da máquina omv por NFS
 
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS
-Os diretórios de casa a exportar do OMV para o Desktop, podem ser criados de dois modos:
+Os diretórios de casa a exportar do OMV para o Desktop:
 1. Criando primeiro manualmente os diretórios no OMV para cada utilizador:
 	Configurar o OMV como cliente LDAP do server, instalando o módulo LDAP do OpenMediaVault.
 	Criar manualmente no OMV (shell na máquina) os diretórios para cada utilizador e mudar o dono (chown) para o utilizador já criado no LDAP.
 	Este último ponto é o importante. Podem usar apenas o chown com o uid numérico que foi usado para criar o utilizador no LDAP, podendo evitar o ponto a.
 		# chown 1666 /home/radi-sh/adsdevilPara o caso do adsdevil que tem o uid 1666 nos exercícios.
-
-2. Deixando o oddjob-mkhomedir criar os diretórios:
-	Colocar o nfs exportado com no_root_squash permitindo assim que quando o utilizador faça login o diretório seja automaticamente criado.
-	Sem o no_root_squash o root não consegue criar o diretório pois não tem permissões para isso no nfs.
-	Note-se que esta opção abre portas para que a root de outras máquinas consiga escrever e ler como root no NFS.

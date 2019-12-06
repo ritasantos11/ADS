@@ -1,4 +1,4 @@
-## TRABALHO
+# TRABALHO
 
 ## Os objetivos serão:
 #### CHECK RAID/LVM
@@ -23,9 +23,11 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 
 #### NOT CHECK
 ##### Exportar diretórios da máquina omv por NFS ou SAMBA:
+Na consola web criar shared folders.
 
 	NFS -> Linux
 	SAMBA -> Windows e Linux
+
 
 
 ##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
@@ -44,10 +46,15 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 	NFS -> Linux
 	SAMBA -> Windows e Linux
 
+#### CHECK
+Montar no Desktop os dirs exportados pelo OMV:
+
+	sudo mkdir /nfs
+	sudo mount 10.0.0.4:/export/radi-sh /nfs
+
 
 ## Requisitos para trabalho
-### Verify
-##### Usar a versão com TLS para segurança no acesso: I think check
+##### Usar a versão com TLS para segurança no acesso
 
 #### CHECK
 ##### Haver pelo menos 3 utilizadores configurados no LDAP:
@@ -114,10 +121,10 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 	
 #### NOT CHECK
 ##### O Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
+Configurar o pgina.
 
 
-
-## Na avaliação do trabalho será pedido exemplos para testar o acima, ex.:
+## Na avaliação do trabalho será pedido exemplos para testar o acima
 ##### Ver atributos de um utilizador:
 	$ ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(uid=INSERT_USER)'
 
@@ -128,6 +135,7 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 ##### Remover um disco do RAID ou LVM:
 
 	# mdadm /dev/md0 -r /dev/sdb
+
 
 ## Será também verificado o que foi pedido nas aulas práticas:
 #### CHECK
