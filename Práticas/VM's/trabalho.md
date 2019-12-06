@@ -2,7 +2,7 @@
 
 ## Os objetivos serão:
 #### CHECK RAID/LVM
-ter um sistema de RAID/LVM na máquina de omv:
+##### ter um sistema de RAID/LVM na máquina de omv:
 <br />
 	ver os discos da máquina: lsblk
 <br />
