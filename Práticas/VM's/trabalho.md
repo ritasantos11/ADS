@@ -118,15 +118,16 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 
 
 ## Na avaliação do trabalho será pedido exemplos para testar o acima, ex.:
-ver atributos de um utilizador:
-	ldapsearch
-<br />
-autenticar-se no sistema Desktop e Win10:
-<br />
-aceder aos diretórios da home no Desktop:
-<br />
-remover um disco do RAID ou LVM:
+##### Ver atributos de um utilizador:
+	$ ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(uid=INSERT_USER)'
 
+##### Autenticar-se no sistema Desktop e Win10:
+
+##### Aceder aos diretórios da home no Desktop:
+
+##### Remover um disco do RAID ou LVM:
+
+	# mdadm /dev/md0 -r /dev/sdb
 
 ## Será também verificado o que foi pedido nas aulas práticas:
 #### CHECK
