@@ -3,9 +3,9 @@
 ## Os objetivos serão:
 #### CHECK RAID/LVM
 ##### Ter um sistema de RAID/LVM na máquina de omv:
-	ver os discos da máquina: lsblk
+ver os discos da máquina: lsblk
 <br />
-	usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
+usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
 <br />
 Raid: rd10
 	
