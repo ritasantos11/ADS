@@ -21,6 +21,7 @@ remover um disco do RAID ou LVM:
 	# mdadm /dev/md0 -r /dev/sdb
 
 
+
 # NFS
 
 ### Exportar diretórios do omv por NFS
@@ -31,8 +32,10 @@ Acrescentar:
 
 	dir_a_acrescentar ip_do_Desktop(rw,sync)
 
+Fazer:
+	exportfs -a
 
-### Montar em Desktop os diretórios do user autenticado usando NFS
+### Montar no Desktop os diretórios do user autenticado usando NFS
 
 No Desktop:
 	
@@ -41,3 +44,4 @@ No Desktop:
 
 	sudo mount ip_do_omv/var/nfs/general /nfs/general
 	sudo mount ip_do_omv/home /nfs/home
+

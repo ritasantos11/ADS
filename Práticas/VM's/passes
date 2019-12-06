@@ -1,11 +1,12 @@
-FEDORA workstation
+WORKSTATION: DESKTOP FEDORA
 	auser: ahgGXndu56D
 	root: itbdjjTY6837x
 	luanri: ola
 
 SERVER FEDORA
-	auser
+	auser: ahgGXndu56D
 	aauser: thisiscancer
+	root: itbdjjTY6837x
 
 WINDOWS
 	auserwin: kdhejcif6894HO
@@ -13,6 +14,7 @@ WINDOWS
 
 OMV
 	root: itbdjjTY6837x
+	auser: ahgGXndu56D
 
 CONSOLA WEB
 	admin: jdbdughIrbfuG7482
@@ -20,3 +22,14 @@ CONSOLA WEB
 
 ssh passphrase: ayylamo
 
+
+PASSWORDS LDAP:
+	cocoxixi
+	xixicoco
+
+LDAP
+	adsdevil: jfjrhifhjw684
+	adsdevil: istodamecancro666
+
+	turing: imgay
+	church: alonzo
