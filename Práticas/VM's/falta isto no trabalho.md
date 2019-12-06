@@ -25,9 +25,6 @@ Desktop:
 #### NOT CHECK
 ##### Exportar diretórios da máquina omv por NFS
 
-### Mounting the remote NFS directories at boot
-We can mount the remote NFS shares automatically at boot by adding them to /etc/fstab file on the client.
-
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS
 Os diretórios de casa a exportar do OMV para o Desktop, podem ser criados de dois modos:
 1. Criando primeiro manualmente os diretórios no OMV para cada utilizador:
