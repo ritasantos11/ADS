@@ -44,6 +44,9 @@ Adicionar o disco /dev/sdb (tem 4GB, estávazio e nao está montado) do Desktop 
 	sudo mount ip_do_omv/var/nfs/general /nfs/general
 	sudo mount ip_do_omv/home /nfs/home
 
+### Mounting the remote NFS directories at boot
+We can mount the remote NFS shares automatically at boot by adding them to /etc/fstab file on the client.
+
 Os diretórios de casa a exportar do OMV para o Desktop, podem ser criados de dois modos:
 1. Criando primeiro manualmente os diretórios no OMV para cada utilizador:
 	Configurar o OMV como cliente LDAP do server, instalando o módulo LDAP do OpenMediaVault.
