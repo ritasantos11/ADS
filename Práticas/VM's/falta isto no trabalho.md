@@ -23,6 +23,8 @@ Desktop:
 	sudo mount 10.0.0.4:/export/radi-sh /nfs
 
 #### NOT CHECK
+##### Exportar diretórios da máquina omv por NFS
+
 ### Mounting the remote NFS directories at boot
 We can mount the remote NFS shares automatically at boot by adding them to /etc/fstab file on the client.
 
