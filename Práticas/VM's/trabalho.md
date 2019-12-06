@@ -2,8 +2,7 @@
 
 ## Os objetivos serão:
 #### CHECK RAID/LVM
-##### ter um sistema de RAID/LVM na máquina de omv:
-<br />
+##### Ter um sistema de RAID/LVM na máquina de omv:
 	ver os discos da máquina: lsblk
 <br />
 	usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
@@ -23,13 +22,13 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 
 
 #### NOT CHECK
-exportar diretórios da máquina omv por NFS ou SAMBA:
+##### Exportar diretórios da máquina omv por NFS ou SAMBA:
 
 	NFS -> Linux
 	SAMBA -> Windows e Linux
 
 
-ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
+##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
 #### CHECK
 	pgina fork instalado no windows
 #### NOT CHECK
@@ -37,10 +36,10 @@ ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA
 
 
 #### NOT CHECK
-usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
+##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
 
 
-montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
+##### Montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 
 	NFS -> Linux
 	SAMBA -> Windows e Linux
@@ -49,10 +48,10 @@ montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 
 ## Requisitos para trabalho
 ### Verify
-usar a versão com TLS para segurança no acesso: I think check
+##### Usar a versão com TLS para segurança no acesso: I think check
 
 #### CHECK
-haver pelo menos 3 utilizadores configurados no LDAP:
+##### Haver pelo menos 3 utilizadores configurados no LDAP:
 
 	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
 		dn: uid=church,ou=Users,dc=grupoE,dc=ads,dc=dcc
@@ -101,7 +100,7 @@ haver pelo menos 3 utilizadores configurados no LDAP:
 		gidNumber: 1055
 
 #### CHECK
-haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP:
+##### Haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP:
 
 	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
 		dn: ou=Users,dc=grupoE,dc=ads,dc=dcc
@@ -115,7 +114,7 @@ haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP:
 	
 	
 #### NOT CHECK
-o Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
+##### O Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
 
 
 
@@ -131,10 +130,10 @@ remover um disco do RAID ou LVM:
 
 ## Será também verificado o que foi pedido nas aulas práticas:
 #### CHECK
-auser ter sudo no desktop: ($ groups auser    auser : wheel)
+##### auser ter sudo no desktop: ($ groups auser    auser : wheel)
 	sudo usermod -Ga wheel auser		
 
-acesso de root nas máquinas por ssh negado: CHECK ir ao /etc/ssh sshd_config
+##### Acesso de root nas máquinas por ssh negado: CHECK ir ao /etc/ssh sshd_config
 
 	Log in to the Linux or Unix server using ssh: ssh user@your-server
 	Edit the /etc/ssh/sshd_config file using vi
@@ -143,11 +142,11 @@ acesso de root nas máquinas por ssh negado: CHECK ir ao /etc/ssh sshd_config
 	Reload sshd server in order to deny root log in
 
 #### NOT CHECK
-root nao ter password no server:
+##### root nao ter password no server:
 
-<br />
-aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
-<br />
+##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
-utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
+
+
+##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
