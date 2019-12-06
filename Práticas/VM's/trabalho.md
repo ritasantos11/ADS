@@ -45,7 +45,6 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 	SAMBA -> Windows e Linux
 
 
-
 ## Requisitos para trabalho
 ### Verify
 ##### Usar a versão com TLS para segurança no acesso: I think check
@@ -119,7 +118,8 @@ Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados,
 
 
 ## Na avaliação do trabalho será pedido exemplos para testar o acima, ex.:
-ver atributos de um utilizador: ldapsearch
+ver atributos de um utilizador:
+	ldapsearch
 <br />
 autenticar-se no sistema Desktop e Win10:
 <br />
@@ -141,12 +141,14 @@ remover um disco do RAID ou LVM:
 	Save and close the file
 	Reload sshd server in order to deny root log in
 
-#### NOT CHECK
+#### CHECK
 ##### root nao ter password no server:
 
+	# passwd -d root
 
+
+#### NOT CHECK
 ##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
-
 
 
 ##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
