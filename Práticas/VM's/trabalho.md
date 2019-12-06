@@ -1,29 +1,24 @@
 ## TRABALHO
 
 ## Os objetivos serão:
+#### CHECK RAID/LVM
 ter um sistema de RAID/LVM na máquina de omv:
 	ver os discos da máquina: lsblk
 <br />
 	usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
-
-#### CHECK RAID
+<br />
+Raid: rd10
+	
 	/dev/sd[b-e]
+<br />
+LVM:
 
-#### CHECK LVM
-	/dev/sd[f-g]
+	pv: /dev/sd[f-g]
+	vg: vg2disk
+	lv com 1.5GB: lv1
+	lv com 1GB: lv2
 
-Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados, contanto que o tamanho se enquadre à capacidade da partição criada — se necessário, estenda o volume físico.
-
-#### Montar filesystem no lv1, lv2 e rd10
-
-	mkdir /srv/dev-disk-bylabel-gandadisco
-	mount /dev/md-0 /srv/dev-disk-bylabel-gandadisco
-
-	mkdir /srv/dev-disk-bylabel-outrogandadisco
-	mount /dev/md-1 /srv/dev-disk-bylabel-outrogandadisco
-
-	mkdir /srv/dev-disk-bylabel-ultimogandadisco
-	mount /dev/md0 /srv/dev-disk-bylabel-ultimogandadisco
+Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados, contanto que o tamanho se enquadre à capacidade da partição criada.
 
 
 #### NOT CHECK
@@ -52,6 +47,7 @@ montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 
 
 ## Requisitos para trabalho
+### Verify
 usar a versão com TLS para segurança no acesso: I think check
 
 #### CHECK
@@ -154,5 +150,3 @@ aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 <br />
 
 utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
-
-
