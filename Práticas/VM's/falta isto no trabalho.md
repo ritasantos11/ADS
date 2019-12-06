@@ -10,40 +10,23 @@ Adicionar o disco /dev/sdb (tem 4GB, estávazio e nao está montado) do Desktop 
 	lvextend originalLV /dev/sdb
 
 
+##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
+
 ##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
 
 
-## SABER
-##### Remover um disco do RAID ou LVM:
+## NFS
+#### CHECK
+Desktop:
 
-	# mdadm /dev/md0 -r /dev/sdb
+	sudo mkdir /nfs
+	sudo mount 10.0.0.4:/export/radi-sh /nfs
 
-
-
-# NFS
-### Exportar diretórios do omv por NFS
-
-	nano /etc/exports
-
-##### Acrescentar:
-
-	dir_a_acrescentar ip_do_Desktop(rw,sync)
-
-##### Fazer:
-	exportfs -a
-
-### Montar no Desktop os diretórios do user autenticado usando NFS
-##### No Desktop:
-	
-	sudo mkdir /nfs/general
-	sudo mkdir /nfs/home
-
-	sudo mount ip_do_omv/var/nfs/general /nfs/general
-	sudo mount ip_do_omv/home /nfs/home
-
+#### NOT CHECK
 ### Mounting the remote NFS directories at boot
 We can mount the remote NFS shares automatically at boot by adding them to /etc/fstab file on the client.
 
+##### Montar em Desktop os diretórios do utilizador autenticado usando NFS
 Os diretórios de casa a exportar do OMV para o Desktop, podem ser criados de dois modos:
 1. Criando primeiro manualmente os diretórios no OMV para cada utilizador:
 	Configurar o OMV como cliente LDAP do server, instalando o módulo LDAP do OpenMediaVault.
