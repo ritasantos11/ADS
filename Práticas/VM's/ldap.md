@@ -9,7 +9,7 @@
 ### -x
 	para usar a autenticação simples em vez da de SASL
 
-### -D cn=Manager,...
+### -D cn=Manager,... (Binding)
 	-D: usa o dn cn=Manager,... para vincular ao diretório LDAP
 
 ### -W
