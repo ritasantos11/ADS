@@ -6,9 +6,7 @@ Instalar o pgina normal para ter a secção Simulation.
 Aqui será utilizando o que foi feito nas teóricas (não está diretamente nos slides). Será para usar o disco extra no desktop e adicioná-lo ao LVM. Usando este espaço extra para redimensionar os lv e fazer o resize dos sistemas de ficheiros (ver opção do lvresize para fazer logo).
 Adicionar o disco /dev/sdb (tem 4GB, estávazio e nao está montado) do Desktop ao LVM e depois aumentar o tamanho do / e do /home.
 
-	pvcreate /dev/sdb
-	vgextend SQUAD /dev/sdb
-	lvextend originalLV /dev/sdb
+	Desktop: tem lvm
 
 
 ##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
