@@ -26,3 +26,26 @@ Now that we have some place to put the remote shares and we’ve opened the fire
 	sudo mount 203.0.113.0:/home /nfs/home
 These commands should mount the shares from the host computer onto the client machine. 
 
+
+
+
+# NFS
+### Exportar diretórios do omv por NFS
+
+	nano /etc/exports
+
+##### Acrescentar:
+
+	dir_a_acrescentar ip_do_Desktop(rw,sync)
+
+##### Fazer:
+	exportfs -a
+
+### Montar no Desktop os diretórios do user autenticado usando NFS
+##### No Desktop:
+	
+	sudo mkdir /nfs/general
+	sudo mkdir /nfs/home
+
+	sudo mount ip_do_omv/var/nfs/general /nfs/general
+	sudo mount ip_do_omv/home /nfs/home

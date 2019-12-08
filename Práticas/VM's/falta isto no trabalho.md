@@ -1,5 +1,5 @@
 ## CONFIGURAR O PGINA NO WINDOWS
-Instalar o pgina normal para ter a secção Simulation.
+
 
 
 ##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
@@ -24,6 +24,9 @@ We can mount the remote NFS shares automatically at boot by adding them to /etc/
 Os diretórios de casa a exportar do OMV para o Desktop:
 1. Criando primeiro manualmente os diretórios no OMV para cada utilizador:
 	Configurar o OMV como cliente LDAP do server, instalando o módulo LDAP do OpenMediaVault.
+
+#### está feito pó adsdevil
 	Criar manualmente no OMV (shell na máquina) os diretórios para cada utilizador e mudar o dono (chown) para o utilizador já criado no LDAP.
 	Este último ponto é o importante. Podem usar apenas o chown com o uid numérico que foi usado para criar o utilizador no LDAP, podendo evitar o ponto a.
-		# chown 1666 /home/radi-sh/adsdevilPara o caso do adsdevil que tem o uid 1666 nos exercícios.
+		# chown 1011 /home/radi-sh/adsdevil
+
