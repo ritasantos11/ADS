@@ -1,10 +1,6 @@
-
-#### podemos remover o auser e aauser do ldap
-ldapdelete -x -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" "uid=auser,..."
-
 ##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 Aqui será utilizando o que foi feito nas teóricas (não está diretamente nos slides). Será para usar o disco extra no desktop e adicioná-lo ao LVM. Usando este espaço extra para redimensionar os lv e fazer o resize dos sistemas de ficheiros (ver opção do lvresize para fazer logo).
-Adicionar o disco /dev/sdb (tem 4GB, estávazio e nao está montado) do Desktop ao LVM e depois aumentar o tamanho do / e do /home.
+Adicionar o disco /dev/sdb (tem 4GB, está vazio e nao está montado) do Desktop ao LVM e depois aumentar o tamanho do / e do /home.
 
 	Desktop: tem lvm
 
@@ -14,9 +10,6 @@ Adicionar o disco /dev/sdb (tem 4GB, estávazio e nao está montado) do Desktop 
 ##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv):
 Configurar o ldap no omv.
 
-
-### Mounting the remote NFS directories at boot
-We can mount the remote NFS shares automatically at boot by adding them to /etc/fstab file on the client.
 
 ##### Exportar diretórios da máquina omv por NFS
 
