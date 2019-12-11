@@ -1,6 +1,6 @@
-## CONFIGURAR O PGINA NO WINDOWS
 
-
+#### podemos remover o auser e aauser do ldap
+ldapdelete -x -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" "uid=auser,..."
 
 ##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 Aqui será utilizando o que foi feito nas teóricas (não está diretamente nos slides). Será para usar o disco extra no desktop e adicioná-lo ao LVM. Usando este espaço extra para redimensionar os lv e fazer o resize dos sistemas de ficheiros (ver opção do lvresize para fazer logo).
@@ -27,7 +27,7 @@ Os diretórios de casa a exportar do OMV para o Desktop:
 
 #### está feito pó adsdevil
 Criar manualmente no OMV (shell na máquina) os diretórios para cada utilizador e mudar o dono (chown) para o utilizador já criado no LDAP.
+<br />
 Este último ponto é o importante. Podem usar apenas o chown com o uid numérico que foi usado para criar o utilizador no LDAP, podendo evitar o ponto a.
-
 	# chown 1011 /home/radi-sh/adsdevil
 

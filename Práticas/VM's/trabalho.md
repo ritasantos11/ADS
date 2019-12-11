@@ -29,12 +29,11 @@ Na consola web criar shared folders.
 	SAMBA -> Windows e Linux
 
 
-
-##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
 #### CHECK
-	pgina fork instalado no windows
-#### NOT CHECK
-	entrar no windows com o login do ldap nos campos do pgina fork
+##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
+pgina fork instalado no windows
+<br />
+entrar no windows com o login do ldap nos campos do pgina fork
 
 
 #### NOT CHECK
@@ -119,15 +118,17 @@ Montar no Desktop os dirs exportados pelo OMV:
 		ou: Admins
 	
 	
-#### NOT CHECK
+#### CHECK
 ##### O Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
 Configurar o pgina.
 
 
+#### CHECK
 ## Na avaliação do trabalho será pedido exemplos para testar o acima
 ##### Ver atributos de um utilizador:
 	$ ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(uid=INSERT_USER)'
 
+#### NOT CHECK
 ##### Autenticar-se no sistema Desktop e Win10:
 
 ##### Aceder aos diretórios da home no Desktop:
@@ -150,7 +151,6 @@ Configurar o pgina.
 	Save and close the file
 	Reload sshd server in order to deny root log in
 
-#### CHECK
 ##### root nao ter password no server:
 
 	# passwd -d root
