@@ -1,7 +1,6 @@
 # TRABALHO
 
 ## Os objetivos serão:
-#### CHECK RAID/LVM
 ##### Ter um sistema de RAID/LVM na máquina de omv:
 ver os discos da máquina: lsblk
 <br />
@@ -18,8 +17,6 @@ LVM:
 	lv com 1.5GB: lv1
 	lv com 1GB: lv2
 
-
-#### CHECK
 ##### Exportar diretórios da máquina omv por NFS ou SAMBA:
 Na consola web criar shared folders.
 
@@ -55,7 +52,6 @@ Pôr no /etc/fstab para fazer o mount quando se liga a máquina:
 	10.0.0.3:/export/radi-sh /nfs
 
 
-#### CHECK
 ## Requisitos para trabalho
 ##### Usar a versão com TLS para segurança no acesso
 
@@ -123,7 +119,6 @@ Pôr no /etc/fstab para fazer o mount quando se liga a máquina:
 pgina fork configurado.
 
 
-#### CHECK
 ## Na avaliação do trabalho será pedido exemplos para testar o acima
 ##### Ver atributos de um utilizador:
 	$ ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(uid=INSERT_USER)'
@@ -137,7 +132,6 @@ pgina fork configurado.
 	# mdadm /dev/md0 -r /dev/sdb
 
 
-#### CHECK
 ## Será também verificado o que foi pedido nas aulas práticas:
 ##### auser ter sudo no desktop: ($ groups auser    auser : wheel)
 	sudo usermod -Ga wheel auser		
