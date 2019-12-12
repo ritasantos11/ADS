@@ -3,14 +3,6 @@ Aqui será utilizando o que foi feito nas teóricas (não está diretamente nos 
 Adicionar o disco /dev/sdb (tem 4GB, está vazio e nao está montado) do Desktop ao LVM e depois aumentar o tamanho do / e do /home.
 
 	Desktop: tem lvm
-<br />
-Retirar o /dev/sdb do lvm e criar o fs nele.
-
-	mkfs.ext4 /dev/sdb
-	mkdir dir_para_montar_o_fs
-	mount /dev/sdb /dir_onde_montar
-<br />
-Adicionar ao lvm.
 
 
 ##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
