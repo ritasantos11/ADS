@@ -3,15 +3,25 @@ Aqui será utilizando o que foi feito nas teóricas (não está diretamente nos 
 Adicionar o disco /dev/sdb (tem 4GB, está vazio e nao está montado) do Desktop ao LVM e depois aumentar o tamanho do / e do /home.
 
 	Desktop: tem lvm
+<br />
+Retirar o /dev/sdb do lvm e criar o fs nele.
+
+	mkfs.ext4 /dev/sdb
+	mkdir dir_para_montar_o_fs
+	mount /dev/sdb /dir_onde_montar
+<br />
+Adicionar ao lvm.
 
 
 ##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
+
 
 ##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv):
 Configurar o ldap no omv.
 
 
 ##### Exportar diretórios da máquina omv por NFS
+
 
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS
 Os diretórios de casa a exportar do OMV para o Desktop:

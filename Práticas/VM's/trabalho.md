@@ -18,22 +18,15 @@ LVM:
 	lv com 1.5GB: lv1
 	lv com 1GB: lv2
 
-Pode-se criar vários volumes lógicos para armazenar diferentes tipos de dados, contanto que o tamanho se enquadre à capacidade da partição criada.
-
 
 #### NOT CHECK
 ##### Exportar diretórios da máquina omv por NFS ou SAMBA:
 Na consola web criar shared folders.
 
-	NFS -> Linux
-	SAMBA -> Windows e Linux
-
 
 #### CHECK
 ##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
-pgina fork instalado no windows
-<br />
-entrar no windows com o login do ldap nos campos do pgina fork
+pgina fork instalado no windows: entrar no windows com o login do ldap nos campos do pgina fork.
 
 
 #### NOT CHECK
@@ -41,9 +34,6 @@ entrar no windows com o login do ldap nos campos do pgina fork
 
 
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
-
-	NFS -> Linux
-	SAMBA -> Windows e Linux
 
 #### CHECK
 Montar no Desktop os dirs exportados pelo OMV:
