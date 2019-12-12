@@ -19,33 +19,39 @@ LVM:
 	lv com 1GB: lv2
 
 
-#### NOT CHECK
+#### CHECK
 ##### Exportar diretórios da máquina omv por NFS ou SAMBA:
 Na consola web criar shared folders.
 
-
-#### CHECK
-##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10: FALTA A PARTE DO WINDOWS
+##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10:
 pgina fork instalado no windows: entrar no windows com o login do ldap nos campos do pgina fork.
 
-
-#### NOT CHECK
-##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado:
-
+##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado
 
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 
-#### CHECK
+Criar no /export/radi-sh/areas do omv dirs para os users.
+	chown id_user /export/radi-sh/areas/dir_do_user
+
+No server, fazer para cada user: 
+	
+	ldapmodify -xw xixicoco -H ldapi:/// -D "cn=Manager,.." -f temp.ldif
+	onde temp.ldif tem o conteúdo para modificar o homeDirectory do user para /nfs/areas/USER
+
 Montar no Desktop os dirs exportados pelo OMV:
 
-	sudo mkdir /nfs
-	sudo mount 10.0.0.4:/export/radi-sh /nfs
+	sudo mkdir /nfs/
+	sudo mount 10.0.0.3:/export/radi-sh /nfs/
+
+Pôr no /etc/fstab para fazer o mount quando se liga a máquina:
+
+	10.0.0.3:/export/radi-sh /nfs
 
 
+#### CHECK
 ## Requisitos para trabalho
 ##### Usar a versão com TLS para segurança no acesso
 
-#### CHECK
 ##### Haver pelo menos 3 utilizadores configurados no LDAP:
 
 	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
@@ -94,7 +100,6 @@ Montar no Desktop os dirs exportados pelo OMV:
 		objectClass: top
 		gidNumber: 1055
 
-#### CHECK
 ##### Haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP:
 
 	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
@@ -107,10 +112,8 @@ Montar no Desktop os dirs exportados pelo OMV:
 		objectClass: organizationalUnit
 		ou: Admins
 	
-	
-#### CHECK
 ##### O Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
-Configurar o pgina.
+pgina fork configurado.
 
 
 #### CHECK
@@ -118,18 +121,17 @@ Configurar o pgina.
 ##### Ver atributos de um utilizador:
 	$ ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(uid=INSERT_USER)'
 
-#### NOT CHECK
-##### Autenticar-se no sistema Desktop e Win10:
+##### Autenticar-se no sistema Desktop e Win10
 
-##### Aceder aos diretórios da home no Desktop:
+##### Aceder aos diretórios da home no Desktop
 
 ##### Remover um disco do RAID ou LVM:
 
 	# mdadm /dev/md0 -r /dev/sdb
 
 
-## Será também verificado o que foi pedido nas aulas práticas:
 #### CHECK
+## Será também verificado o que foi pedido nas aulas práticas:
 ##### auser ter sudo no desktop: ($ groups auser    auser : wheel)
 	sudo usermod -Ga wheel auser		
 
@@ -145,9 +147,11 @@ Configurar o pgina.
 
 	# passwd -d root
 
-
-#### NOT CHECK
 ##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
+	pvcreate /dev/sdb1
+	vgextend fedora_localhost-live /dev/sdb1
+	lvextend -L 512M -r /dev/mapper/fedora_localhost--live-root
+	lvextend -L 512M -r /dev/mapper/fedora_localhost--live-home
 
-##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv): 
+##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv)
