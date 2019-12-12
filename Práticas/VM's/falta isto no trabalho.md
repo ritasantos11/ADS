@@ -13,6 +13,7 @@ Configurar o ldap no omv.
 
 
 ##### Exportar diretórios da máquina omv por NFS
+Temos o radi-sh exportado, montado no /nfs do Desktop.
 
 
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS
@@ -20,7 +21,7 @@ Os diretórios de casa a exportar do OMV para o Desktop:
 1. Criando primeiro manualmente os diretórios no OMV para cada utilizador:
 	Configurar o OMV como cliente LDAP do server, instalando o módulo LDAP do OpenMediaVault.
 
-#### está feito pó adsdevil
+#### está feito pó adsdevil not quite
 Criar manualmente no OMV (shell na máquina) os diretórios para cada utilizador e mudar o dono (chown) para o utilizador já criado no LDAP.
 <br />
 Este último ponto é o importante. Podem usar apenas o chown com o uid numérico que foi usado para criar o utilizador no LDAP, podendo evitar o ponto a.
