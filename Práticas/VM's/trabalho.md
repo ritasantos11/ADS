@@ -30,13 +30,20 @@ pgina fork instalado no windows: entrar no windows com o login do ldap nos campo
 
 ##### Montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 
-Criar no /export/radi-sh/areas do omv dirs para os users.
+Criar no /export/radi-sh/areas do omv dirs para os users e mudar permissões:
+
 	chown id_user /export/radi-sh/areas/dir_do_user
 
 No server, fazer para cada user: 
 	
 	ldapmodify -xw xixicoco -H ldapi:/// -D "cn=Manager,.." -f temp.ldif
-	onde temp.ldif tem o conteúdo para modificar o homeDirectory do user para /nfs/areas/USER
+
+Onde temp.ldif tem o conteúdo para modificar o homeDirectory do user para /nfs/areas/USER
+
+	dn: uid=USER,ou=OU_DO_USER,dc=grupoE,dc=ads,dc=dcc
+	changetype: modify
+	replace: homeDirectory
+	homeDirectory: /nfs/areas/USER
 
 Montar no Desktop os dirs exportados pelo OMV:
 
