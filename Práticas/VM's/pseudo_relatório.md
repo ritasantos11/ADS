@@ -1,6 +1,9 @@
 acrescentar users na workstation
+<br />
 reboot a tudo
+<br />
 ir pelo spice
+<br />
 
 ## Relatório
 O objetivo do relatório é indicar a arquitetura usado (semelhante ao enunciado) indicando:
