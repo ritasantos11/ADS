@@ -19,8 +19,8 @@ São montados na pasta /nfs do desktop.
 ### NFS
 
 
-Construi-se um RAID 10 com 4 discos (sdb,sdc,sdd,sde).
 #### RAID 10
+Construi-se um RAID 10 com 4 discos (sdb,sdc,sdd,sde).
 Oferece um desempenho superior durante a transferência de dados, não compromete a integridade das informações caso ocorra algum problema num dos discos.
 As escritas e leituras são feitas em discos diferentes simultaneamente (raid 0).
 Pelo menos 1 disco pode falhar e recuperar-se (raid 1).
