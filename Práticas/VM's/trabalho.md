@@ -30,6 +30,7 @@ pgina fork instalado no windows: entrar no windows com o login do ldap nos campo
 Criar no /export/radi-sh/areas do omv dirs para os users e mudar permissões:
 
 	chown id_user /export/radi-sh/areas/dir_do_user
+	chgrp id_group_user /export/radi-sh/areas/dir_user
 
 No server, fazer para cada user: 
 	
