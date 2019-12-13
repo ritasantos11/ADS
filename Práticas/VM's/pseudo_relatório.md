@@ -16,7 +16,7 @@ dirs exportados são os dirs do filesystem assente no raid.
 São os dirs p os users.
 São montados na pasta /nfs do desktop.
 
-### NFS
+#### NFS
 
 
 #### RAID 10
