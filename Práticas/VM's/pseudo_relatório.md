@@ -13,7 +13,9 @@ O objetivo do relatório é indicar a arquitetura usado (semelhante ao enunciado
 
 
 dirs exportados são os dirs do filesystem assente no raid.
+<br />
 São os dirs p os users.
+<br />
 São montados na pasta /nfs do desktop.
 
 #### NFS
