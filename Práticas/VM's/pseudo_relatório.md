@@ -74,8 +74,8 @@ No Desktop:
     sudo mkdir /nfs/general
     sudo mkdir /nfs/home
 
-    sudo mount ip_do_omv/var/nfs/general /nfs/general
-    sudo mount ip_do_omv/home /nfs/home
+    sudo mount 10.0.0.3/var/nfs/general /nfs/general
+    sudo mount 10.0.0.3/home /nfs/home
 
 <br />
 
