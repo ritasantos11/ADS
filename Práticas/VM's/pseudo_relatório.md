@@ -29,12 +29,11 @@ São montados na pasta /nfs do Desktop:
 
 
 #### RAID 10
-A área dos utilizadores foi construído no RAID de nível 10 com 4 discos (sdb,sdc,sdd,sde).
-O RAID 10 oferece um desempenho superior durante a transferência de dados, não compromete a integridade das informações caso ocorra algum problema num dos discos.
-As escritas e leituras são feitas em discos diferentes simultaneamente (RAID 0).
-Pelo menos 1 disco pode falhar e recuperar-se (RAID 1).
+A área dos utilizadores foi construída no RAID de nível 10 com 4 discos (sdb,sdc,sdd,sde).
+O RAID 10 oferece um desempenho superior durante a transferência de dados e não compromete a integridade das informações caso ocorra algum problema num dos discos.
+As escritas e leituras são feitas em discos diferentes simultaneamente (tal como no RAID 0) e pelo menos 1 disco pode falhar e recuperar-se (tal como no RAID 1).
 
-RAID used for redundancy. For example, when your data gets lost due to disk failure u shall get recovered by RAID
+RAID é usado para redundância. Por exemplo, se algum dado se perder devido a uma falha num disco, o RAID consegue recuperar.
 
 
 #### LVM com 4 discos mas não foi usado para a área dos users
