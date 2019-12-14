@@ -26,7 +26,7 @@ São montados na pasta /nfs do Desktop:
 
 
 #### NFS
-Network File System é um protocolo feito para partilhar sistemas de ficheiros entre máquinas, que é feito neste trabalho entre a máquina Desktop do cliente e a máquina OMV (que é o servidor). Um cliente autentica-se(?) na sua área num computador remoto(?) e consegue aceder a um sistema de ficheiros como se estivesse no seu próprio computador.  Usamos a versão 4 que contém servidor com manutenção de estado sobre todos os ficheiros que todos os clientes têm aberto no servidor e é bastante rápido sem ser muito intenso no CPU do server. Informação não é perdida quando um NFS server falha, principalmente num servidor sem manutenção de estado, porém no nosso pode gerar incoerências entre as máquinas. Utiliza também o protocolo de transporte TCP/IP.
+Network File System é um protocolo feito para partilhar sistemas de ficheiros entre máquinas o qual é efetuado neste trabalho entre a máquina Desktop do cliente e a máquina OMV (que é o servidor). Um cliente autentica-se(?) na sua área num computador remoto(?) e consegue aceder a um sistema de ficheiros como se estivesse no seu próprio computador.  Usamos a versão 4 que contém servidor com manutenção de estado sobre todos os ficheiros que todos os clientes têm aberto no servidor e é bastante rápido sem ser muito intenso no CPU do server. Informação não é perdida quando um NFS server falha, principalmente num servidor sem manutenção de estado, porém no nosso pode gerar incoerências entre as máquinas. Utiliza também o protocolo de transporte TCP/IP.
 
 <br />
 
