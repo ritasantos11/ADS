@@ -18,7 +18,7 @@ Os diretórios exportados são os diretórios do filesystem assente no RAID no o
     /export/radi-sh/areas/
 
 Aqui dentro estão os diretórios para os 3 users do LDAP.
-São montados na pasta /nfs do Desktop:
+São montados na pasta /nfs do Desktop.
 
 
 #### NFS
