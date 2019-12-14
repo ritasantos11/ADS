@@ -13,16 +13,12 @@ O objetivo do relatório é indicar a arquitetura usado (semelhante ao enunciado
 
 
 
-dirs exportados são os dirs do filesystem assente no RAID.
-<br />
-São os dirs p os users:
+Os diretórios exportados são os diretórios do filesystem assente no RAID no omv:
 
-    radi-sh/areas/dir_user
+    /export/radi-sh/areas/
 
-<br />
+Aqui dentro estão os diretórios para os 3 users do LDAP.
 São montados na pasta /nfs do Desktop:
-
-    /nfs/areas/USER
 
 
 #### NFS
