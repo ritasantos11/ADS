@@ -37,7 +37,7 @@ Pelo menos 1 disco pode falhar e recuperar-se (RAID 1).
 RAID used for redundancy. For example, when your data gets lost due to disk failure u shall get recovered by RAID
 
 
-#### LVM com 4 discos
+#### LVM com 4 discos mas não foi usado para a área dos users
 4 volumes físicos
 1 volume de grupo
 2 volumes lógicos lineares
