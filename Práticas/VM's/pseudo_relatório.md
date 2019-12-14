@@ -27,29 +27,38 @@ São montados na pasta /nfs do Desktop:
 
 #### NFS
 Network File System é um protocolo feito para partilhar sistemas de ficheiros entre máquinas, que é feito neste trabalho entre a máquina Desktop do cliente e a máquina OMV (que é o servidor). Um cliente autentica-se(?) na sua área num computador remoto(?) e consegue aceder a um sistema de ficheiros como se estivesse no seu próprio computador.  Usamos a versão 4 que contém servidor com manutenção de estado sobre todos os ficheiros que todos os clientes têm aberto no servidor e é bastante rápido sem ser muito intenso no CPU do server. Informação não é perdida quando um NFS server falha, principalmente num servidor sem manutenção de estado, porém no nosso pode gerar incoerências entre as máquinas. Utiliza também o protocolo de transporte TCP/IP.
+<br />
 Lista de diretórios exportados : 
 etc/exports
+<br />
 Usar o mount para montar os diretórios exportados: 
     mount –t nfs4 –o rw,hard,bg server:/exportdir/USER /home/USER (ou é /nfs/areas/USER?)
+<br />
 If you want to give access to all hosts on a LAN such as 192.168.0.0: 
     /home 192.168.0.0/24(rw,sync)
+<br />
 First, make a share directory called nfs no host:
     sudo mkdir /var/nfs/general -p
+<br />
 No Dektop:
    /nfs/areas/USER
+<br />
 Now that we have some place to put the remote shares and we’ve opened the firewall, we can mount the shares by addressing our host server, which in this guide is 203.0.113.0, like this:
     sudo mount 203.0.113.0:/var/nfs/general /nfs/general
     sudo mount 203.0.113.0:/home /nfs/home
+<br />
 Acrescentar diretorios:
     dir_a_acrescentar ip_do_Desktop(rw,sync)
+<br />
 Montar no Desktop os diretórios do user autenticado usando NFS
+<br />
 No Desktop:
     sudo mkdir /nfs/general
     sudo mkdir /nfs/home
 
     sudo mount ip_do_omv/var/nfs/general /nfs/general
     sudo mount ip_do_omv/home /nfs/home
-
+<br />
 Using NFS, the user or a system administrator can mount all or a portion of a file system.
 
 
