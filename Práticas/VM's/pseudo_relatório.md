@@ -10,9 +10,15 @@ O objetivo do relatório é indicar a arquitetura usado (semelhante ao enunciado
     uso de NFS ou SAMBA
     que diretório(s) exportados, que diretório(s) importados e aonde
     como foi construído no OMV a área dos utilizadores (RAID ou LVM, porquê? Se RAID qual RAID, porquê? Se LVM o normal? Porquê?)
+    deve incluir uma descrição dos atributos do LDAP.
+    
 
 
+#### atributos do ldap
+No ldap temos 3 utilizadores: adsdevil, turing e church. Cada user está associado a um grupo (posixGroup) de mesmo nome.
+Temos 4 Organizational Unit (OU): Administrativos (onde se encontra o adsdevil), Developers, Admins (onde está o turing) e Users (onde está o church).
 
+<br />
 Os diretórios exportados são os diretórios do filesystem assente no RAID no omv:
 
     /export/radi-sh/areas/
