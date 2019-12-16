@@ -137,7 +137,7 @@ pgina fork configurado.
 ##### auser ter sudo no desktop: ($ groups auser    auser : wheel)
 	sudo usermod -Ga wheel auser		
 
-##### Acesso de root nas máquinas por ssh negado: CHECK ir ao /etc/ssh sshd_config
+##### Acesso de root nas máquinas por ssh negado: ir ao /etc/ssh sshd_config
 
 	Log in to the Linux or Unix server using ssh: ssh user@your-server
 	Edit the /etc/ssh/sshd_config file using vi
