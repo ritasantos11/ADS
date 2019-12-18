@@ -1,32 +1,31 @@
 # TRABALHO
 
 ## Os objetivos serão:
-##### Ter um sistema de RAID/LVM na máquina de omv:
+#### Ter um sistema de RAID/LVM na máquina de omv:
 ver os discos da máquina: lsblk
 <br />
 usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
 <br />
-Raid: rd10
+##### Raid: rd10
 	
 	/dev/sd[b-e]
-<br />
-LVM:
+	
+##### LVM:
 
 	pv: /dev/sd[f-g]
 	vg: vg2disk
 	lv com 1.5GB: lv1
 	lv com 1GB: lv2
 
-##### Exportar diretórios da máquina omv por NFS ou SAMBA:
+#### Exportar diretórios da máquina omv por NFS ou SAMBA:
 Na consola web criar shared folders.
 
-##### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10:
+#### Ter openLDAP no server para autenticar os utilizadores em Desktop e Win10:
 pgina fork instalado no windows: entrar no windows com o login do ldap nos campos do pgina fork.
 
-##### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado
+#### Usar o LDAP para saber quais os diretórios a montar do utilizador autenticado
 
-##### Montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
-
+#### Montar em Desktop os diretórios do utilizador autenticado usando NFS ou SAMBA:
 Criar no /export/radi-sh/areas do omv dirs para os users e mudar permissões:
 
 	chown id_user /export/radi-sh/areas/dir_do_user
@@ -54,9 +53,9 @@ Pôr no /etc/fstab para fazer o mount quando se liga a máquina:
 
 
 ## Requisitos para trabalho
-##### Usar a versão com TLS para segurança no acesso
+#### Usar a versão com TLS para segurança no acesso
 
-##### Haver pelo menos 3 utilizadores configurados no LDAP:
+#### Haver pelo menos 3 utilizadores configurados no LDAP:
 
 	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
 		dn: uid=church,ou=Users,dc=grupoE,dc=ads,dc=dcc
@@ -104,7 +103,7 @@ Pôr no /etc/fstab para fazer o mount quando se liga a máquina:
 		objectClass: top
 		gidNumber: 1055
 
-##### Haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP:
+#### Haver pelo menos 2 grupos diferentes (ex.: admins, users) no LDAP:
 
 	ldapadd -x -D cn=Manager,dc=grupoE,dc=ads,dc=dcc -W
 		dn: ou=Users,dc=grupoE,dc=ads,dc=dcc
@@ -116,28 +115,28 @@ Pôr no /etc/fstab para fazer o mount quando se liga a máquina:
 		objectClass: organizationalUnit
 		ou: Admins
 	
-##### O Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
+#### O Win10 pode autenticar por LDAP ou Active Directory (um dos dois basta, não são necessários os 2 modos):
 pgina fork configurado.
 
 
 ## Na avaliação do trabalho será pedido exemplos para testar o acima
-##### Ver atributos de um utilizador:
+#### Ver atributos de um utilizador:
 	$ ldapsearch -x -L -W -D "cn=Manager,dc=grupoE,dc=ads,dc=dcc" -b "dc=grupoE,dc=ads,dc=dcc" '(uid=INSERT_USER)'
 
-##### Autenticar-se no sistema Desktop e Win10
+#### Autenticar-se no sistema Desktop e Win10
 
-##### Aceder aos diretórios da home no Desktop
+#### Aceder aos diretórios da home no Desktop
 
-##### Remover um disco do RAID ou LVM:
+#### Remover um disco do RAID ou LVM:
 
 	# mdadm /dev/md0 -r /dev/sdb
 
 
 ## Será também verificado o que foi pedido nas aulas práticas:
-##### auser ter sudo no desktop: ($ groups auser    auser : wheel)
+#### auser ter sudo no desktop: ($ groups auser    auser : wheel)
 	sudo usermod -Ga wheel auser		
 
-##### Acesso de root nas máquinas por ssh negado: ir ao /etc/ssh sshd_config
+#### Acesso de root nas máquinas por ssh negado: ir ao /etc/ssh sshd_config
 
 	Log in to the Linux or Unix server using ssh: ssh user@your-server
 	Edit the /etc/ssh/sshd_config file using vi
@@ -145,15 +144,15 @@ pgina fork configurado.
 	Save and close the file
 	Reload sshd server in order to deny root log in
 
-##### root nao ter password no server:
+#### root nao ter password no server:
 
 	# passwd -d root
 
-##### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
+#### Aumento de espaço de partições no desktop: 512MB no /home e 512MB no /:
 
 	pvcreate /dev/sdb1
 	vgextend fedora_localhost-live /dev/sdb1
 	lvextend -L 512M -r /dev/mapper/fedora_localhost--live-root
 	lvextend -L 512M -r /dev/mapper/fedora_localhost--live-home
 
-##### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv)
+#### Utilização de ligações TLS para o acesso de configuração Web do OpenMediaVault (no omv)
