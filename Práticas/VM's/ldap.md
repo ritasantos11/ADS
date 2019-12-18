@@ -15,7 +15,6 @@
 ### -W
 	solicitar autenticação simples
 
-
 ### -L
 	os resultados da pesquisa são exibidos no formato LDIF
 
@@ -24,10 +23,3 @@
 
 ### -Q
 	silencia o ouput sobre a ligação
-
-### user suffix
-Exemplo: para um user com dn: cn=user1,ou=users,ou=location,o=company o user sufix é: ou=users,ou=location,o=company.
-
-### group suffix
-Exemplo: para um grupo com dn: cn=Developer,ou=groups,ou=location,o=company o group suffix é: ou=groups,ou=location,o=company.
-
