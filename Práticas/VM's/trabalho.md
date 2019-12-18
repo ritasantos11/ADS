@@ -6,16 +6,25 @@ ver os discos da máquina: lsblk
 <br />
 usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
 <br />
+Feito na winterface web
+
 ##### Raid: rd10
 	
 	/dev/sd[b-e]
 	
+	# mdadm --create /dev/md0 --level=10 --raid-devices=4 /dev/sd[b-e]
+
 ##### LVM:
 
 	pv: /dev/sd[f-g]
 	vg: vg2disk
 	lv com 1.5GB: lv1
 	lv com 1GB: lv2
+
+	# pvcreate /dev/sd[f-g]
+	# vgcreate vg2disk /dev/sd[f-g]
+	# lvcreate -L 1G -n lv1 vg2disk
+	# lvcreate -L 1.5G -n lv2 vg2disk
 
 #### Exportar diretórios da máquina omv por NFS ou SAMBA:
 Na consola web criar shared folders.
@@ -133,10 +142,12 @@ pgina fork configurado.
 
 
 ## Será também verificado o que foi pedido nas aulas práticas:
-#### auser ter sudo no desktop: ($ groups auser    auser : wheel)
+#### auser ter sudo no desktop:
+$ groups auser    auser : wheel
+
 	sudo usermod -Ga wheel auser		
 
-#### Acesso de root nas máquinas por ssh negado: ir ao /etc/ssh sshd_config
+#### Acesso de root nas máquinas por ssh negado (ir ao /etc/ssh sshd_config):
 
 	Log in to the Linux or Unix server using ssh: ssh user@your-server
 	Edit the /etc/ssh/sshd_config file using vi
