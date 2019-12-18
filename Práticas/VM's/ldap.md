@@ -1,9 +1,11 @@
 ### -Y EXTERNAL
 -Y: especifica o mecanismo de SASL (Simple Authentication Security Layer)
+<br />
 EXTERNAL: permite ao cliente pedir ao servidor que use credenciais estabelecidas por meios externos ao mecanismo para autenticar o cliente
 
 ### -H ldapi:///
 -H: especifica o URI (identificador uniforme de recurso) referente ao servidor LDAP
+<br />
 -H ldapi:/// : para usar a socket de domínio UNIX
 
 ### -x
