@@ -6,6 +6,7 @@ ver os discos da máquina: lsblk
 <br />
 usar os devices do sistema (são 9 mais 3 partições (sda1,sda2,sda3))
 <br />
+<br />
 Feito na winterface web
 
 ##### Raid: rd10
@@ -13,6 +14,8 @@ Feito na winterface web
 	/dev/sd[b-e]
 	
 	# mdadm --create /dev/md0 --level=10 --raid-devices=4 /dev/sd[b-e]
+	# mkfs.ext4 /dev/md0
+	# mount /dev/md0 /dir
 
 ##### LVM:
 
@@ -25,6 +28,10 @@ Feito na winterface web
 	# vgcreate vg2disk /dev/sd[f-g]
 	# lvcreate -L 1G -n lv1 vg2disk
 	# lvcreate -L 1.5G -n lv2 vg2disk
+	# mkfs.ext4 /dev/md-0
+	# mount /dev/md0 /dir
+	# mkfs.ext4 /dev/md-1
+	# mount /dev/md-1 /dir
 
 #### Exportar diretórios da máquina omv por NFS ou SAMBA:
 Na consola web criar shared folders.
