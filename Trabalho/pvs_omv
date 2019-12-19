@@ -1,0 +1,3 @@
+  PV         VG      Fmt  Attr PSize PFree   
+  /dev/sdf   vg2disk lvm2 a--  2.00g  500.00m
+  /dev/sdg   vg2disk lvm2 a--  2.00g 1016.00m
