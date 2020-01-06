@@ -134,8 +134,6 @@ Report file system disk space usage
 -h:  print sizes in powers of 1024
 
 
-
-
 ## Bash scripting
 Iniício do script: #!/bin/bash
 <br />
@@ -147,6 +145,17 @@ Executar:
 	ou 
 	bash nome_do_script.sh
 
-P.40
 
+## Expressões Regulares
+There are as many captures as there are opening parentheses, regardless of the role (or lack of role) that each parenthesized group played in the actual matching. When a parenthesized group is not used (e.g., Mu( ' )?ammar when matched against “Muammar”), its corresponding capture is empty.
+<br />
+If a group is matched more than once, only the contents of the last match arereturned.
+<br />
+For example, with the pattern (I am the (walrus|egg man)\. ?){1,2} matching the text
+	
+	I am the egg man. I am the walrus.
 
+there are two results, one for each set of parentheses:
+	
+	I am the walrus.
+	walrus
