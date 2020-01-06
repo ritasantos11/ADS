@@ -48,40 +48,40 @@ Descobre os ficheiros por nome.
 	
 	$ find [where to start searching from] [expression determines what to find] [-options] [what to find]
 
--o: ou
+•-o: ou
 <br /><br />
 
--atime n: accedido n dias atrás
+•-atime n: accedido n dias atrás
 <br />
--mtime n: modificado n dias atrás
+•-mtime n: modificado n dias atrás
 <br />
--size n: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
+•-size n: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
 <br />
--type c: “ficheiro” é do tipo: f=regular, d=diretório, etc
+•-type c: “ficheiro” é do tipo: f=regular, d=diretório, etc
 <br />
--fstype type: tipo de sistema de ficheiros: 4.2 ou nfs, etc
+•-fstype type: tipo de sistema de ficheiros: 4.2 ou nfs, etc
 <br />
--name nome: nome do ficheiro é nome
+•-name nome: nome do ficheiro é nome
 <br />
--user usr: dono do ficheiro é usr
+•-user usr: dono do ficheiro é usr
 <br />
--group grp: grupo dono do ficheiro é grp
+•-group grp: grupo dono do ficheiro é grp
 <br />
--perm p: permissões do ficheiro são p
+•-perm p: permissões do ficheiro são p
 <br /><br />
 
--print: escreve o caminho do ficheiro que está a ser avaliado
+•-print: escreve o caminho do ficheiro que está a ser avaliado
 <br />
--ls: versão detalhada (ls -l) do comando print
+•-ls: versão detalhada (ls -l) do comando print
 <br />
--exec cmd: executa o comando sobre o ficheiro
+•-exec cmd: executa o comando sobre o ficheiro
 <br />
--ok cmd: o mesmo que o anterior, só que pergunta antes de executar o comando
+•-ok cmd: o mesmo que o anterior, só que pergunta antes de executar o comando
 <br /><br />
 
--xdev: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
+•-xdev: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
 <br />
--prune: Não desce abaixo da pasta encontrada
+•-prune: Não desce abaixo da pasta encontrada
 
 ### awk
 	
@@ -107,7 +107,23 @@ O delimiter default é o tab.
 Ordena linhas de input.
 
 ### uniq
-Imprime linhas únicas.
+Omite linhas adjacentes repetidas.
+
+	File:
+	I love music.
+	I love music.
+	I love music.
+	I love music of Kartik.
+	I love music of Kartik.
+	Thanks.
+
+	$ uniq File
+	I love music.
+	I love music of Kartik.
+	Thanks.
+
+	$ uniq -u File
+	Thanks.
 
 ### wc
 Conta linhas, palavras e caracteres num ficheiro.
