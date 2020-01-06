@@ -7,15 +7,21 @@ Antes que o sistema esteja completamente inicializado, os sistemas de ficheiros 
 Sistemas UNIX conseguem inicializar apenas o suficiente paa executar uma shell na consola do sistema. Essa opção é conhecida por Booting to single-User mode. Acede-se passando um argumento ao kernel no  momento da inicialização.
 
 ## Típico processo de bootstrapping:
-	Ler do boot loader a partir do master boot de inicialização.
-	Carregamento e inicialização do kernel
-	Deteção e configuração de dispositivos
-	Criação de processos do kernel
-	Interveção do administrador (só single-user mode)
-	Execução de scripts de inicialização do sistema
+•Ler do boot loader a partir do master boot de inicialização
+<br />
+•Carregamento e inicialização do kernel
+<br />
+•Deteção e configuração de dispositivos
+<br />
+•Criação de processos do kernel
+<br />
+•Interveção do administrador (só single-user mode)
+<br />
+•Execução de scripts de inicialização do sistema
 
 
 # GRUB
 Default boot loader para alguns sistemas.
 
 P.83
+
