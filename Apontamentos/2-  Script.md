@@ -49,7 +49,7 @@ Descobre os ficheiros por nome.
 	$ find [where to start searching from] [expression determines what to find] [-options] [what to find]
 
 •-o: ou
-<br /><br />
+<br />
 
 •-atime n: accedido n dias atrás
 <br />
@@ -68,7 +68,7 @@ Descobre os ficheiros por nome.
 •-group grp: grupo dono do ficheiro é grp
 <br />
 •-perm p: permissões do ficheiro são p
-<br /><br />
+<br />
 
 •-print: escreve o caminho do ficheiro que está a ser avaliado
 <br />
@@ -77,7 +77,7 @@ Descobre os ficheiros por nome.
 •-exec cmd: executa o comando sobre o ficheiro
 <br />
 •-ok cmd: o mesmo que o anterior, só que pergunta antes de executar o comando
-<br /><br />
+<br />
 
 •-xdev: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
 <br />
