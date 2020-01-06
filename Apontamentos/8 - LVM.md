@@ -8,9 +8,9 @@ Permite realocar espaço dinamicamente da partição greedy para a partição ne
 Agrupa dispositivos de armazenamento individuais em volume de grupos. Os blocos num volume de grupo podem ser alocados a volumes lógicos, que são representados por ficheiros de dispositivos de blocos e agem como partições de disco.
 
 ### Configuração LVM:
--Criar (definir) e inicializar volumes físicos. <br />
--Adicionar os volumes físicos a um volume de grupo. <br />
--Criar volumes lógicos no volume de grupo: servem para enviar os dados que serão gravados nos volumes físicos nos quais estão integrados os grupos de volume. <br />
+•Criar (definir) e inicializar volumes físicos. <br />
+•Adicionar os volumes físicos a um volume de grupo. <br />
+•Criar volumes lógicos no volume de grupo: servem para enviar os dados que serão gravados nos volumes físicos nos quais estão integrados os grupos de volume. <br />
 
 Os PVs (physical volumes) são a base e representam os discos físicos. Os PVs são combinados em VGs (volume groups) de modo a formar uma pool de storage. Por sua vez, sobre os VGs, criam-se os LVs (logic volumes) e a estes podem ser atribuídos sistemas de ficheiros (ext3, ext4…) e associados mount points.
 
@@ -34,11 +34,11 @@ Os PVs (physical volumes) são a base e representam os discos físicos. Os PVs s
 
 O LVM não sabe nada sobre o coneúdo dos seus volumos, logo deve-se ajustar o size dos volumes e dos filesystems. Para reduzir o size, faz-se primeiro no filesystem e para aumentar no volume.
 #### EX: Aumentar size:
-	-verificar se o volume tem free space.
-	-unmount filesystem.
-	-usar lvresize para adicioanr espaço ao volume lógico.
-	-ajustar size do filesystem: resize2fs.
-	-mount filesystem.
+•verificar se o volume tem free space.
+•unmount filesystem.
+•usar lvresize para adicioanr espaço ao volume lógico.
+•ajustar size do filesystem: resize2fs.
+•mount filesystem.
 <br />
 
 	$ sudo umount /mnt/web1

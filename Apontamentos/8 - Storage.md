@@ -1,6 +1,8 @@
 # Linux recipe
 Listar os discos do sistema e identificar um novo drive:
+
 	$ sudo fdisk -l
+	
 A seguir, execute qualquer utilitário de particionamento conveniente para criar uma tabela de partição para o drive.
 Coloque todo o espaço do drive numa partição do tipo não especificado ou não formatado.
 Não instalar filesystem.
@@ -39,12 +41,4 @@ Por fim, execute o sudo mount mountpoint para montar o filesystem.
 Subsecção de tamanho fixo de um dispositivo de armazenamento.
 Cada partição possui o seu próprio file de sipositivo e atua como um dispositivo de armazenamento independente.
 
-
-## RAID
-Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
-
-
-## Volume de grupos e volumes lógicos associados a gerenciadores de volumes lógicos (LVMs)
-Esses sistemas agregam dispositivos físicos para formar conjuntos de armazenamentos chamados volumes de grupos.
-Como o LVM adiciona uma camada de indireção entre blocos lógicos e físicos, ele pode congelar o estado lógico de um volume simplesmente fazendo uma cópia da dabela de mapeamento. Logo, os LVMs geralmente fornecem algum tipo de recurso de snapshot. As escritas no volume são direcionadas para novos blosoc e o LVM mantém tabelas de mapeamento antigas e novas. O LVM precisa de armazenar a imagem original e todos os blocos modificados para que eventualmente fique sem espaço se um snapshot nunca for excluído.
 

@@ -8,11 +8,11 @@ Substituto de telnet (que usa protocolo de comunicação plain-text).
 Arquitetura cliente-servidor
 <br /><br />
 Objetivos podem ser:
--Obter uma shell na máquina remota.
+•Obter uma shell na máquina remota.
 <br />
--Executar um comando.
+•Executar um comando.
 <br />
--Obter um túnel para outra ligação.
+•Obter um túnel para outra ligação.
 
 
 ## Acesso remoto gráfico
@@ -23,9 +23,9 @@ Usa passwords diferentes das da conta na máquina remota
 <br />
 Pode-se usar a ligação direta ou através de túnel ssh (preferível, pois mais seguro):
 <br />
--construindo os túneis como visto anteriormente
+•construindo os túneis como visto anteriormente
 <br />
--ou usando a opção via
+•ou usando a opção via
 <br /><br />
 
 Usou-se o remote viwer.

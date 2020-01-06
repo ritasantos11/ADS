@@ -4,9 +4,10 @@ Quando o kernel executa um file executável com os seus bits de permissão setui
 
 Os users devem poder alterar as suas passwords. Mas como as passwords são guardadas no file /etc/shadow, os users precisam de um comando setuid passwd para aceder.
 O comando passwd verifica quem está executando e personaliza o seu comportamento:
-	-os users só podem alterar apenas as suas passwords.
-	-o root pode alterar qualquer senha.
+•os users só podem alterar apenas as suas passwords.
+•o root pode alterar qualquer senha.
 
 
 
 P.107
+

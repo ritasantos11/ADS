@@ -4,7 +4,7 @@ O conteúdo anterior do mount point fica anecessível enquantou ou sistema estiv
 Os mount points são geralmente diretórios vazios.
 
 	sudo mount /dev/sda4 /users
-		instala o sistema de ficheiros gauradado na partição de disco /dev/sda4 de baixo de /users
+		instala o sistema de ficheiros guardado na partição de disco /dev/sda4 de baixo de /users
 
 ### fuser command
 find out which processes hold references to that filesystem.
@@ -19,8 +19,8 @@ Os 4 bits do tipo de file são definidos quando o file é criado pela 1ºvez e n
 9 permission bits determinam quais operações podem sewr executadas num file e por quem.
 3 conjuntos de permissões definem o acesso ao owner do file, aos group owners e a todos os outros.
 Num regular file, o bit de leitura permite que o file seja aberto e lido. O bit de escrita permite que o contúdo seja modificado, no entando a capacidade de apagar ou renomear o file é controlado pelas permissões do seu diretório pai, porque é aí que o mapeamento do nome para o espaço de dados é realmente armazenado. O bit de execução permite que o file seja executado. Existem 2 tipos de files executáveis:
-	-binários, em que o CPU executa diretamente;
-	-scripts, que devem ser interpretados por um shell ou outro programa.
+•binários, em que o CPU executa diretamente;
+•scripts, que devem ser interpretados por um shell ou outro programa.
 Para um diretório, o bit de execução permite a abertura ou a passagem pelo diretório enquanto o pathname estiver a ser avaliado, mas não eprmite que o seu contúdo seja listado. A combinação de bits de leitura e execução permitem que o contúdo do dir seja listado. A combinação de bits de escrita e execução permite que sejam criados, apagados e renomeados files dentro desse dir.
 
 
@@ -51,3 +51,4 @@ Influencia as permissões default dadas ao file que se criou.
 Cada processo tem um atributo unmask próprio.
 
 P.158
+

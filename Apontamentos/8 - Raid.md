@@ -1,12 +1,12 @@
 # RAID (REDUNDANT ARRAYS OF INEXPENSIVE DISKS)
 Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
 RAID pode:
-	-melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados.
-	-replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.
+•melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados.
+•replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.
 
 Replicação assume 2 formas:
-	-mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes.
-	-esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior.
+•mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes.
+•esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior.
 
 ## RAID 0:
 Usa 2 ou mais discos rígidos paera maximizar o desempenho ao armazenar e acessar info (Stripping array).
