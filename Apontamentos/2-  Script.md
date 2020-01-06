@@ -27,7 +27,7 @@ Ex: o echo imprime o conteúdo da variável var
 	var='ola'
 	echo $var  ou  echo &{var}
 
-	`string` substitui string pelo output do comando lá escrito.
+.`string` substitui string pelo output do comando lá escrito.
 Ex:
 
 	echo "Existe `wc -l /etc/passwd` linhas."
