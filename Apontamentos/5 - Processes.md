@@ -1,10 +1,16 @@
 ## Componentes de um processo
 • Espaço de endereçamento
+<br />
 • Estado (sleeping, stopped, runnable, etc.)
+<br />
 • Prioridade de execução
+<br />
 • Informação sobre os recursos utilizados
+<br />
 • Informação sobre ficheiros e portas de rede abertos
+<br />
 • Máscara de sinais (registo dos sinais bloqueados)
+<br />
 • Dono do processo
 
 ## Processo
