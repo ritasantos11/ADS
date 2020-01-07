@@ -32,7 +32,7 @@ Cada partição de disco tem o seu próprio second-stage boot loader.
 Numa configuração multibooting tem de se decidir qual boot loader vaii ser o master.
 
 ## Systemd
-Gereo sistema e os seus serviços.
+Gere o sistema e os seus serviços.
 
 ## init
 Responsável pelas seguintes atividades no arranque:
