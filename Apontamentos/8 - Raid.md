@@ -10,7 +10,7 @@ Replicação assume 2 formas: <br />
 •esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior. <br /><br />
 
 ## RAID 0:
-Usa 2 ou mais discos rígidos paera maximizar o desempenho ao armazenar e acessar info (Stripping array).
+Usa 2 ou mais discos rígidos para maximizar o desempenho ao armazenar e acessar info (Stripping array).
 <br />
 É o mais rápido mas o menos seguro.
 <br />
@@ -50,7 +50,9 @@ Oferece velocidade de leitura comparável ao RAID 0, porque as leituras podem se
 A matriz continua a funcionar enquanto, pelo menos, 1 drive estiver a funcionar.
 
 ## RAID 5:
-Muito utilizado por servers com pelo menos 3 discos. Cria uma camada de redundância, sacrificando parte da capacidade do sistema para segurança dos dados.
+Muito utilizado por servers com pelo menos 3 discos.
+<br />
+Cria uma camada de redundância, sacrificando parte da capacidade do sistema para segurança dos dados.
 <br />
 São criados bits de paridade e acrescentados aos dados, escritos de forma alternada em todos os discos.
 <br />
