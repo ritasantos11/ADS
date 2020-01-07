@@ -1,15 +1,20 @@
 # RAID (REDUNDANT ARRAYS OF INEXPENSIVE DISKS)
 Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
 <br />
+O sistema avisa quando à falha de 1 disco.
+<br />
 RAID pode: <br />
 • melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados. <br />
 • replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.<br /><br />
 
 Replicação assume 2 formas: <br />
 • mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes. <br /><br />
-•esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior. <br /><br />
+•esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior.
 
-## RAID 0:
+#### JBOD
+Discos vistos como um único, sendo escritos sequencialmente.
+
+#### RAID 0:
 Usa 2 ou mais discos rígidos para maximizar o desempenho ao armazenar e acessar info (Stripping array).
 <br />
 É o mais rápido mas o menos seguro.
@@ -28,7 +33,7 @@ Combina 2 ou mais drivers de tamanho igual, mas em vez de empilhá-los de ponta 
 <br />
 As leituras e as escritas sequenciais são distribuídas entre vários discos, diminuindo os tempos de escrita e acesso.
 
-## RAID 1:
+#### RAID 1:
 Só usa 2 discos.
 <br />
 A escrita é feita simultâneamente nos discos. Faz cópia dos dados em tempo real, sem intervenção do user.
@@ -49,7 +54,7 @@ Oferece velocidade de leitura comparável ao RAID 0, porque as leituras podem se
 <br />
 A matriz continua a funcionar enquanto, pelo menos, 1 drive estiver a funcionar.
 
-## RAID 5:
+#### RAID 5:
 Muito utilizado por servers com pelo menos 3 discos.
 <br />
 Cria uma camada de redundância, sacrificando parte da capacidade do sistema para segurança dos dados.
@@ -67,7 +72,7 @@ Um arranjo de paridade para ajudar a reconstruir os dados do drive em caso de fa
 Mais eficiente no uso de espaço em disco do que o raid 1.
 Se houver N drives numa matriz (são necessários pelo menos 3), N-1 delas pode armazenar dados.
 
-## RAID 6
+#### RAID 6
 Dupla paridade, ou seja, podem falhar até 2 discos sem perda de dados, no entanto será utilizado o dobro do espaço para gravar a paridade e manter a redundância do sistema.
 <br />
 Num sistema RAID 6 com oito discos, a capacidade total disponível será a multiplicação do valor de seis hard disks, sendo que os outros dois servirão para redundância.
@@ -77,7 +82,7 @@ A medida que aumentarmos a número de discos nesse arranjo, também minimizaremo
 
 RAID 5 e RAID 1 de 2 discos podem tolerar apenas a falha de um único dispositivo. Depois de ocorrer uma falha, a matriz fica vulnerável a uma segunda falha.
 
-## RAID 10
+#### RAID 10
 Pelo menos 4 discos, onde são criadas combinações de 2 ou mais grupos RAID 1 para escrita simultânea (RAID 0).
 <br />
 Une desempenho e segurança num único sítio.
@@ -87,11 +92,11 @@ Além de oferecer um desempenho superior no momento de transferência dos dados,
 O maior inconveniente para usuários que fazem uso dos arranjos RAID 10 é o grande número de discos rígidos utilizados para segurança dos dados em relação aos demais, tornando-se economicamente inviável para algumas aplicações.
 
 
-## Disk failure recovery
+### Disk failure recovery
 Substitui-se o disco com falha por outro de tamanho semelhante ou maior e depois diz-se à implementação do raid para substituir o antigo disco pelo novo. A seguir, segue-se um longo periodo durante o qual as infos de paridade ou de mirror são reescritas no novo disco.
 
 
-## Desvantagens do RAID 5
+### Desvantagens do RAID 5
 O raid 5 não substitui os backups offline regulares.
 <br />
 Protege o sistema contra a falha de um disco.
@@ -114,31 +119,31 @@ The virtual file /proc/mdstat always contains a summary of md’s status and the
 It is especially useful to keep an eye on the
 /proc/mdstat file after adding a new disk or replacing a faulty drive. (watch cat /proc/mdstat is a handy idiom.)
 
-###  mdadm --detail --scan
+####  mdadm --detail --scan
 Dumps the current RAID setup into a configuration file.
 
-### Criar um raid 5 com 3 dispositivos:
+#### Criar um raid 5 com 3 dispositivos:
 	
 	sudo mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
 	mdadm: array /dev/md0 started.
 
-### Permitir o raid na inicialização:
+#### Permitir o raid na inicialização:
 	
 	$ sudo mdadm -As /dev/md0
 
-### Parar o raid:
+#### Parar o raid:
 	
 	$ sudo mdadm -S /dev/md0
 
-### Marcar um disco como failed:
+#### Marcar um disco como failed:
 
 	$ sudo mdadm /dev/md0 -f /dev/sdc1
 	mdadm: set /dev/sdc1 faulty in /dev/md0
 
-### Remover o drive da configuração do raid:
+#### Remover o drive da configuração do raid:
 
 	$ sudo mdadm /dev/md0 -r /dev/sdc1
 
-### Adicionar o drive ao array sem substituir o hardware:
+#### Adicionar o drive ao array sem substituir o hardware:
 
 	$ sudo mdadm /dev/md0 -a /dev/sdc1
