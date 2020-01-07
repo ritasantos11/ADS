@@ -67,6 +67,10 @@ Não há delegação de privilégios. No MAC, users não podem delegar o seu ace
 
 ### Access control lists (ACLs)
 Generelização do modelo de permissões user/group/other tradicional que acomoda permissões para múltiplos users e groups de uma vez.
+<br />
+Cada file ou dir podem ter associado um  ACL que lista as regras de permissões a ser aplicadas a eles. Cada regra é uma entrada no ACL (ACE).
+<br />
+Cada ACE identifica o user ou group a aplicar a regra e especifica o conjunto de permissões a serem dadas.
 
 
 ## Vantagens do sudo
