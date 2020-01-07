@@ -77,5 +77,5 @@ Generelização do modelo de permissões user/group/other tradicional que acomod
 • Único ficheiro para controlar o acesso de toda a rede. <br />
 
 ## Desvantagens do sudo
-Conta de utilizador passa a ser ponto de falha
+• Conta de utilizador passa a ser ponto de falha
 • sudo su
