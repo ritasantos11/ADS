@@ -5,7 +5,7 @@ O sistema avisa quando à falha de 1 disco.
 <br />
 RAID pode: <br />
 • melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados. <br />
-• replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.<br /><br />
+• replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.<br />
 
 Replicação assume 2 formas: <br />
 • mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes. <br /><br />
@@ -110,17 +110,18 @@ Grava blocos de dados em discos N-1 e blocos de paridade no Nth disco. Sempre qu
 Não sabe o que o novo bloco de paridade tem de conter até ler o bloco antigo e os dados antigos.
 <br />
 Cada escrita será 2 leituras e 2 escritas.
-<br /><br />
+<br />
+Vulnerável à corrupção.
+<br />
+A atualização incremental dos dados de paridade é mais eficiente do que ler a faixa (stripe) inteira e recalcular a paridade da faixa com base nos dados originais.
+<br />
+Em nenhum momento os dados de paridade são validados ou recalculados. Se algum bloco de uma faixa cair fora de sincronia com o bloco de paridade, esse fato nunca se tornará evidente no uso normal. As leituras dos blocos de dados ainda retornarão os dados corretos.
 
-Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incremental updating of parity data is more efficient than reading the entire stripe and recalculating the stripe’s parity based on the original data. On the other hand, it means that at no point is parity data ever validated or recalculated. If any block in a stripe should fall out of sync with the parity block, that fact will never become evident in normal use; reads of the data blocks will still return the correct data.
-<br />
-The virtual file /proc/mdstat always contains a summary of md’s status and the status of all the system’s RAID arrays.
-<br />
-It is especially useful to keep an eye on the
-/proc/mdstat file after adding a new disk or replacing a faulty drive. (watch cat /proc/mdstat is a handy idiom.)
+#### file /proc/mdstat
+Contém o sumário do estado dos md's (software do raid) e o estado de todas as matrizes RAID do sistema.
 
 ####  mdadm --detail --scan
-Dumps the current RAID setup into a configuration file.
+Mostra a configuração raid atual.
 
 #### Criar um raid 5 com 3 dispositivos:
 	

@@ -13,14 +13,25 @@ Desmontar (estando todos os files fechados e nenhum processo a correr):
 
 	$ umount /boot
 
-#### file /etc/fstab
+O mount point de um filesystem pode ser qualquer dir,  mas os files e subdirs dentro não são acessíveis se o filesystem estiver montado.
+
+### Comando df
+Info sobre os filesystems.
+
+### file /etc/fstab
 Lista de filesystems a serem montados no boot.
+
+### Comando fsck
+Check and repair filesystem.
 
 ### Comando fuser
 Serve para ver quais os processos que mantêm referências para um dado filesystem.
 
 ### Comando lsof
 Lista de open files.
+
+### Dir lost+found
+Contém files cujo diretório pai não pode ser determinado, colocados lá pelo fsck.
 
 
 ## File types
