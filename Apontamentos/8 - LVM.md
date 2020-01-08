@@ -57,3 +57,12 @@ O LVM não sabe nada sobre o coneúdo dos seus volumos, logo deve-se ajustar o s
 	-Necessário lvchange porque se criou um snapshot do web1.
 <br />
 Maior parte dos filesystems criam um diretório lost+found na raiz de cada filesystem onde o comando fsck pode depositar files cujo diretório pai não pode ser determinado. Este diretório lost+found tem algum espaço extra prealocado para que o fsck consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
+
+### Snapchots
+Utiliza COW (copy on write): apenas copia o orignal quando este é alterado.
+
+	$ sudo lvcreate –L 100M –s -n testVG/testLV_snap testLV
+
+A snapshot pode ser montada.
+<br />
+No LV criado para a snapshot são guardadas as mudançãs no sistema origiinal. O tamanho alocado deve ser suficiente para todas as mudanças.

@@ -1,3 +1,5 @@
+Os discos rígidos são sistemas tolerantes a falhas que usam codificção de correção de erros e firmware inteligente para esconder as suas imperfeições do host do SO.
+
 ## Linux recipe
 Listar os discos do sistema e identificar um novo drive:
 
@@ -39,13 +41,95 @@ No file /etc/fstab, copie a linha para um filesystem existente e ajuste-a. O dis
 <br />
 Por fim, execute o sudo mount mountpoint para montar o filesystem.
 
-## Solid state disks
+## Solid state disks (SSD)
 Espalham as leituras e escritas em bancos de células de memória flash, que são individualmente bastante lentas em comparação com os discos rígidos modernos.
+
+## Interfaces de acesso aos discos
+#### ATA (Advanced Technology Attachment)
+Usa um protocolo de alto nível para a comunicação entre o computador e os discos.
 <br />
+Os discos PATA (Parallel ATA interface) são chamados de IDE.
 
+#### SATA (Seral ATA)
+Sucessor do PATA.
+<br />
+Suporta hotswapping.
+<br />
+Tem débitos de transferência mais elevados que ATA.
 
-## Partição
+#### SCSI (Small computer system interface)
+Suporta vários discos num BUS e várias velocidades e estilos de comunicação.
+<br />
+Tem débitos altos de transferência.
+<br />
+Os comandos definidos no stander são utilizados noutros protocolos.
+
+#### Non-volatile memory express (NVMe)
+Foi desenvolvido para discos SSD que têm reduzida latência e paralelismo.
+<br />
+Utiliza PCIe (Periperal component interconnect express).
+
+#### Fibre Channel
+Interface série em fibra ótica.
+<br />
+Tem elevados débitos de transferência.
+<br />
+SUporta a ligação de vários dispositivos.
+<br />
+Pode transportar comandos SCSI.
+
+#### USB (Universal serial bus)
+Tem vários débitos.
+<br />
+Tem discos externos (fácil hotswap).
+
+#### Firewire (IEEE 1394)
+Tem débitos mais elevados que USB, com hotswap.
+<br />
+Prmite ligação entre dispositivos ao BUS.
+
+## Dispositivo de armazenamento (/dev/sda)
+Hard disk, flahs drive, SSD, RAID externo implementado em hardware.
+
+## Partição (/dev/sda1)
 Subsecção de tamanho fixo de um dispositivo de armazenamento.
-Cada partição possui o seu próprio file de sipositivo e atua como um dispositivo de armazenamento independente.
+<br />
+Cada partição possui o seu próprio file de dispositivo e atua como um dispositivo de armazenamento independente.
+
+### hdparm
+Ferramenta linux para configurar e ver os parâmetros dos discos.
+
+## SMART (Self-Monitoring, Analysis and Reporting Technology)
+Permite monitorizar e configurar a “vigilância” pelo próprio
+Sistema do disco.
+<br />
+O software standard para disputas SMART nos sistemas unix e linux é o pacote smartmontools.
+
+#### smartmontools
+Usa o daemon smartd e o utilitário smartctl.
 
 
+## Disk Partitions
+• Ter um dispositvo de backup do root que se pode inicializar se algo de errado ocorrer na partição normal do root. Idealmente, o backup do root fica num disco diferente do root normal para proteger de corrupção e problemas de hardware. Um backup do root no mesmo disco não tem qualquer valor.
+<br />
+• Como a partição do root é duplicada, deve ser pequena para não ocupar tanto espaço haver 2 cópias. Por isso é que /usr (que contém as librarias e dados do sistema) está num volume separado.
+<br />
+• Ter /temp num filesystem separado	limita os files temporários a um tamanho finito.
+<br />
+• Como /var guarda os files de log, /var tem de estar noutra partição para ser mais fácil encher o root.
+<br />
+• Pôr os diretórios home dos users numa partição ou volume separado para o caso de a partição do root ser destruída ou corrompida.
+<br />
+• Espaço de swap em discos diferentes pode aumentar a performance.
+<br /><br />
+O sistema escreve uma "label" no início do disco para definir o nº de blocos incluídos em cada partição.
+<br />
+O device driver responsável por representar o disco lê a label e usa a tabela de partição para calcular a localização física de cada partição.
+
+### MBR (master boot record)
+Tem 4 partições.
+
+### GPT: GUID (globally unique ID) partition tables
+Define só 1 tipo de partição e pode-se criar muitas.
+<br />
+Cada partição tem um tipo específico por um ID code.
