@@ -18,13 +18,13 @@ As entradas são esquemetizadas através do uso do atributo *objectClass*. As Ob
 O nível mais alto da árvore de classes é o *top*, que indica que a entrada contém um atributo *objectClass*.
 
 ### Aplicações do LDAP
-• Repositório central de informação sobre utilizadores.
+• Repositório central de informação sobre utilizadores. <br />
 • Aplicações podem aceder à informação centralizada para as suas funções:
-- Ex.: servidor de email verificar endereços válidos
+- Ex.: servidor de email verificar endereços válidos <br />
 • Aplicações podem autenticar utilizadores:
-- Ex.: Mooshak, codex, Proxmox, etc.
+- Ex.: Mooshak, codex, Proxmox, etc. <br />
 • Ferramentas para linha de comandos:
-- Permite scripts
-• Mudanças no LDAP são visíveis imediatamente.
+- Permite scripts <br />
+• Mudanças no LDAP são visíveis imediatamente. <br />
 
 
