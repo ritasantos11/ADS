@@ -29,14 +29,47 @@ O nível mais alto da árvore de classes é o *top*, que indica que a entrada co
 
 ### slapd
 Standard LDAP server daemon.
+<br />
+Contém os ficheiros de configuração e utilitários.
+
+### slurpd
+Serve, para quando existem vários servidores LDAP, para manter a replicação aos servidores súbditos.
 
 ### OpenLDAP
-*suffix* é 
-suffix is your “LDAP basename.” It’s the root of your portion of the LDAP
-namespace, similar in concept to your DNS domain name. In fact, this example
-illustrates the use of a DNS domain name as an LDAP basename, which is a com-
-mon practice.
-rootdn is your administrator’s name, and rootpw is the administrator’s UNIX-
-format (DES) password. Note that the domain components leading up to the ad-
-ministrator’s name must also be specified. You can either copy and paste the pass-
-word from /etc/shadow
+*suffix* é o nome de base do LDAP. É a raiz da parte do espaço para nome LDAP (LDAP namespace), semelhante ao conceito ao DNS domain name.
+<br />
+*rootdn* é o nome do administrador.
+<br />
+*rootpw* é a password do administtrador
+
+### Migration tools
+Permite migrar estrutura existente para o LDAP.
+
+### Atributos
+• dc: domain componente <br />
+• cn: common name <br />
+• ou: organization unit
+
+### Esquemas
+Estão já alguns definidos em /etc/openldap/schema/.
+
+### SASL (Simple Authentication and Security Layer)
+
+### Certificados self-signed
+A chave privada do prórpio certificado assina o certificado.
+<br />
+O CA (certificate authority) é a entidade do próprio certificado.
+
+### Interlúdio autenticação
+##### authselect
+Permite configurar onde aceder a autenticação e identificação.
+<br />
+Substitui *authconfig*.
+<br />
+Define profiles para diminuir erros de mudar vários ficheiros.
+
+### SSSD (System Security Services Daemon)
+Daemon de gestão para consulta de diretórios de informação e
+autenticação.
+<br />
+Permite configurar diretório LDAP e o seu acesso.
