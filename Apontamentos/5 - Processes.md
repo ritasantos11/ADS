@@ -56,6 +56,10 @@ O GID entra em ação quando um processo cria novos files. Dependendo como as pe
 ## Niceness
 A prioridade de agendamento de um processo determina quanto tempo de CPU ele recebe.
 <br />
+Só o root pode aumentar a prioridade de um processo.
+<br />
+Outro user que não o root pode aumentar o nice dos seus processos para torná-los menos prioritários.
+<br />
 O kernel usa um algoritmo dinâmico para calcular prioridades.
 <br />
 O kernel presta atenção a um valor definido administrativamente, chamado de nice value ou niceness.

@@ -33,10 +33,3 @@ Os grupos podem ter passwords (comando gpasswd).
 
 ## /etc/skel
 Guarda os files de startup.
-
-## LDAP
-É um repositório generalizado, semelhante a um banco de dados, que pode armazenar dados de gerenciamento de users e outros tipos de dados.
-<br />
-Usa um modelo hierárquico de cliente/servidor que suporta vários servidores e vários clientes simultâneamente.
-<br />
-Uma das grandes vantagens do LDAP como repositório em todo o site para dados de login é que ele pode impor UIDs e GIDs únicos em todos os sistemas.

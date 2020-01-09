@@ -74,6 +74,8 @@ Os 4 bits do tipo de file são definidos quando o file é criado pela 1ºvez e n
 3 conjuntos de permissões definem o acesso ao owner do file, aos group owners e a todos os outros.
 
 ### The setuid and setgid bits
+Corre o programa comos e fosse o dono dele.
+<br />
 Os bits com valores octais 4000 e 2000 são dos bits setuid e setgid.
 <br />
 Quando definidos em files executáveis, esses bits permitem que os programas acedam a files e processos que, de outra forma, estariam fora dos limites para o user que os executa.
@@ -91,6 +93,10 @@ O comando chmod altera as permissões dum file.
 Só o owner do file ou o superuser pode alterar as permissões.
 <br />
 Com a opção -R, chmod faz update recursivamente às permissões dentro do dir.
+<br />
+Retira as permissões de execução de todos os users, incluindo o dono:
+
+	chmod a-x
 
 ### chown and chgrp: change ownership and group
 Só pode mudar o grupo do file o owner do file e pertencer ao grupo que se está a mudar ou o superuser.

@@ -1,4 +1,10 @@
 ## LDAP (Lightweight Directory Access Protocol)
+É um repositório generalizado, semelhante a um banco de dados, que pode armazenar dados de gerenciamento de users e outros tipos de dados.
+<br />
+Usa um modelo hierárquico de cliente/servidor que suporta vários servidores e vários clientes simultâneamente.
+<br />
+Uma das grandes vantagens do LDAP como repositório em todo o site para dados de login é que ele pode impor UIDs e GIDs únicos em todos os sistemas.
+<br />
 Permite fazer a gestão de utilizadores e dos seus atributos.
 <br />
 Permite ter UIDs e GIDs únicos num domínio (vários sistemas).
