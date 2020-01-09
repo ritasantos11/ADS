@@ -19,12 +19,12 @@ O nível mais alto da árvore de classes é o *top*, que indica que a entrada co
 
 ### Aplicações do LDAP
 • Repositório central de informação sobre utilizadores. <br />
-• Aplicações podem aceder à informação centralizada para as suas funções:
-- Ex.: servidor de email verificar endereços válidos <br />
-• Aplicações podem autenticar utilizadores:
-- Ex.: Mooshak, codex, Proxmox, etc. <br />
-• Ferramentas para linha de comandos:
-- Permite scripts <br />
+• Aplicações podem aceder à informação centralizada para as suas funções: <br />
+    - Ex.: servidor de email verificar endereços válidos <br />
+• Aplicações podem autenticar utilizadores: <br />
+    - Ex.: Mooshak, codex, Proxmox, etc. <br />
+• Ferramentas para linha de comandos: <br />
+    - Permite scripts <br />
 • Mudanças no LDAP são visíveis imediatamente. <br />
 
 
