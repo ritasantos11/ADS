@@ -25,6 +25,18 @@ O nível mais alto da árvore de classes é o *top*, que indica que a entrada co
     - Ex.: Mooshak, codex, Proxmox, etc. <br />
 • Ferramentas para linha de comandos: <br />
     - Permite scripts <br />
-• Mudanças no LDAP são visíveis imediatamente. <br />
+• Mudanças no LDAP são visíveis imediatamente.
 
+### slapd
+Standard LDAP server daemon.
 
+### OpenLDAP
+*suffix* é 
+suffix is your “LDAP basename.” It’s the root of your portion of the LDAP
+namespace, similar in concept to your DNS domain name. In fact, this example
+illustrates the use of a DNS domain name as an LDAP basename, which is a com-
+mon practice.
+rootdn is your administrator’s name, and rootpw is the administrator’s UNIX-
+format (DES) password. Note that the domain components leading up to the ad-
+ministrator’s name must also be specified. You can either copy and paste the pass-
+word from /etc/shadow
