@@ -5,9 +5,9 @@ Normalmente, *STDIN* lê do terminal e o *STDOUT* e *STDERR* escreveM para o ecr
 <br />
 Maior parte dos comandos lêem o input do *STDIN* e escrevem o seu output para o *STDOUT* e as mensagens de erro para o *STDERR*.
 
-	*<* conecta o *STDIN* do comando ao conteúdo dum ficheiro.
-	*>* e *>>* redirecionam o *STDOUT*.
-	*>* substitui o conteúdo dum ficheiro existente e *>>* adiciona ao ficheiro.
+	< conecta o STDIN do comando ao conteúdo dum ficheiro.
+	> e >> redirecionam o STDOUT.
+	> substitui o conteúdo dum ficheiro existente e >> adiciona ao ficheiro.
 
 Para redirecionar o *STDOUT* e o *STDERR* para o mesmo sítio usa-se *>&*.
 <br />
@@ -53,35 +53,33 @@ Descobre os ficheiros por nome.
 <br />
 • *-mtime n*: modificado n dias atrás
 <br />
-• -size n: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
+• *-size n*: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
 <br />
-• -type c: “ficheiro” é do tipo: f=regular, d=diretório, etc
+• *-type c*: “ficheiro” é do tipo: f=regular, d=diretório, etc
 <br />
-• -fstype type: tipo de sistema de ficheiros: 4.2 ou nfs, etc
+• *-fstype type*: tipo de sistema de ficheiros: 4.2 ou nfs, etc
 <br />
-• -name nome: nome do ficheiro é nome
+• *-name nome*: nome do ficheiro é nome
 <br />
-• -user usr: dono do ficheiro é usr
+• *-user usr*: dono do ficheiro é usr
 <br />
-• -group grp: grupo dono do ficheiro é grp
+• *-group grp*: grupo dono do ficheiro é grp
 <br />
-• -perm p: permissões do ficheiro são p
+• *-perm p*: permissões do ficheiro são p
 <br />
+• *-print*: escreve o caminho do ficheiro que está a ser avaliado
+<br />
+• *-ls*: versão detalhada (ls -l) do comando print
+<br />
+• *-exec cmd*: executa o comando sobre o ficheiro
+<br />
+• *-ok cmd*: o mesmo que o anterior, só que pergunta antes de executar o comando
+<br />
+• *-xdev*: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
+<br />
+• *-prune*: Não desce abaixo da pasta encontrada
 
-• -print: escreve o caminho do ficheiro que está a ser avaliado
-<br />
-• -ls: versão detalhada (ls -l) do comando print
-<br />
-• -exec cmd: executa o comando sobre o ficheiro
-<br />
-• -ok cmd: o mesmo que o anterior, só que pergunta antes de executar o comando
-<br />
-
-• -xdev: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
-<br />
-• -prune: Não desce abaixo da pasta encontrada
-
-### awk
+### *awk*
 	
 	ps -ef | grep "firefox" | awk '{print $1}'
 
@@ -89,22 +87,22 @@ Descobre os ficheiros por nome.
 	awk '{sum+=$7}; END {print "Total de gasto \
 	em disco = " sum}'
 
-### xargs
+### *xargs*
 Automatiza a aplicação de comandos sobre um grupo de objetos.
 <br />
 Normalmente elemento final de uma pipe para aplicar repetidamente um comando aos objetos produzidos pela pipe.
 
-### cut
+### *cut*
 Separa linhas em campos.
 <br />
 Imprime partes selecionadas de cada linha do input.
 <br />
 O delimiter default é o tab.
 
-### sort
+### *sort*
 Ordena linhas de input.
 
-### uniq
+### *uniq*
 Omite linhas adjacentes repetidas.
 
 	File:
@@ -123,53 +121,42 @@ Omite linhas adjacentes repetidas.
 	$ uniq -u File
 	Thanks.
 
-### wc
+### *wc*
 Conta linhas, palavras e caracteres num ficheiro.
 
-### tee
+### *tee*
 Copia input para 2 sítios.
 <br />
 Copia input para o STDOUT e para o ficheiro especificado no comando.
 
-### head e tail
+### *head* e *tail*
 Lê o início e o fim do ficheiro respetivamente.
 <br />
 Default: 10 linhas
 
-### tail -f
+### *tail -f*
 Espera por novas linhas no ficheiro e imprime-as à medida que são adicionadas.
 
-### grep
+### *grep*
 Procura texto no input dado e imprime as linhas q correspondem ao que se está a procurar.
 
-### df
-Report file system disk space usage
+### *df*
+Report file system disk space usage.
 <br />
--h:  print sizes in powers of 1024
+*-h*:  print sizes in powers of 1024.
 
 
 ## Bash scripting
-Iniício do script: #!/bin/bash
-<br />
-Preparar o ficheiro para correr: chmod +x nome_do_script.sh
-<br />
+Iniício do script:
+	
+	#!/bin/bash
+
+Preparar o ficheiro para correr:
+	
+	chmod +x nome_do_script.sh
+
 Executar:
 	
 	./nome_do_script.sh
 	ou 
 	bash nome_do_script.sh
-
-
-## Expressões Regulares
-There are as many captures as there are opening parentheses, regardless of the role (or lack of role) that each parenthesized group played in the actual matching. When a parenthesized group is not used (e.g., Mu( ' )?ammar when matched against “Muammar”), its corresponding capture is empty.
-<br />
-If a group is matched more than once, only the contents of the last match arereturned.
-<br />
-For example, with the pattern (I am the (walrus|egg man)\. ?){1,2} matching the text
-	
-	I am the egg man. I am the walrus.
-
-there are two results, one for each set of parentheses:
-	
-	I am the walrus.
-	walrus
