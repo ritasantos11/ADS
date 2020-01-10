@@ -11,7 +11,7 @@ Coloque todo o espaço do drive numa partição do tipo não especificado ou nã
 <br />
 Não instalar filesystem.
 <br />
-Dispositivo da nova partição: /dev/sdc1
+Dispositivo da nova partição: */dev/sdc1*
 
 #### Preparar para uso de LVM:
 	
@@ -37,7 +37,7 @@ Dispositivo da nova partição: /dev/sdc1
 
 	$ sudo vi /etc/fstab
 
-No file /etc/fstab, copie a linha para um filesystem existente e ajuste-a. O dispositivo a ser montado é /dev/vgname/volname. Se o file fstab existente identificar volumes pelo UUID substitua a cláusula UUID = xxx pelo file do dispositivo. A identificação UUID não é necessária para volumes LVM.
+No file */etc/fstab*, copie a linha para um filesystem existente e ajuste-a. O dispositivo a ser montado é */dev/vgname/volname*. Se o file fstab existente identificar volumes pelo UUID substitua a cláusula UUID = xxx pelo file do dispositivo. A identificação UUID não é necessária para volumes LVM.
 <br />
 Por fim, execute o sudo mount mountpoint para montar o filesystem.
 
@@ -57,17 +57,17 @@ Suporta hotswapping.
 <br />
 Tem débitos de transferência mais elevados que ATA.
 
-#### SCSI (Small computer system interface)
+#### SCSI (Small Computer System Interface)
 Suporta vários discos num BUS e várias velocidades e estilos de comunicação.
 <br />
 Tem débitos altos de transferência.
 <br />
 Os comandos definidos no stander são utilizados noutros protocolos.
 
-#### Non-volatile memory express (NVMe)
+#### Non-Volatile Memory express (NVMe)
 Foi desenvolvido para discos SSD que têm reduzida latência e paralelismo.
 <br />
-Utiliza PCIe (Periperal component interconnect express).
+Utiliza PCIe (Periperal Component Interconnect express).
 
 #### Fibre Channel
 Interface série em fibra ótica.
@@ -78,7 +78,7 @@ SUporta a ligação de vários dispositivos.
 <br />
 Pode transportar comandos SCSI.
 
-#### USB (Universal serial bus)
+#### USB (Universal Serial Bus)
 Tem vários débitos.
 <br />
 Tem discos externos (fácil hotswap).
@@ -86,37 +86,35 @@ Tem discos externos (fácil hotswap).
 #### Firewire (IEEE 1394)
 Tem débitos mais elevados que USB, com hotswap.
 <br />
-Prmite ligação entre dispositivos ao BUS.
+Permite ligação entre dispositivos ao BUS.
 
-## Dispositivo de armazenamento (/dev/sda)
+## Dispositivo de armazenamento (*/dev/sda*)
 Hard disk, flahs drive, SSD, RAID externo implementado em hardware.
 
-## Partição (/dev/sda1)
+## Partição (*/dev/sda1*)
 Subsecção de tamanho fixo de um dispositivo de armazenamento.
 <br />
 Cada partição possui o seu próprio file de dispositivo e atua como um dispositivo de armazenamento independente.
 
-### hdparm
+### *hdparm*
 Ferramenta linux para configurar e ver os parâmetros dos discos.
 
 ## SMART (Self-Monitoring, Analysis and Reporting Technology)
-Permite monitorizar e configurar a “vigilância” pelo próprio
-Sistema do disco.
+Permite monitorizar e configurar a “vigilância” pelo próprio sistema do disco.
 <br />
-O software standard para disputas SMART nos sistemas unix e linux é o pacote smartmontools.
+O software standard para disputas SMART nos sistemas unix e linux é o pacote *smartmontools*.
 
-#### smartmontools
-Usa o daemon smartd e o utilitário smartctl.
-
+#### *smartmontools*
+Usa o daemon *smartd* e o utilitário *smartctl*.
 
 ## Disk Partitions
 • Ter um dispositvo de backup do root que se pode inicializar se algo de errado ocorrer na partição normal do root. Idealmente, o backup do root fica num disco diferente do root normal para proteger de corrupção e problemas de hardware. Um backup do root no mesmo disco não tem qualquer valor.
 <br />
-• Como a partição do root é duplicada, deve ser pequena para não ocupar tanto espaço haver 2 cópias. Por isso é que /usr (que contém as librarias e dados do sistema) está num volume separado.
+• Como a partição do root é duplicada, deve ser pequena para não ocupar tanto espaço haver 2 cópias. Por isso é que */usr* (que contém as librarias e dados do sistema) está num volume separado.
 <br />
-• Ter /temp num filesystem separado	limita os files temporários a um tamanho finito.
+• Ter */tmp* num filesystem separado	limita os files temporários a um tamanho finito.
 <br />
-• Como /var guarda os files de log, /var tem de estar noutra partição para ser mais fácil encher o root.
+• Como */var* guarda os files de log, /var tem de estar noutra partição para ser mais fácil encher o root.
 <br />
 • Pôr os diretórios home dos users numa partição ou volume separado para o caso de a partição do root ser destruída ou corrompida.
 <br />
@@ -126,10 +124,10 @@ O sistema escreve uma "label" no início do disco para definir o nº de blocos i
 <br />
 O device driver responsável por representar o disco lê a label e usa a tabela de partição para calcular a localização física de cada partição.
 
-### MBR (master boot record)
+### MBR (Master Boot Record)
 Tem 4 partições.
 
-### GPT: GUID (globally unique ID) partition tables
+### GPT: GUID (Globally Unique ID) Partition Tables
 Define só 1 tipo de partição e pode-se criar muitas.
 <br />
 Cada partição tem um tipo específico por um ID code.
