@@ -2,29 +2,30 @@
 Bootstrapping is the standard term for “starting up a computer.”
 <br />
 Durante o bootstrapping, o kernel é carregado para a memória e começa a executar. Muitas tarefas de inicializações são desempenhadas e o sistema torna-se válido para os users.
-Quando um computador é ligado, executa em primeiro lugar código de boot que está guardado em ROM. Esse código tenta entender como carregar e começar o kernel. O kernel investiga o hardware do sistema e cria o processo init, que é sempre o número 1.
 <br />
-Antes que o sistema esteja completamente inicializado, os sistemas de ficheiros têm de ser verificados e montados e os daemons do sistema inicializados. Esses procedimentos são gerados por uma série de scripts de shell que são executados em sequência pelo init.
-<br /><br />
+Quando um computador é ligado, executa em primeiro lugar código de boot que está guardado na ROM. Esse código tenta entender como carregar e começar o kernel. O kernel investiga o hardware do sistema e cria o processo *init*, que é sempre o número 1.
+<br />
+Antes que o sistema esteja completamente inicializado, os sistemas de ficheiros têm de ser verificados e montados e os daemons do sistema inicializados. Esses procedimentos são gerados por uma série de scripts de shell que são executados em sequência pelo *init*.
+<br />
 Sistemas UNIX conseguem inicializar apenas o suficiente para executar uma shell na consola do sistema. Essa opção é conhecida por Booting to single-User mode. Acede-se passando um argumento ao kernel no  momento da inicialização.
 
 ### Típico processo de bootstrapping:
-•Ler do boot loader a partir do master boot de inicialização
+• Ler do boot loader a partir do master boot de inicialização.
 <br />
-•Carregamento e inicialização do kernel
+• Carregamento e inicialização do kernel.
 <br />
-•Deteção e configuração de dispositivos
+• Deteção e configuração de dispositivos.
 <br />
-•Criação de processos do kernel
+• Criação de processos do kernel.
 <br />
-•Interveção do administrador (só single-user mode)
+• Interveção do administrador (só single-user mode)..
 <br />
-•Execução de scripts de inicialização do sistema
+• Execução de scripts de inicialização do sistema.
 
 ## Grub (The Grand Unfied Boot Loader)
 Default boot loader para alguns sistemas.
 <br />
-Por defauld, o Grub lê o file de configuração de boot default no início.
+Por defauld, o grub lê o file de configuração de boot default no início.
 
 ## Multibooting
 Cada partição de disco tem o seu próprio second-stage boot loader.
@@ -34,8 +35,8 @@ Numa configuração multibooting tem de se decidir qual boot loader vaii ser o m
 ## Systemd
 Gere o sistema e os seus serviços.
 
-## init
-Responsável pelas seguintes atividades no arranque:
+## *init*
+Responsável pelas seguintes atividades no arranque: <br />
 • Verificar integridade dos sistemas de ficheiros. <br />
 • Montar discos locais (/etc/fstab). <br />
 • Iniciar áreas de swap. <br />
@@ -44,11 +45,9 @@ Responsável pelas seguintes atividades no arranque:
 • Arrancar serviços (daemons) para impressão, email, logging, cron, etc. (alguns como de log podem ser lançados antes) <br />
 • Ativar mecanismos de login.
 <br /><br />
-Em Linux o init é configurado de modo a proceder a um
-arranque ao estilo “System V”.
+Em Linux o *init* é configurado de modo a proceder a um arranque ao estilo “System V”.
 <br />
-Num “System V” existem uma série de estados de execução (run
-levels) designados por um caracter, geralmente um número. Um sistema encontra-se num destes estados. O sistema muda de estado através de comandos administrativos.
+Num “System V” existem uma série de estados de execução (run levels) designados por um caracter, geralmente um número. Um sistema encontra-se num destes estados. O sistema muda de estado através de comandos administrativos.
 
 ## Níveis do init
 #### Nível 0
@@ -59,6 +58,3 @@ Single-user mode.
 Tem suport para networking.
 #### Nível 6
 Nível de reboot.
-
-
-
