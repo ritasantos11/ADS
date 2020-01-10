@@ -39,12 +39,12 @@ Os PVs (physical volumes) são a base e representam os discos físicos. Os PVs s
 ### #Criar /dev/DEMO/web1-snap como um snapshot do /dev/DEMO/web1
 	$ sudo lvcreate -L 100G -s -n web1-snap DEMO/web1
 
-O LVM não sabe nada sobre o coneúdo dos seus volumos, logo deve-se ajustar o size dos volumes e dos filesystems. Para reduzir o size, faz-se primeiro no filesystem e para aumentar no volume.
+O LVM não sabe nada sobre o coneúdo dos seus volumes, logo deve-se ajustar o size dos volumes e dos filesystems. Para reduzir o size, faz-se primeiro no filesystem e para aumentar no volume.
 #### EX: Aumentar size:
 • verificar se o volume tem free space. <br />
 • unmount filesystem. <br />
 • usar lvresize para adicioanr espaço ao volume lógico. <br />
-• ajustar size do filesystem: resize2fs. <br />
+• ajustar size do filesystem: *resize2fs*. <br />
 • mount filesystem. <br />
 
 	$ sudo umount /mnt/web1
@@ -54,9 +54,9 @@ O LVM não sabe nada sobre o coneúdo dos seus volumos, logo deve-se ajustar o s
 	Extending logical volume web1 to 110.00 GB
 	Logical volume web1 successfully resized
 <br />
-	-Necessário lvchange porque se criou um snapshot do web1.
+	-Necessário *lvchange* porque se criou um snapshot do web1.
 <br />
-Maior parte dos filesystems criam um diretório lost+found na raiz de cada filesystem onde o comando fsck pode depositar files cujo diretório pai não pode ser determinado. Este diretório lost+found tem algum espaço extra prealocado para que o fsck consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
+Maior parte dos filesystems criam um diretório lost+found na raiz de cada filesystem onde o comando *fsck* pode depositar files cujo diretório pai não pode ser determinado. Este diretório *lost+found* tem algum espaço extra prealocado para que o *fsck* consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
 
 ### Snapchots
 Utiliza COW (copy on write): apenas copia o orignal quando este é alterado.
@@ -65,4 +65,4 @@ Utiliza COW (copy on write): apenas copia o orignal quando este é alterado.
 
 A snapshot pode ser montada.
 <br />
-No LV criado para a snapshot são guardadas as mudançãs no sistema origiinal. O tamanho alocado deve ser suficiente para todas as mudanças.
+No LV criado para a snapshot são guardadas as mudançãs no sistema original. O tamanho alocado deve ser suficiente para todas as mudanças.
