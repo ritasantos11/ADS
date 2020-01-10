@@ -1,4 +1,4 @@
-## NFS (network file services)
+## NFS (Network File Services)
 Partilha de files via network entre computadores.
 <br />
 Quando um server NFS cai nenhuma info é perdida.
@@ -8,14 +8,14 @@ Wide area networks têm altas latências, que fazem com que as operações se co
 A maioria dos protocolos tenta minimizar o nº de pedidos de rede.
 <br />
 Por exemplo, a cache de leitura antecipada pré carrega partes de um file num buffer de memória local para evitar atrasos quando uma nova seção do file é lida.
+<br />
 Uma pequena largura de banda de rede extra é consumida num esforço para evitar uma troca completa de ida e volta com o server.
+<br />
 Algumas caches escrevem em memória e enviam as suas atualizações em lotes, reduzindo o atraso na comunicação das operações de escrita para o servidor.
 
 ### Manutenção de estado
 • Servidor com estado (Stateful): mantém estado sobre todos os ficheiros que todos os clientes têm abertos no servidor, o que pode levar a incoerência com crashes do servidor ou cliente. <br />
-• Servidor sem estado (stateless): todos os pedidos são
-independentes uns dos outros. Não sabe quem tem que ficheiros
-abertos. Não gere a concorrência (o estado do ponto de vista dos clientes).
+• Servidor sem estado (stateless): todos os pedidos são independentes uns dos outros. Não sabe quem tem que ficheiros abertos. Não gere a concorrência (o estado do ponto de vista dos clientes).
 
 ### Performance
 • Fazer cache de escritas no cliente. <br />
@@ -29,19 +29,19 @@ Mantém estado: mantém info sobre locks e files abertos.
 
 ### Controlo acesso
 • *AUTH_NONE*: sem autenticação. <br />
-• *AUTH_SYS*: autenticação usa mapeamento do UID e GID enviado pelo cliente para ser mapeado num UID e GID do server (utilizando o /etc/passwd). <br />
-• RPCSEC_GSS: definição de autenticação para controlo de acesso, integridade e privacidade. <br />
+• *AUTH_SYS*: autenticação usa mapeamento do UID e GID enviado pelo cliente para ser mapeado num UID e GID do server (utilizando o */etc/passwd*). <br />
+• *RPCSEC_GSS*: definição de autenticação para controlo de acesso, integridade e privacidade. <br />
 • Servidores V4 têm de implementar RPCSEC_GSS. <br />
 
 ### Mapeamento de utilizadores
 Mapeia utilizadores do cliente em utilizadores do servidor: <br />
-• Servidor utiliza o /etc/passwd local para mapear UID e GID em user@server. <br />
-• Cliente mapeia user usando /etc/passwd local para um UID. <br />
+• Servidor utiliza o */etc/passwd* local para mapear UID e GID em user@server. <br />
+• Cliente mapeia user usando */etc/passwd* local para um UID. <br />
 Não é utilizado para controlo de acesso: para controlo de acesso são utilizados os UID e GID diretamente.
 <br />
 Pode-se alterar o UID e GID default para o root no file exports.
 
-### root squash
+### *root squash*
 Utilizador root é mapeado no utilizador nobody.
 <br />
 Existe a possibilidade de fazer o mesmo para todos os
@@ -54,10 +54,11 @@ NFSv4 é um protocolo estável: o cliente e o server mantêm info sobre files ab
 
 ### File system exports
 NFS servers mantêm uma lista dos diretórios que estão disponíveis para os clientes pela network. Todos os servers exportam pelo menos 1 diretório.
+<br />
 No NFSv4, cada server exporta um único pseudo filesystem hierárquico que incorpora todos os seus diretórios exportados.
 
 ### Partilha de files
-• No server NFS, listar os dir a exportar no file /etc/exports e correr o comando *exportfs*. <br />
+• No server NFS, listar os dir a exportar no file */etc/exports* e correr o comando *exportfs*. <br />
 • No cliente, usar o comando *mount* para monar os dir exportados.
 
 ## Server side NFS
@@ -67,7 +68,7 @@ Um server com NFS exporta um diretório quando coloca o diretório disponível p
 <br />
 Os scripts de início devem correr os daemons automáticamente se houver exports configurados.
 
-#### Comando exportfs
+#### *exportfs*
 Adicionar ou modificar entradas.
 
 ### Exports file
@@ -82,4 +83,4 @@ Dar acesso a /home a todos os hosts numa LAN como 192.168.0.0:
 ## Client side NFS
 *mount*: hostname:dir.
 <br />
-Acrescentar o dir a ser montado no boot no file /etc/fstab.
+Acrescentar o dir a ser montado no boot no file */etc/fstab*.
