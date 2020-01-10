@@ -26,19 +26,19 @@ O nível mais alto da árvore de classes é o *top*, que indica que a entrada co
 ### Aplicações do LDAP
 • Repositório central de informação sobre utilizadores. <br />
 • Aplicações podem aceder à informação centralizada para as suas funções: <br />
-    - Ex.: servidor de email verificar endereços válidos <br />
+    ---- Ex.: servidor de email verificar endereços válidos <br />
 • Aplicações podem autenticar utilizadores: <br />
-    - Ex.: Mooshak, codex, Proxmox, etc. <br />
+    ---- Ex.: Mooshak, codex, Proxmox, etc. <br />
 • Ferramentas para linha de comandos: <br />
-    - Permite scripts <br />
+    ---- Permite scripts <br />
 • Mudanças no LDAP são visíveis imediatamente.
 
-### slapd
+### *slapd*
 Standard LDAP server daemon.
 <br />
 Contém os ficheiros de configuração e utilitários.
 
-### slurpd
+### *slurpd*
 Serve, para quando existem vários servidores LDAP, para manter a replicação aos servidores súbditos.
 
 ### OpenLDAP
@@ -52,12 +52,12 @@ Serve, para quando existem vários servidores LDAP, para manter a replicação a
 Permite migrar estrutura existente para o LDAP.
 
 ### Atributos
-• dc: domain componente <br />
-• cn: common name <br />
-• ou: organization unit
+• *dc*: domain componente <br />
+• *cn*: common name <br />
+• *ou*: organization unit
 
 ### Esquemas
-Estão já alguns definidos em /etc/openldap/schema/.
+Estão já alguns definidos em */etc/openldap/schema/*.
 
 ### SASL (Simple Authentication and Security Layer)
 
@@ -67,15 +67,14 @@ A chave privada do prórpio certificado assina o certificado.
 O CA (certificate authority) é a entidade do próprio certificado.
 
 ### Interlúdio autenticação
-##### authselect
+##### *authselect*
 Permite configurar onde aceder a autenticação e identificação.
 <br />
-Substitui *authconfig*.
+Substitui o *authconfig*.
 <br />
 Define profiles para diminuir erros de mudar vários ficheiros.
 
 ### SSSD (System Security Services Daemon)
-Daemon de gestão para consulta de diretórios de informação e
-autenticação.
+Daemon de gestão para consulta de diretórios de informação e autenticação.
 <br />
 Permite configurar diretório LDAP e o seu acesso.
