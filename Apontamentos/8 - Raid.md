@@ -1,4 +1,4 @@
-# RAID (REDUNDANT ARRAYS OF INEXPENSIVE DISKS)
+## RAID (Redundant Arrays of Inexpensive Disks)
 Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
 <br />
 O sistema avisa quando à falha de 1 disco.
@@ -91,10 +91,8 @@ Além de oferecer um desempenho superior no momento de transferência dos dados,
 <br />
 O maior inconveniente para usuários que fazem uso dos arranjos RAID 10 é o grande número de discos rígidos utilizados para segurança dos dados em relação aos demais, tornando-se economicamente inviável para algumas aplicações.
 
-
 ### Disk failure recovery
 Substitui-se o disco com falha por outro de tamanho semelhante ou maior e depois diz-se à implementação do raid para substituir o antigo disco pelo novo. A seguir, segue-se um longo periodo durante o qual as infos de paridade ou de mirror são reescritas no novo disco.
-
 
 ### Desvantagens do RAID 5
 O raid 5 não substitui os backups offline regulares.
@@ -117,15 +115,15 @@ A atualização incremental dos dados de paridade é mais eficiente do que ler a
 <br />
 Em nenhum momento os dados de paridade são validados ou recalculados. Se algum bloco de uma faixa cair fora de sincronia com o bloco de paridade, esse fato nunca se tornará evidente no uso normal. As leituras dos blocos de dados ainda retornarão os dados corretos.
 
-#### file /proc/mdstat
+#### file */proc/mdstat*
 Contém o sumário do estado dos md's (software do raid) e o estado de todas as matrizes RAID do sistema.
 
-####  mdadm --detail --scan
+#### *mdadm --detail --scan*
 Mostra a configuração raid atual.
 
 #### Criar um raid 5 com 3 dispositivos:
 	
-	sudo mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
+	$ sudo mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
 	mdadm: array /dev/md0 started.
 
 #### Permitir o raid na inicialização:
