@@ -1,17 +1,17 @@
 ## Componentes de um processo
-• Espaço de endereçamento
+• Espaço de endereçamento.
 <br />
-• Estado (sleeping, stopped, runnable, etc.)
+• Estado (sleeping, stopped, runnable, etc.).
 <br />
-• Prioridade de execução
+• Prioridade de execução.
 <br />
-• Informação sobre os recursos utilizados
+• Informação sobre os recursos utilizados.
 <br />
-• Informação sobre ficheiros e portas de rede abertos
+• Informação sobre ficheiros e portas de rede abertos.
 <br />
-• Máscara de sinais (registo dos sinais bloqueados)
+• Máscara de sinais (registo dos sinais bloqueados).
 <br />
-• Dono do processo
+• Dono do processo.
 
 ## Processo
 Consiste num espaço de endereçamento e um conjunto de estrutura de dados dentro do kernel.
@@ -22,13 +22,13 @@ O kernel atribui um ID uníco a cada processo.
 <br />
 Cada processo tem um parent pid que corresponde ao pid do processo que o criou.
 <br />
-UID e EUID – real and effective user ID:
+UID e EUID: real and effective user ID:
 <br />
 •ID do utilizador que criou o processo (cópia do UID do pai)
 <br />
 •EUID pode ser != UID, exemplo setuid
 <br />
-GID e EGID – real and effective group ID
+GID e EGID: real and effective group ID
 <br />
 
 ## UID and EUID: real and effective user ID
@@ -56,9 +56,9 @@ O GID entra em ação quando um processo cria novos files. Dependendo como as pe
 ## Niceness
 A prioridade de agendamento de um processo determina quanto tempo de CPU ele recebe.
 <br />
-Só o root pode aumentar a prioridade de um processo.
+Só o *root* pode aumentar a prioridade de um processo.
 <br />
-Outro user que não o root pode aumentar o nice dos seus processos para torná-los menos prioritários.
+Outro user que não o *root* pode aumentar o valor nice dos seus processos para torná-los menos prioritários.
 <br />
 O kernel usa um algoritmo dinâmico para calcular prioridades.
 <br />
@@ -78,14 +78,14 @@ Pode ser aumentado pelo utilizador, mas não diminuído.
 <br />
 O valor nice não tem nenhum efeito na gestão da memória feita pelo kernel ou no I/O.
 <br />
-Comando nice para atribuir o valor nice na criação do processo. Comando renice para alterar mais tarde.
+Comando *nice* para atribuir o valor nice na criação do processo. Comando *renice* para alterar mais tarde.
 
 	$ nice -n 5 ~/bin/longtask
 	$ sudo renice -5 8829
 	$ sudo renice 5 -u boggs
 
 ## Terminal de controlo
-Determina ligações default para os canais de STDIN, STDOUT e STDERR.
+Determina ligações default para os canais de *STDIN*, *STDOUT* e *STDERR*.
 <br />
 Quando se corre um programa na shell, a janela do terminal passa a ser no terminal de controlo do processo.
 
@@ -94,14 +94,13 @@ Meio de comunicação entre processos.
 <br />
 Terminar, interromper ou suspender um processo pelo terminal.
 <br />
-Enviados pelo kernel a processos que cometem infrações (ex.:
-divisão por zero).
+Enviados pelo kernel a processos que cometem infrações (ex: divisão por zero).
 <br />
-Avisos do kernel ao processo (morte de um filho, disponibilidade de um canal de E/S)
+Avisos do kernel ao processo (morte de um filho, disponibilidade de um canal de I/O).
 <br />
-kill consegue enviar qualquer sinal, por default envia o sinal TERM.
+*kill* consegue enviar qualquer sinal, por default envia o sinal TERM.
 <br />
-kill sem sinal não significa que o processo morra, pq o sinal TERM pode ser apanhado, bloqueado ou ignorado.	
+*kill* sem sinal não significa que o processo morra, pq o sinal TERM pode ser apanhado, bloqueado ou ignorado.	
 	
 	kill [-signal] pid
 
@@ -109,40 +108,40 @@ Garante que o processo morre, porque o sinal 9 não pode ser apanhado.
 
 	kill -9 pid
 	
-O comando killall em Linux mata processos por nome. Noutros sistemas mata todos os processos correntes do user, fazendo-o como root mata o init e a máquina desliga-se.
+O comando *killall* em linux mata processos por nome. Noutros sistemas mata todos os processos correntes do user, fazendo-o como *root* mata o *init* e a máquina desliga-se.
 <br />
-Os processos que não tiverem um handler definido (apanham o sinal), o kernel trata deles com um tratamento default que varia de sinal para sinal.
+Os processos que não tiverem um handler definido (para apanhar o sinal), o kernel trata deles com um tratamento default que varia de sinal para sinal.
 
 ### Estados dos processos
-Runnable: Stopped The process can be executed.
+Runnable: o processo pode ser executado.
 <br />
-Sleeping: The process is waiting for some resource.
+Sleeping: o processo está a espera de algum recurso.
 <br />
-Zombie: The process is trying to die.
+Zombie: o processo está a tentar morrer.
 <br />
-Stopped: The process is suspended (not allowed to execute).
+Stopped: o processo está suspenso, não pode executar.
 
-## Comando ps
+## *ps*
 Informações sobre os processos correntes do sistema.
 
 	ps aux # BSD style options
 	ou
 	ps –ef # standard options
 
-## Comando top
-Mostra dados semelhantes ao ps, mas continuamente.
+## *top*
+Mostra dados semelhantes ao *ps*, mas continuamente.
 
-## /proc
+## */proc*
 Pseudo sistema de ficheiros.
 <br />
 Contém vários dados sobre o sistema.
 <br />
-Dados sobre os processos (/proc/<PID>/)
+Dados sobre os processos em */proc/<PID>/*.
 
-## Comando strace
+## *strace*
 Dá informação sobre as chamadas de sistema (system call) do processo.
 
-## Comando uptime
+## *uptime*
 Dá utilização do sistema em processos.
 <br />
 Em intervalos de 1, 5 e 15 min.
