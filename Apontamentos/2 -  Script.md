@@ -1,28 +1,27 @@
 
-Cada processo tem pelo menos 3 canais de comunicação: STDIN (0), STDOUT (1) e STDERR (2).
+Cada processo tem pelo menos 3 canais de comunicação: *STDIN* (0), *STDOUT* (1) e *STDERR* (2).
 <br />
-Normalmente, STDIN lê do terminal e o STDOUT e STDERR escreve para o ecrã.
+Normalmente, *STDIN* lê do terminal e o *STDOUT* e *STDERR* escreveM para o ecrã.
 <br />
-Maior parte dos comandos lêem o input do STDIN e escrevem o seu OUTPUT para o STDOUT e as mensagens de erro para o STDERR.
+Maior parte dos comandos lêem o input do *STDIN* e escrevem o seu output para o *STDOUT* e as mensagens de erro para o *STDERR*.
 
-	< conecta o STDIN do comando ao conteúdo dum ficheiro.
-	> e >> redirecionam o STDOUT.
-	> substitui o conteúdo dum ficheiro existente e >> adiciona ao ficheiro.
+	*<* conecta o *STDIN* do comando ao conteúdo dum ficheiro.
+	*>* e *>>* redirecionam o *STDOUT*.
+	*>* substitui o conteúdo dum ficheiro existente e *>>* adiciona ao ficheiro.
 
-Para redirecionar o STDOUT e o STDERR para o mesmo sítio usa-se >&.
+Para redirecionar o *STDOUT* e o *STDERR* para o mesmo sítio usa-se *>&*.
 <br />
-Para redirecionar apenas o STDERR usa-se 2>.
+Para redirecionar apenas o *STDERR* usa-se *2>*.
 <br /><br />
-Para conectar o STDOUT de um comando ao STDIN de outro comando usa-se o |.
+Para conectar o *STDOUT* de um comando ao *STDIN* de outro comando usa-se o *|*.
 <br />
-Para executar um comando só se o comando anterior completar com sucesso, usa -se && para separar os comandos.
+Para executar um comando só se o comando anterior completar com sucesso, usa-se *&&* para separar os comandos.
 <br />
-Para executar um comando só se o anterior falhar, usa-se || para separar os comandos.
+Para executar um comando só se o anterior falhar, usa-se *||* para separar os comandos.
 <br /><br />
-
-Para ir buscar um valor a uma variável, usa-se o $. Nome de variáveis: Case Sensitive.
+Para ir buscar um valor a uma variável, usa-se o *$*. Nome de variáveis: Case Sensitive.
 <br />
-Ex: o echo imprime o conteúdo da variável var
+Ex: o *echo* imprime o conteúdo da variável var
 
 	var='ola'
 	echo $var  ou  echo &{var}
@@ -35,53 +34,52 @@ Ex: o echo imprime o conteúdo da variável var
 	Existem 28 linhas.
 
 
-### which
+### *which*
 Retorna a localização do ficheiro executável do comando dado.
 
-### whereis
+### *whereis*
 Retorna a localização do ficheiro source/binário e do manual do comando dado.
 
-### locate
+### *locate*
 Descobre os ficheiros por nome.
 
-### find
+### *find*
 	
 	$ find [where to start searching from] [expression determines what to find] [-options] [what to find]
 
-•-o: ou
+• *-o*: ou
+<br />
+• *-atime n*: accedido n dias atrás
+<br />
+• *-mtime n*: modificado n dias atrás
+<br />
+• -size n: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
+<br />
+• -type c: “ficheiro” é do tipo: f=regular, d=diretório, etc
+<br />
+• -fstype type: tipo de sistema de ficheiros: 4.2 ou nfs, etc
+<br />
+• -name nome: nome do ficheiro é nome
+<br />
+• -user usr: dono do ficheiro é usr
+<br />
+• -group grp: grupo dono do ficheiro é grp
+<br />
+• -perm p: permissões do ficheiro são p
 <br />
 
-•-atime n: accedido n dias atrás
+• -print: escreve o caminho do ficheiro que está a ser avaliado
 <br />
-•-mtime n: modificado n dias atrás
+• -ls: versão detalhada (ls -l) do comando print
 <br />
-•-size n: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
+• -exec cmd: executa o comando sobre o ficheiro
 <br />
-•-type c: “ficheiro” é do tipo: f=regular, d=diretório, etc
-<br />
-•-fstype type: tipo de sistema de ficheiros: 4.2 ou nfs, etc
-<br />
-•-name nome: nome do ficheiro é nome
-<br />
-•-user usr: dono do ficheiro é usr
-<br />
-•-group grp: grupo dono do ficheiro é grp
-<br />
-•-perm p: permissões do ficheiro são p
+• -ok cmd: o mesmo que o anterior, só que pergunta antes de executar o comando
 <br />
 
-•-print: escreve o caminho do ficheiro que está a ser avaliado
+• -xdev: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
 <br />
-•-ls: versão detalhada (ls -l) do comando print
-<br />
-•-exec cmd: executa o comando sobre o ficheiro
-<br />
-•-ok cmd: o mesmo que o anterior, só que pergunta antes de executar o comando
-<br />
-
-•-xdev: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
-<br />
-•-prune: Não desce abaixo da pasta encontrada
+• -prune: Não desce abaixo da pasta encontrada
 
 ### awk
 	
