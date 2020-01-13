@@ -20,7 +20,7 @@ Nível 0: full backup.
 • Backups podem abranger várias tapes. <br />
 • Files de qualquer tipo (até dispositivos) podem ser copiados e restaurados. <br />
 • Permissões, propriedades e tempos de modificações são preservados. <br />
-• Files com holes são tratados corretamente. <br />Files with holes are handled correctly. 6
+• Files com holes são tratados corretamente. <br />
 • Backups podem ser realizados incrementalmente (só os files modificados recentemente escritos na tape).
 
 ### Limitações do *dump*/*restore*
