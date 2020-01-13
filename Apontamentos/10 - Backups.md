@@ -8,6 +8,8 @@ Inclui só files alterados desde o último backup.
 Deteta files já existentes e em backup e não faz dump desses (ou mesmo remove duplicados).
 
 ## *dump*
+Cria backups incrementais.
+<br />
 Especificar o nível do backup.
 <br />
 Nível N: faz backup de todos os files alterados desde o último backup feito com um nível inferior a N.
