@@ -104,7 +104,7 @@ Avisos do kernel ao processo (morte de um filho, disponibilidade de um canal de 
 	
 	kill [-signal] pid
 
-Garante que o processo morre, porque o sinal 9 não pode ser apanhado.
+Garante que o processo morre, porque o sinal 9 não pode ser apanhado:
 
 	kill -9 pid
 	
