@@ -50,7 +50,7 @@ Usa um protocolo de alto nível para a comunicação entre o computador e os dis
 <br />
 Os discos PATA (Parallel ATA interface) são chamados de IDE.
 
-#### SATA (Seral ATA)
+#### SATA (Serial ATA)
 Sucessor do PATA.
 <br />
 Suporta hotswapping.
@@ -131,3 +131,17 @@ Tem 4 partições.
 Define só 1 tipo de partição e pode-se criar muitas.
 <br />
 Cada partição tem um tipo específico por um ID code.
+
+## Sistemas NAS (Network-attached storage)
+Utilizando protocolos de alto nível, qualquer computador pode criar, ler e gravar informações nos NAS atravém de um rede TCP/IP.
+<br />
+Operação básica: abre o file X e manda-me os primeiros 4KiB de dados.
+<br />
+EX: NFS, SMB/CIFS.
+
+## Sistema SAN (Storage Area Network)
+Sistema de baixo nível para armazenamento abstrato que faz com que o armazenamento via network se pareça com um disco rígido local.
+<br />
+Operações: instruções para ler e escrever blocos do disco.
+<br />
+Para um cliente usar um armazenamento SAN para manter um filesystem tem de fornecer a sua implementação do filesystem.
