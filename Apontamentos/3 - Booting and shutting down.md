@@ -37,6 +37,7 @@ Gere o sistema e os seus serviços.
 
 ## *init*
 Responsável pelas seguintes atividades no arranque: <br />
+• Executar os scripts de startup do sistema. <br />
 • Verificar integridade dos sistemas de ficheiros. <br />
 • Montar discos locais (/etc/fstab). <br />
 • Iniciar áreas de swap. <br />
