@@ -39,7 +39,7 @@ EUID é o UID efetivo do user, um UID extra para determinar que recursos e files
 <br />
 Para muitos processos, o UID e o EUID são o mesmo. Só diferem nos programas com setuid.
 <br />
-Existem UID e EUID para diferencias identificação com permissões e porque um programa com setuid pode não querer operar com todas as permissões sempre.
+Existem UID e EUID para diferenciar identificação com permissões e porque um programa com setuid pode não querer operar com todas as permissões sempre.
 
 ## GID and EGID: real and effective group ID
 GID é o nº de identificação do grupo do processo.
