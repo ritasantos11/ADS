@@ -53,7 +53,7 @@ O comando *passwd* verifica quem está a executar e personaliza o seu comportame
 • Pouco suporte para auditoria.
 
 ## Extensões para controlo de acesso
-#### RBAC (Role-based access control)
+#### RBAC (Role-Based Access Control)
 Adicionar uma camada de indireção para cálculos de acesso de controlo.
 <br />
 Em vez de as permissões serem atribuídas diretamente aos users, são atribuídas a construtores intermediários (roles) e esses roles são atribuídos a users a vez.
