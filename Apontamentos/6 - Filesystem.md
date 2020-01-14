@@ -67,7 +67,7 @@ Os 12 mode bits são guardados juntos com 4 bits de informação do tipo de file
 Os 4 bits do tipo de file são definidos quando o file é criado pela 1ºvez e não podem ser alterados, mas o owner do file ou o superuser podem modifcar os 12 mode bits com o comando *chmod*.
 
 ### The permission bits
-9 permission bits determinam quais operações podem sewr executadas num file e por quem.
+9 permission bits determinam quais operações podem ser executadas num file e por quem.
 <br />
 3 conjuntos de permissões definem o acesso ao owner do file, aos group owners e a todos os outros.
 
