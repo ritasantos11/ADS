@@ -18,7 +18,7 @@ Caso um disco falhe ou haja um problema de configuração que impede que o siste
 <br />
 • Criação de processos do kernel: o kernel cria vários processos espontâneos (não são criados pelo *fork*).
 <br />
-• Interveção do administrador (só single-user mode: tem de se pôr a password do root. Só a partição do root está montada, logo se se quiser usar outros programas tem de se montar esses outros filesystems.)..
+• Interveção do administrador (só single-user mode: tem de se pôr a password do root. Só a partição do root está montada, logo se se quiser usar outros programas tem de se montar esses outros filesystems.).
 <br />
 • Execução de scripts de inicialização (de startup) do sistema.
 
