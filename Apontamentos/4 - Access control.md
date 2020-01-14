@@ -54,16 +54,16 @@ O comando *passwd* verifica quem está a executar e personaliza o seu comportame
 
 ## Extensões para controlo de acesso
 #### RBAC (Role-Based Access Control)
-Adicionar uma camada de indireção para cálculos de acesso de controlo.
+Adiciona uma camada de indireção para cálculos de acesso de controlo.
 <br />
-Em vez de as permissões serem atribuídas diretamente aos users, são atribuídas a construtores intermediários (roles) e esses roles são atribuídos a users a vez.
+Em vez de as permissões serem atribuídas diretamente aos users, são atribuídas a construtores intermediários (roles) e esses roles são atribuídos a users à vez.
 <br />
-Para se fazer uma decisão de controlo de acesso, a libraria de acesso de contorlo enumera os roles do user currente e verifica se algum desses roles têm as permissões adequadas.
+Para se fazer uma decisão de controlo de acesso, a libraria de acesso de controlo enumera os roles do user currente e verifica se algum desses roles têm as permissões adequadas.
 
 ### SELinux (Security-Enhanced Linux)
 Projeto da NSA, disponível e integrado no kernel.
 <br />
-Disponibilizar o MAC (Mandatory Access Control), um sistema de controlo de acesso onde todas as permissões são atribuídas por administradores.
+Disponibiliza o MAC (Mandatory Access Control), um sistema de controlo de acesso onde todas as permissões são atribuídas por administradores.
 <br />
 Não há delegação de privilégios. No MAC, users não podem delegar o seu acesso ou atribuir parâmetros de controlo de acesso aos objetos a que lhe pertencem.
 
