@@ -48,16 +48,16 @@ EGID relaciona-se com o GID como o EUID se relaciona com o UID.
 <br />
 Um processo pode ser membro de vários grupos ao mesmo tempo. A lista de grupos completa é guardada em separado do GID e do EGID.
 <br />
-Para determinsar as permissões de acesso tem se em atenção o EGID e a lista d egrupos e não o GID.
+Para determinsar as permissões de acesso tem se em atenção o EGID e a lista de grupos e não o GID.
 <br />
 O GID entra em ação quando um processo cria novos files. Dependendo como as permissões do filesystem estão configuradas, novos files podem herdar o GID do processo que os criou.
 
 ## Niceness
 A prioridade de agendamento de um processo determina quanto tempo de CPU ele recebe.
 <br />
-Só o *root* pode aumentar a prioridade de um processo.
+Só o root pode aumentar a prioridade de um processo.
 <br />
-Outro user que não o *root* pode aumentar o valor nice dos seus processos para torná-los menos prioritários.
+Outro user que não o root pode aumentar o valor nice dos seus processos para torná-los menos prioritários.
 <br />
 O kernel usa um algoritmo dinâmico para calcular prioridades.
 <br />
@@ -107,7 +107,7 @@ Garante que o processo morre, porque o sinal 9 não pode ser apanhado:
 
 	kill -9 pid
 	
-O comando *killall* em linux mata processos por nome. Noutros sistemas mata todos os processos correntes do user, fazendo-o como *root* mata o *init* e a máquina desliga-se.
+O comando *killall* em linux mata processos por nome. Noutros sistemas mata todos os processos correntes do user, fazendo-o como root mata o *init* e a máquina desliga-se.
 <br />
 Os processos que não tiverem um handler definido (para apanhar o sinal), o kernel trata deles com um tratamento default que varia de sinal para sinal.
 
