@@ -1,7 +1,7 @@
 ## Filesystem mounting and unmounting
 *mount* mapeia um diretório dentro da árvode de ficheiros existente, chamado ponto de montagem (mount point), para a raiz do sistema de ficheiros recém criado.
 <br />
-O conteúdo anterior do mount point fica anecessível enquantou ou sistema estiver lá montado.
+O conteúdo anterior do mount point fica inacessível enquantou ou sistema estiver lá montado.
 <br />
 Os mount points são geralmente diretórios vazios.
 <br />
