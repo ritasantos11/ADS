@@ -24,12 +24,11 @@ Cada processo tem um parent pid (PPID) que corresponde ao pid do processo que o 
 <br />
 UID e EUID: real and effective user ID:
 <br />
-•ID do utilizador que criou o processo (cópia do UID do pai)
+• ID do utilizador que criou o processo (cópia do UID do pai).
 <br />
-•EUID pode ser != UID, exemplo setuid
+• EUID pode ser diferente do UID. Ex: setuid.
 <br />
-GID e EGID: real and effective group ID
-<br />
+GID e EGID: real and effective group ID.
 
 ## UID and EUID: real and effective user ID
 UID do processo é nº de identificação do user que o criou, aka a cópia do UID do processo pai.
