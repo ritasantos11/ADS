@@ -7,7 +7,7 @@ Quando um computador é ligado, executa em primeiro lugar código de boot que es
 <br />
 Antes que o sistema esteja completamente inicializado, os sistemas de ficheiros têm de ser verificados e montados e os daemons do sistema inicializados. Esses procedimentos são gerados por uma série de scripts de shell que são executados em sequência pelo *init*.
 <br />
-Caso um disco falhe ou haja um problema de configuração que impede que o sistema se ligue, os sistemas UNIX conseguem inicializar apenas o suficiente para executar uma shell na consola do sistema. Essa opção é conhecida por booting to single-user mode ou recovery mode. Acede-se passando um argumento ao kernel no  momento da inicialização.
+Caso um disco falhe ou haja um problema de configuração que impede que o sistema se ligue totalmente, os sistemas UNIX conseguem inicializar apenas o suficiente para executar uma shell na consola do sistema. Essa opção é conhecida por booting to single-user mode ou recovery mode. Acede-se passando um argumento ao kernel no  momento da inicialização.
 
 ### Típico processo de bootstrapping:
 • Ler do boot loader a partir do master boot record (MBR).
@@ -18,7 +18,7 @@ Caso um disco falhe ou haja um problema de configuração que impede que o siste
 <br />
 • Criação de processos do kernel: o kernel cria vários processos espontâneos (não são criados pelo *fork*).
 <br />
-• Interveção do administrador (quando em modo single-user: tem de se pôr a password do root. Só a partição do root está montada, logo se se quiser usar outros programas tem de se montar esses outros filesystems.).
+• Interveção do administrador (quando em modo single-user: tem de se pôr a password do root. Só a partição do root está montada, logo se se quiser usar outros programas tem de se montar esses outros filesystems).
 <br />
 • Execução de scripts de arranque (de startup) do sistema.
 
