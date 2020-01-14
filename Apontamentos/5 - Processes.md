@@ -99,7 +99,7 @@ Avisos do kernel ao processo (morte de um filho, disponibilidade de um canal de 
 <br />
 *kill* consegue enviar qualquer sinal, por default envia o sinal TERM.
 <br />
-*kill* sem sinal não significa que o processo morra, pq o sinal TERM pode ser apanhado, bloqueado ou ignorado.	
+*kill* sem sinal não significa que o processo morra, porque o sinal TERM pode ser apanhado, bloqueado ou ignorado.	
 	
 	kill [-signal] pid
 
