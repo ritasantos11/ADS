@@ -30,10 +30,16 @@ Por defauld, o grub lê o file de configuração de boot default no início.
 ## Multibooting
 Cada partição de disco tem o seu próprio second-stage boot loader.
 <br />
-Numa configuração multibooting tem de se decidir qual boot loader vaii ser o master.
+Numa configuração multibooting tem de se decidir qual boot loader vai ser o master.
 
-## Systemd
+## *systemd*
 Gere o sistema e os seus serviços.
+<br />
+Usa sockets e o D-Bus (comunicalão de daemons).
+<br />
+Suporta paralelização (inicialização de serviços).
+<br />
+Suporta o SystemV (init).
 
 ## *init*
 Responsável pelas seguintes atividades no arranque: <br />
