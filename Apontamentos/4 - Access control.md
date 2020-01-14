@@ -1,17 +1,17 @@
-## Elemtos do controlo de acesso
-Sujeito: entidade que pode aceder a objetos. <br />
+## Elementos do controlo de acesso
+Sujeito - entidade que pode aceder a objetos: <br />
 • Um processo. <br />
 • Em geral mapeado em 3 classes: dono, grupo e todos. <br />
 
-Objeto: recurso a que se controla o acesso. <br />
+Objeto - recurso a que se controla o acesso: <br />
 • Ex: ficheiros, diretórios, registos, programas. <br />
 • Número/tipo depende do ambiente. <br />
 
-Direito de acesso: modo como o sujeito acede ao objeto. <br />
+Direito de acesso - modo como o sujeito acede ao objeto: <br />
 •Ex: ler, escrever, executar, apagar, criar, procurar.
 <br />
 <br />
-O dono do processo pode mandar sinais e alterar a prioirdade.
+O dono do processo pode mandar sinais e alterar a prioridade.
 
 ## *root*
 UID 0.
