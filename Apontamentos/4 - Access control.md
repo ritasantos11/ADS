@@ -31,7 +31,9 @@ Ferramenta de segurança que permite aos users executar determinados programas c
 <br />
 Quando o kernel executa um file executável com os seus bits de permissão *setuid* ou *setgid* configurados, ele altera o UID ou GID efetivo do processo resultante para o UID ou GID do file que contém a imagem do programa em vez do UID ou GID do user que executou o comando. Os privilégios do user são promovidos apenas para a execução desse comando específico.
 <br />
-*setuid*: o user corre o programa como se fosse o dono dele.
+*setuid*: usado em files executáveis. O user corre o programa como se fosse o dono dele.
+<br />
+*setgid*: usado em direetórios e files.
 <br />
 Os users devem poder alterar as suas passwords. Mas como as passwords são guardadas no file /etc/shadow, os users precisam de um comando *setuid* *passwd* para aceder.
 <br />

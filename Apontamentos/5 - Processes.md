@@ -109,6 +109,10 @@ Garante que o processo morre, porque o sinal 9 não pode ser apanhado:
 	
 Se um processo estiver à espera de algum recurso mesmo com o sinal KILL, o processo não morre. Também processos zombies não morrem. É necessário fazer reboot para libertar o sistema destes processos.
 <br />
+O SIGTERM não mata os filhos do processo, enquanto que o SIGKILL sim.
+<br />
+Com o sinal TERM, o processo tem tempo de avisar o processo pai que vai terminar, ao contrário do sinal KILL. Por isso pode haver processos zombies em resultado do uso do sinal KILL.
+<br />
 O comando *killall* em linux mata processos por nome. Noutros sistemas mata todos os processos correntes do user, fazendo-o como root mata o *init* e a máquina desliga-se.
 <br />
 Os processos que não tiverem um handler definido (para apanhar o sinal), o kernel trata deles com um tratamento default que varia de sinal para sinal.

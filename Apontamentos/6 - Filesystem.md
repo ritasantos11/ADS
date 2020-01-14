@@ -72,18 +72,16 @@ Os 4 bits do tipo de file são definidos quando o file é criado pela 1ºvez e n
 3 conjuntos de permissões definem o acesso ao owner do file, aos group owners e a todos os outros.
 
 ### The setuid and setgid bits
-Corre o programa comos e fosse o dono dele.
-<br />
 Os bits com valores octais 4000 e 2000 são dos bits setuid e setgid.
 <br />
 Quando definidos em files executáveis, esses bits permitem que os programas acedam a files e processos que, de outra forma, estariam fora dos limites para o user que os executa.
 <br />
-Quando definido num dir, o bit setgid faz com que os files recém criados no dir assumam a propriedade do grupo do dir, em vez do grupo default do user que criou o file.
+Quando definido num dir, o bit setgid faz com que os files desse dir assumam o grupo do dir, em vez do grupo default dos users que criaram os files.
 
 ### The sticky bit
 Bit com o valor octal 1000.
 <br />
-Se o sticky bit estiver definido num dir, o filesystem não permitirá que qualquer pessoa apague ou renomeie o file a não ser que seja o owner do dir, o owner do file ou o superuser. Ter permissão de escrita não é suficente.
+Se o sticky bit estiver definido num dir, o filesystem não permitirá que qualquer pessoa apague ou renomeie os files a não ser que seja o owner do dir, o owner do file ou o superuser. Ter permissão de escrita não é suficente.
 
 ### *chmod*: change permissions
 O comando *chmod* altera as permissões dum file.
