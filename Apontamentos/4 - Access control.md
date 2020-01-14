@@ -82,5 +82,5 @@ Cada ACE identifica o user ou group a aplicar a regra e especifica o conjunto de
 • Único ficheiro para controlar o acesso de toda a rede. <br />
 
 ## Desvantagens do *sudo*
-• Conta de utilizador passa a ser ponto de falha.
+• Conta de utilizador passa a ser ponto de falha. <br />
 • *sudo su*.
