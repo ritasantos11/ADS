@@ -18,9 +18,9 @@ Consiste num espaço de endereçamento e um conjunto de estrutura de dados dentr
 <br />
 O espaço de endereçamento é um conjunto de páginas de memória que o kernel deu para o processo usar. Contém o código e as librarias que o processo está a executar, as variáveis, as pilhas e outras infos que o kernel precisa enquando o processo está a correr.
 <br />
-O kernel atribui um ID uníco a cada processo.
+O kernel atribui um ID uníco a cada processo: PID.
 <br />
-Cada processo tem um parent pid que corresponde ao pid do processo que o criou.
+Cada processo tem um parent pid (PPID) que corresponde ao pid do processo que o criou.
 <br />
 UID e EUID: real and effective user ID:
 <br />
