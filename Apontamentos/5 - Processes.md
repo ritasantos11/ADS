@@ -137,7 +137,7 @@ Pseudo sistema de ficheiros.
 <br />
 Contém vários dados sobre o sistema.
 <br />
-Dados sobre os processos em */proc/<PID>/*.
+Dados sobre os processos em */proc/PID/*.
 
 ## *strace*
 Dá informação sobre as chamadas de sistema (system call) do processo.
