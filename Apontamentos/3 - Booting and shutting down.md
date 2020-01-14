@@ -43,9 +43,9 @@ Suporta o SystemV (init).
 
 ## *init*
 Responsável pelas seguintes atividades no arranque: <br />
-• Executar os scripts de startup do sistema. <br />
+• Executar os scripts de arranque do sistema. <br />
 • Verificar integridade dos sistemas de ficheiros. <br />
-• Montar discos locais (/etc/fstab). <br />
+• Montar discos locais (*/etc/fstab*). <br />
 • Iniciar áreas de swap. <br />
 • Limpar e verificar sistemas de ficheiros (Quotas, remoção de ficheiros temporários) <br />
 • Arrancar rede e montar discos remotos. <br />
