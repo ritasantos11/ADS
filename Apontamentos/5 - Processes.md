@@ -107,6 +107,8 @@ Garante que o processo morre, porque o sinal 9 não pode ser apanhado:
 
 	kill -9 pid
 	
+Se um processo estiver à espera de algum recurso mesmo com o sinal KILL, o processo não morre. Também processos zombies não morrem. É necessário fazer reboot para libertar o sistema destes processos.
+<br />
 O comando *killall* em linux mata processos por nome. Noutros sistemas mata todos os processos correntes do user, fazendo-o como root mata o *init* e a máquina desliga-se.
 <br />
 Os processos que não tiverem um handler definido (para apanhar o sinal), o kernel trata deles com um tratamento default que varia de sinal para sinal.
