@@ -128,6 +128,10 @@ Conta linhas, palavras e caracteres num ficheiro.
 Copia input para 2 sítios.
 <br />
 Copia input para o STDOUT e para o ficheiro especificado no comando.
+<br />
+Copia o output de *cat* para o *file* e para o *wc*:
+
+	$ cat /etc/passwd | tee file | wc -l
 
 ### *head* e *tail*
 Lê o início e o fim do ficheiro respetivamente.
