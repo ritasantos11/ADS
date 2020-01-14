@@ -70,6 +70,8 @@ Não há delegação de privilégios. No MAC, users não podem delegar o seu ace
 ### Access Control Lists (ACLs)
 Generelização do modelo de permissões user/group/other tradicional que acomoda permissões para múltiplos users e groups de uma vez.
 <br />
+É necessário associar users a files.
+<br />
 Cada file ou dir pode ter associado um ACL que lista as regras de permissões a ser aplicadas a eles. Cada regra é uma entrada no ACL (ACE).
 <br />
 Cada ACE identifica o user ou group a aplicar a regra e especifica o conjunto de permissões a serem dadas.
