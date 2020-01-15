@@ -104,7 +104,7 @@ Define só 1 tipo de partição e pode-se criar muitas.
 Cada partição tem um tipo específico por um ID code.
 
 ## Sistemas NAS (Network-attached storage)
-Utilizando protocolos de alto nível, qualquer computador pode criar, ler e gravar informações nos NAS atravém de um rede TCP/IP.
+Utilizando protocolos de alto nível, qualquer computador pode criar, ler e gravar informações nos sistemas NAS através de uma rede TCP/IP.
 <br />
 Operação básica: abre o file X e manda-me os primeiros 4KiB de dados.
 <br />
