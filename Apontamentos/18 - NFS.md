@@ -71,7 +71,7 @@ Os scripts de início devem correr os daemons automáticamente se houver exports
 #### *exportfs*
 Adicionar ou modificar entradas.
 
-### Exports file
+### */etc/exports*
 Lista de dirs exportados e opções associadas.
 <br />
 Filesystems listados sem hosts especificados são montados por todas as máquinas (security hole).
