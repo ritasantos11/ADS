@@ -41,8 +41,23 @@ No file */etc/fstab*, copie a linha para um filesystem existente e ajuste-a. O d
 <br />
 Por fim, execute o sudo mount mountpoint para montar o filesystem.
 
-## Solid state disks (SSD)
-Espalham as leituras e escritas em bancos de células de memória flash, que são individualmente bastante lentas em comparação com os discos rígidos modernos.
+
+## Tipos de discos
+#### Discos duros (HD)
+Tem latência de procura e latência de rotação.
+<br />
+Boa leitura sequencial.
+<br />
+Tem pior leitura em zonas aleatórias.
+
+#### Discos de estado sólido (SSD)
+Tem melhores tempos de leitura/escrita.
+<br />
+Limite no nº de escritas.
+<br />
+Apagar pode ser demorado e ter influência na escrita.
+
+#### Híbridos
 
 ## Interfaces de acesso aos discos
 #### ATA (Advanced Technology Attachment)
