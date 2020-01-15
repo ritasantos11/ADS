@@ -69,6 +69,8 @@ Mais eficiente no uso de espaço em disco do que o RAID 1.
 Se houver N discos numa matriz (são necessários pelo menos 3), N-1 delas podem armazenar dados.
 
 #### RAID 6
+Pelo menos 4 discos.
+<br />
 Dupla paridade, ou seja, podem falhar até 2 discos sem perda de dados, no entanto será utilizado o dobro do espaço para gravar a paridade e manter a redundância do sistema.
 <br />
 Num sistema RAID 6 com 8 discos, a capacidade total disponível será a multiplicação do valor de 6 discos duros (HD), sendo que os outros 2 servirão para redundância.
