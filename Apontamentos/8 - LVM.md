@@ -53,9 +53,9 @@ O LVM não sabe nada sobre o coneúdo dos seus volumes, logo deve-se ajustar o s
 	$ sudo lvchange -ay DEMO/web1
 	Extending logical volume web1 to 110.00 GB
 	Logical volume web1 successfully resized
-<br />
-	-Necessário *lvchange* porque se criou um snapshot do web1.
-<br />
+
+-Necessário *lvchange* porque se criou um snapshot do web1.
+<br /><br />
 Maior parte dos filesystems criam um diretório *lost+found* na raiz de cada filesystem onde o comando *fsck* pode depositar files cujo diretório pai não pode ser determinado. Este diretório *lost+found* tem algum espaço extra prealocado para que o *fsck* consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
 
 ### Snapchots
