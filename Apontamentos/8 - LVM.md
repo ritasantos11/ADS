@@ -1,13 +1,13 @@
 ## Volume de grupos e volumes lógicos associados a gerenciadores de volumes lógicos (LVMs)
 Esses sistemas agregam dispositivos físicos para formar conjuntos de armazenamentos chamados volumes de grupos.
 <br />
-Como o LVM adiciona uma camada de indireção entre blocos lógicos e físicos, ele pode congelar o estado lógico de um volume simplesmente fazendo uma cópia da dabela de mapeamento. Logo, os LVMs geralmente fornecem algum tipo de recurso de snapshot.
+Como o LVM adiciona uma camada de indireção entre blocos lógicos e físicos, ele pode congelar o estado lógico de um volume simplesmente fazendo uma cópia da tabela de mapeamento. Logo, os LVMs geralmente fornecem algum tipo de recurso de snapshot.
 <br />
 As escritas no volume são direcionadas para novos blosoc e o LVM mantém tabelas de mapeamento antigas e novas. O LVM precisa de armazenar a imagem original e todos os blocos modificados para que eventualmente fique sem espaço se um snapshot nunca for excluído.
 <br />
 As escritas no volume são direcionadas para novos blocos e o LVM mantém tabelas de mapeamento antigas e novas. O LVM precisa de armazenar a imagem original e todos os blocos modificados para que eventualmente fique sem espaço se um snapshot nunca for excluído.
 
-## LOGICAL VOLUME MANAGEMENT (LVM)
+## Logical Volume Management (LVM)
 Em vez de formatar uma fração do disco rígido, o LVM cria unidades abstratas dentro do HD, mesmo que ele esteja alocando arquivos e sistemas.
 <br />
 Permite realocar espaço dinamicamente da partição greedy para a partição necessária.
@@ -43,7 +43,7 @@ O LVM não sabe nada sobre o coneúdo dos seus volumes, logo deve-se ajustar o s
 #### EX: Aumentar size:
 • verificar se o volume tem free space. <br />
 • unmount filesystem. <br />
-• usar lvresize para adicioanr espaço ao volume lógico. <br />
+• usar *lvresize* para adicioanr espaço ao volume lógico. <br />
 • ajustar size do filesystem: *resize2fs*. <br />
 • mount filesystem. <br />
 
@@ -56,10 +56,10 @@ O LVM não sabe nada sobre o coneúdo dos seus volumes, logo deve-se ajustar o s
 <br />
 	-Necessário *lvchange* porque se criou um snapshot do web1.
 <br />
-Maior parte dos filesystems criam um diretório lost+found na raiz de cada filesystem onde o comando *fsck* pode depositar files cujo diretório pai não pode ser determinado. Este diretório *lost+found* tem algum espaço extra prealocado para que o *fsck* consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
+Maior parte dos filesystems criam um diretório *lost+found* na raiz de cada filesystem onde o comando *fsck* pode depositar files cujo diretório pai não pode ser determinado. Este diretório *lost+found* tem algum espaço extra prealocado para que o *fsck* consiga guardar files orfãos sem ter de alocar mais entradas de diretórios num filesystem instável.
 
 ### Snapchots
-Utiliza COW (copy on write): apenas copia o orignal quando este é alterado.
+Utiliza COW (Copy On Write): apenas copia o orignal quando este é alterado.
 
 	$ sudo lvcreate –L 100M –s -n testVG/testLV_snap testLV
 
