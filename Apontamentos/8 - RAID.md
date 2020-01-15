@@ -8,7 +8,7 @@ RAID pode: <br />
 • replicar dados em vários drivers, diminuindo o risco associado a um único disco com falha.<br />
 
 Replicação assume 2 formas: <br />
-• mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes. <br /><br />
+• mirroring, onde os blocos de dados são reproduzidos bit a bit em vários drivers diferentes. <br />
 •esquemas de paridade, onde uma ou mais drivers contêm um checksum de correção de erros dos blocos nos drivers de dados restantes. São mais eficientes no espaço em disco mas têm desempenho inferior.
 
 #### JBOD
