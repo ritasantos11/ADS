@@ -85,7 +85,7 @@ Usa o daemon *smartd* e o utilitário *smartctl*.
 <br />
 • Ter */tmp* numa partilão separada	limita o encher do */*.
 <br />
-• Como */var* guarda os files de log, */var* tem de estar noutra partição para ser mais fácil encher o root.
+• Como */var* guarda os files de log, */var* tem de estar noutra partição para limitarr o */*.
 <br />
 • Pôr os diretórios home dos users numa partição ou volume separado para o caso de a partição do root ser destruída ou corrompida.
 <br />
