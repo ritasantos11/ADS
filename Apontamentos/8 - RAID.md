@@ -15,7 +15,7 @@ Replicação assume 2 formas: <br />
 Discos vistos como um único, sendo escritos sequencialmente.
 
 #### RAID 0:
-Usa 2 ou mais discos rígidos para maximizar o desempenho ao armazenar e acessar info (Stripping array).
+Usa 2 ou mais discos rígidos para maximizar o desempenho ao armazenar e acessar info (stripping array).
 <br />
 É o mais rápido mas o menos seguro.
 <br />
@@ -29,9 +29,9 @@ Usado estritamente para aumentar o desempenho.
 <br />
 Divide os dados entre 2 ou mais discos.
 <br />
-Combina 2 ou mais drivers de tamanho igual, mas em vez de empilhá-los de ponta aponta, distribui os dados alternadamente entre os discos no pool.
+Combina 2 ou mais drivers de tamanho igual, mas em vez de empilhá-los de ponta a ponta, distribui os dados alternadamente entre os discos na pool.
 <br />
-As leituras e as escritas sequenciais são distribuídas entre vários discos, diminuindo os tempos de escrita e acesso.
+As leituras e as escritas sequênciais são distribuídas entre vários discos, diminuindo os tempos de escrita e acesso.
 
 #### RAID 1:
 Só usa 2 discos.
