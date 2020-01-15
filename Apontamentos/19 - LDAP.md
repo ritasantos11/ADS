@@ -12,7 +12,7 @@ Permite ter UIDs e GIDs únicos num domínio (vários sistemas).
 Base de dados que armazena dados de forma hierárquica.
 <br />
 Para autenticar um user no LDAP, é necessário descobrir o seu *dn* e a sua password: <br />
-• Sabendo o nome do user ou email, procurar por todas as entradas esse *dn*.
+• Sabendo o nome do user ou email, procurar por todas as entradas que contêm esses atributos para encontrar o *dn* correspondente.
 
 ### Estrutura do LDAP
 Cada entrada do LDAP consiste num conjunto de atributos com os seus valores associados.
