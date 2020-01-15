@@ -1,7 +1,7 @@
 ## RAID (Redundant Arrays of Inexpensive Disks)
 Uma matriz RAID combina vários dispositivos de armazenamento num dispositivo virtualizado.
 <br />
-O sistema avisa quando à falha de 1 disco.
+O sistema avisa quando há falha de 1 disco.
 <br />
 RAID pode: <br />
 • melhorar o desempenho distribuindo ("striping") dados em vários drivers, permitindo que vários drivers trabalhem simultaneamente para fornecer ou absorver um único fluxo de dados. <br />
