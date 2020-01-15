@@ -8,6 +8,8 @@ As escritas no volume são direcionadas para novos blosoc e o LVM mantém tabela
 As escritas no volume são direcionadas para novos blocos e o LVM mantém tabelas de mapeamento antigas e novas. O LVM precisa de armazenar a imagem original e todos os blocos modificados para que eventualmente fique sem espaço se um snapshot nunca for excluído.
 
 ## Logical Volume Management (LVM)
+Método de alocar espaço do disco em volumes lógicos que podem ser facilmente redimensionados ao contrário das partições.
+<br />
 Em vez de formatar uma fração do disco rígido, o LVM cria unidades abstratas dentro do HD, mesmo que ele esteja alocando arquivos e sistemas.
 <br />
 Permite realocar espaço dinamicamente da partição greedy para a partição necessária.
