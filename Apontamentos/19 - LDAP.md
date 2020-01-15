@@ -39,7 +39,7 @@ Standard LDAP server daemon.
 Contém os ficheiros de configuração e utilitários.
 
 ### *slurpd*
-Serve, para quando existem vários servidores LDAP, para manter a replicação aos servidores súbditos.
+Serve para, quando existem vários servidores LDAP, manter a replicação aos servidores súbditos.
 
 ### OpenLDAP
 *suffix* é o nome de base do LDAP. É a raiz da parte do espaço para nome LDAP (LDAP namespace), semelhante ao conceito ao DNS domain name.
