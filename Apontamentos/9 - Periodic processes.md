@@ -2,7 +2,7 @@
 Execução de scrips ou programas com determinada frequência sem intervenção humana.
 
 ### *cron* daemon
-Serviço que corre tarefas periódicas, previamente agendadas.
+Serviço que corre tarefas periódicas previamente agendadas.
 <br />
 Começa quando o sistema se liga e corre até se desligar.
 <br />
