@@ -11,8 +11,8 @@ Os files logs encontram-se em */var/log*. Mas podem ser definidas pelas aplicaç
 Sistema de logging.
 <br />
 Objetivos: <br />
-• Ajudar os programados a não terem que ecrever files logs. <br />
-• Pôr os adminisradores em controlo do logging. <br />
+• Ajudar os programados a não terem que escrever files logs. <br />
+• Pôr os administradores em controlo do logging. <br />
 
 ## *rsyslog* (rocket-fast system for log processing)
 Sistema usado por defeito em linux. <br />
@@ -20,7 +20,7 @@ Sistema usado por defeito em linux. <br />
 • Bibliotecas: *syslog*. <br />
 • Linha de comando: *logger*.
 
-#### Objetivos do *rsyslog*
+### Objetivos do *rsyslog*
 Receber mensagem de log e guardá-las nos locais “apropriados”: Na configuração estipular esses locais.
 
 ## *journalctl*
