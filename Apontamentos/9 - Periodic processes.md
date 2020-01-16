@@ -1,12 +1,12 @@
 ## Processos periódicos
-Execução de scrips ou programas com determinada frequeência sem intervenção humana.
+Execução de scrips ou programas com determinada frequência sem intervenção humana.
 
 ### *cron* daemon
 Serviço que corre tarefas periódicas, previamente agendadas.
 <br />
 Começa quando o sistema se liga e corre até se desligar.
 <br />
-*cron* lê os files de configuração que contém uma lista de linhas de comandos e a hora a que estas devem ser invocadas.
+*cron* lê os files de configuração que contêm uma lista de linhas de comandos e a hora a que estas devem ser invocadas.
 <br />
 Tudo o que se faz na shell pode ser feito pelo *cron*.
 <br />
