@@ -16,7 +16,7 @@ Inclui todo o conteúdo do filesystem
 Inclui só files alterados desde o último backup.
 
 ## Deduplication
-Deteta files já existentes e em backup e não faz dump desses (ou mesmo remove duplicados).
+Copia só os files alterados desde o último backup completo.
 
 ## *dump*
 Cria backups incrementais.
