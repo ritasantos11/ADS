@@ -5,7 +5,7 @@ Não serve apenas aqruivos de servidor através do CIFS, mas também pode execut
 <br />
 Como controlador de domínio, o SAMBA suporta recursos avançados, como logins de domínio do Windows, perfis de user móvel do Windows e spool de impressões CIFS.
 <br />
-Ao contrário do NFS, que requer suporte ao nível do kernel, SAMBA não requer nenhumas modificações de drivers ou de kernel e correr como um processo de user.
+Ao contrário do NFS, que requer suporte ao nível do kernel, SAMBA não requer nenhumas modificações de drivers ou de kernel e corre como um processo de user.
 
 ### Serviços do CIF
 • Partilha de files. <br />
