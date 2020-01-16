@@ -42,7 +42,7 @@ Verificat uma cópia do *crontab*, abrindo no editor especificado com a variáve
 
 Listar os conteúdos do *crontab* para o *STDOUT*:
 
-    crontab-l
+    crontab -l
 
 Remover o *crontab*, deixando de existir algum file *crontab*:
 
