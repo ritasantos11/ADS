@@ -14,6 +14,8 @@ Inclui todo o conteúdo do filesystem
 
 ## Backup incremental
 Inclui só files alterados desde o último backup.
+<br />
+Têm vários níveis que servem para minimizar o tempo de restauração do sistema.
 
 ## Deduplication
 Copia só os files alterados desde o último backup completo.
