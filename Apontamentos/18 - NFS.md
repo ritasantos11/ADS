@@ -81,8 +81,6 @@ Dar acesso a /home a todos os hosts numa LAN como 192.168.0.0:
 	/home 192.168.0.0/24(rw,sync)
 
 ## Client side NFS
-Os dirs exportados estão no dir */export*.
-<br />
 *mount*: hostname:dir.
 <br />
 Acrescentar o dir a ser montado no boot no file */etc/fstab*.
