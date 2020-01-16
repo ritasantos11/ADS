@@ -7,7 +7,7 @@ Wide area networks têm altas latências, que fazem com que as operações se co
 <br />
 A maioria dos protocolos tenta minimizar o nº de pedidos de rede.
 <br />
-Por exemplo, a cache de leitura antecipada pré carrega partes de um file num buffer de memória local para evitar atrasos quando uma nova seção do file é lida.
+Por exemplo, a cache de leitura antecipada pré carrega partes de um file num buffer de memória local para evitar atrasos quando uma nova secção do file é lida.
 <br />
 Uma pequena largura de banda de rede extra é consumida num esforço para evitar uma troca completa de ida e volta com o server.
 <br />
@@ -19,7 +19,7 @@ Algumas caches escrevem em memória e enviam as suas atualizações em lotes, re
 
 ### Performance
 • Fazer cache de escritas no cliente. <br />
-• “Ler da rede” parte dos ficheiros abertos antes de ser necessário (Buffer local). <br />
+• “Ler da rede” parte dos ficheiros abertos antes de ser necessário, ou seja, pré carrega partes de um file num buffer local. <br />
 • Objetivo: diminuir os pedidos à rede do conteúdo dos ficheiros: diminuir tempo de acesso
 
 ### NFS v4
@@ -50,7 +50,7 @@ utilizadores: *all_squash*
 ### State
 Um cliente deve montar um NFS filesystem antes de usá-lo, assim como um cliente deve montar um filesystem armazenado num disco local.
 <br />
-NFSv4 é um protocolo estável: o cliente e o server mantêm info sobre files abertos e bloqueios. Quando o server falha, o cliente auxilia no processo de recuperação enciando ao server as suas infos sobre o estado anterior a falha. Um server de retorno espera durante um período predefinido que os clientes antigos relatem as suas infos antes de permitir novas operações de bloqueios
+NFSv4 é um protocolo estável: o cliente e o server mantêm info sobre files abertos e bloqueios. Quando o server falha, o cliente auxilia no processo de recuperação relatando ao server as suas infos sobre o estado anterior à falha. Um server de retorno espera durante um período predefinido que os clientes antigos relatem as suas infos antes de permitir novas operações de bloqueios
 
 ### File system exports
 NFS servers mantêm uma lista dos diretórios que estão disponíveis para os clientes pela network. Todos os servers exportam pelo menos 1 diretório.
