@@ -28,6 +28,7 @@ f)
 
 ### Procurar ficheiros
 1)
+
     
     find .config -exec md5sum {} + > somas_md5_myHome
 
