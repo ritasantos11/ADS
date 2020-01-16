@@ -42,7 +42,8 @@ O kernel logging tem suporte no rsyslogd ou journal; o arranque tem um sistema p
 
 ## Ferramentas
 ### *logrotate*
-Rotação dos logs, comprimindo-os
+Rotação dos logs, comprimindo-os.
+<br />
 Corre fora do cron 1 vez por dia.
 
 ### Parsing e "monotorização" dos logs
