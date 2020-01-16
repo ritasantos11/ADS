@@ -1,4 +1,6 @@
-## Log event
+## Log files
+Registos que contêm track de informação importante: mensagens sobre o server, incluindo sobre o kernel, serviços e aplicações a correr no server.
+<br />
 1 linha com data e hora, tipo e severidade do evento, entre outros detalhes relevantes.
 <br />
 Os files logs que são administrados pelo *syslog* (logger de eventos do sistem) contêm eventos de múltiplas fontes.
