@@ -1,3 +1,14 @@
+## Tapes
+Leitura sequêncial: tem de se começar a ler do início.
+<br />
+EScrita acrescentando: o espaço descartado não fica livre até se re-formatar a tape escrita.
+<br />
+Escrita e leitura rápida.
+<br />
+Procura lenta.
+<br />
+Software específico para a leitura/escrita.
+
 ## Full backups
 Inclui todo o conteúdo do filesystem
 
@@ -23,7 +34,7 @@ Nível 0: full backup.
 • Files de qualquer tipo (até dispositivos) podem ser copiados e restaurados. <br />
 • Permissões, propriedades e tempos de modificações são preservados. <br />
 • Files com holes são tratados corretamente. <br />
-• Backups podem ser realizados incrementalmente (só os files modificados recentemente escritos na tape).
+• Backups podem ser realizados incrementalmente (só os files modificados recentemente são escritos na tape).
 
 ### Limitações do *dump*/*restore*
 • Apenas filesystems que *dump* condiga ler. <br />
