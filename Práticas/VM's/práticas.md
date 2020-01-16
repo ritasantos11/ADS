@@ -97,6 +97,7 @@ a)
 
 2)
     
+
     
     cat /proc/mounts
     mount
