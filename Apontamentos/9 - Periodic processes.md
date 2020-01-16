@@ -59,7 +59,7 @@ utilizadores listados não podem aceder ao *crontab*. <br />
 • Se nenhum dos ficheiros existir apenas utilizadores com super privilégios podem aceder ao *crontab*.
 
 ### *anacron*
-Executa comandos periodicamente, mas não necessariamente às
+Executa comandos periódicamente, mas não necessariamente às
 horas certas: Máquina pode não estar sempre ligada.
 <br />
 Verifica se o comando foi corrido tendo em conta o período. Se não foi, espera o delay e executa-o.
@@ -71,7 +71,7 @@ Ficheiros: <br />
 ### *at*, *batch*
 Não é para execuções periódicas.
 <br />
-Para correr comandos uma vez num tempo específico: Executar comandos em file_with_comands daqui a 3 horas:
+Para correr comandos uma vez num tempo específico: executar comandos em file_with_comands daqui a 3 horas:
     
     at -f file_with_comands now + 3 hours
 
