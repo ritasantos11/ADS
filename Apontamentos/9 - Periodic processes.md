@@ -65,8 +65,8 @@ horas certas: Máquina pode não estar sempre ligada.
 Verifica se o comando foi corrido tendo em conta o período. Se não foi, espera o delay e executa-o.
 <br />
 Ficheiros: <br />
-• */etc/anacrontab*: configuração. <br />
-• */var/spool/anacron*: local onde guarda os timestamps.
+• configuração: */etc/anacrontab*. <br />
+• local onde guarda os timestamps: */var/spool/anacron*.
 
 ### *at*, *batch*
 Não é para execuções periódicas.
