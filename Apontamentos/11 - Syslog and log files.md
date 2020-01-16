@@ -1,5 +1,11 @@
 ## Log files
-Registos que contêm track de informação importante: mensagens sobre o server, incluindo sobre o kernel, serviços e aplicações a correr no server.
+Registos que mantêm registo de informações importantes: ataques e ameaças ao servidor, tais como ataque a rede, problemas decorrente no desktop e alterações numa determinada base de dados, etc.
+<br />
+O registo e a recolha dos dados são procedimentos fundamentais para a realização do controle e de auditorias de segurança numa determinada empresa.
+<br />
+Objetivo da existência dos ficheiros logs: deteção de ações impróprias no sistema, falhas no sistema e falhas de segurança, permitindo que sejam aplicadas as devidas correções.
+<br />
+Os relógios têm de ser sincronizados: todos devem marcar as mesmas horas no mesmo formato e estar sincronizados com um relógio principal.
 <br />
 1 linha com data e hora, tipo e severidade do evento, entre outros detalhes relevantes.
 <br />
@@ -40,7 +46,7 @@ Os timestamps são os locais. Quando se envia para a máquina remota serão os d
 <br />
 Muitos logs se não estiverem bem distribuídos por files podem "poluir" os mesmos logs.
 <br />
-O kernel logging tem suporte no rsyslogd ou journal; o arranque tem um sistema para escrever o log: guardado num buffer, é escrito quando o sistema arranca.
+O kernel logging tem suporte no *rsyslogd* ou *journal*; o arranque tem um sistema para escrever o log: guardado num buffer, é escrito quando o sistema arranca.
 
 ## Ferramentas
 ### *logrotate*
