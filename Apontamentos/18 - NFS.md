@@ -68,7 +68,7 @@ Um server com NFS exporta um diretório quando coloca o diretório disponível p
 <br />
 Os scripts de início devem correr os daemons automáticamente se houver exports configurados.
 
-#### *exportfs*
+### *exportfs*
 Adicionar ou modificar entradas.
 
 ### */etc/exports*
