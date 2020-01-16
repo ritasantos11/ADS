@@ -42,10 +42,10 @@ Não é utilizado para controlo de acesso: para controlo de acesso são utilizad
 Pode-se alterar o UID e GID default para o root no file exports.
 
 ### *root squash*
-Utilizador root é mapeado no utilizador nobody.
+Utilizador root é mapeado no utilizador nobody (utilizador anónimo do cliente).
 <br />
 Existe a possibilidade de fazer o mesmo para todos os
-utilizadores: *all_squash*
+utilizadores, ou seja, mapear os UIDs dos users para UIDs de users anónimos no cliente: *all_squash*
 
 ### State
 Um cliente deve montar um NFS filesystem antes de usá-lo, assim como um cliente deve montar um filesystem armazenado num disco local.
@@ -68,8 +68,8 @@ Um server com NFS exporta um diretório quando coloca o diretório disponível p
 <br />
 Os scripts de início devem correr os daemons automáticamente se houver exports configurados.
 
-### *exportfs*
-Adicionar ou modificar entradas.
+### *exportfs -a*
+Exporta o filesystem indicado no file */etc/exports*.
 
 ### */etc/exports*
 Lista de dirs exportados e opções associadas.
