@@ -18,7 +18,7 @@ O nome dos *crontabs* são os nomes de login do user a que o file pertence. O *c
 
 ### Outras funcionalidades
 Definir no file *crontab* variáveis de ambiente: <br />
-• *MAILTO*: usado para indicar quem deve receber os emailS resultantes dos comandos do *crontab*. <br />
+• *MAILTO*: usado para indicar quem deve receber os emails resultantes dos comandos do *crontab*. <br />
 • *SHELL* <br />
 • *PATH* <br />
 • *HOME*
