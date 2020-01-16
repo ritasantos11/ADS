@@ -1,7 +1,7 @@
 ## Tapes
 Leitura sequêncial: tem de se começar a ler do início.
 <br />
-EScrita acrescentando: o espaço descartado não fica livre até se re-formatar a tape escrita.
+Escrita acrescentando: o espaço descartado não fica livre até se re-formatar a tape escrita.
 <br />
 Escrita e leitura rápida.
 <br />
