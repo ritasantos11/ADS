@@ -12,14 +12,14 @@ Contém device drivers que gerem a sua interação com específicas partes do ha
 • Comunicação entre processos (IPCs).
 
 ### Tipos
-##### Kernel monolítico
+#### Kernel monolítico
 Kernel do linux.
 <br />
 Todos os serviços são executados a nível do kernel (kernel space): IPCs, sistemas de ficheiros, memória virtual, etc. 
 <br />
 Módulos podem ser carregados se necessário.
 
-##### Micro-kernel
+#### Micro-kernel
 Alguns dos serviços correm em user-space.
 <br />
 Linux tem FUSE (File system in USEr space), UIO (Userspace I/O), FUSD (Framework for User-Space Devices) (abandonado?) e outros.
@@ -97,5 +97,3 @@ Info sobre os dispositivos e as suas características.
 • *lsscsi* (necessário instalar pacote lsscsi) <br />
 • *lsdev* (necessário instalar pacote procinfo) <br />
 • *lshw* (necessário instalar pacote lshw)
-
-
