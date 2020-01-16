@@ -34,19 +34,23 @@ f)
 
 4)
     
+
     find / -executable -ls -type f
 
 5)
+
     
     find / -executable -ls -type f | grep -v root
 
 6)
+
 
     sudo find / -executable -type f -print0 | xargs -0 ls -lrt | head -n 1 
     find /home -executable -type f -print0 | xargs -0 ls -lrt | head -n 1
     find /home -executable -type f -printf '%T+ %p\n' | sort | head -n 1
 
 7)
+
 
     sudo find / -executable -type f -print0 | xargs -0 ls -lt | grep root | head -n 1
     sudo find / -executable -type f -user root | xargs ls -lt | head -n 1
@@ -65,6 +69,7 @@ f)
 ### AWK ou PERL
 1)
     
+
     ls -l /etc | awk '{sum+=$5}; END {div=sum/NR; print div}'
 
     ls -Sl /etc | awk '{sum+=$5}; END {div=sum/NR; print div;  print}'
@@ -75,20 +80,23 @@ f)
 ### Processos
 1)
     
+
     ps aux | grep "[k"
 
 2)
     
+
     killall firefox
 
 ### /PROC
 1)
-firefox
+firefox <br />
 a)
     
     ls /proc/<PID>
 
 2)
+    
     
     cat /proc/mounts
     mount
