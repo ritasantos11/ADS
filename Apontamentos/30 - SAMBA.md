@@ -8,21 +8,18 @@ Como controlador de domínio, o SAMBA suporta recursos avançados, como logins d
 Ao contrário do NFS, que requer suporte ao nível do kernel, SAMBA não requer nenhumas modificações de drivers ou de kernel e corre como um processo de user.
 
 ### Serviços do CIF
-• Partilha de files. <br />
-• Impressão por rede. <br />
-• Autenticação e autorização. <br />
-• Resolução de nome. <br />
-• Anuncio de serviços.
+• Partilha de files (*smbd*). <br />
+• Impressão por rede (*smbd*). <br />
+• Autenticação e autorização (*smbd*). <br />
+• Resolução de nome (*nmbd*). <br />
+• Anuncio de serviços (*nmbd*).
 
 ### daemon *smbd*
-Implementa sefviços de arquivos e impressão, autenticação e autorização.
-<br />
 Após autenticação corre como o user que o invoca.
 <br />
-Adiciona lock de files, semelhante ao esperado pelo cliente windows.
+Adiciona lock de files, semelhante ao esperado pelo cliente Windows.
 
 ### daemon *nmbd*
-Fornece outros componentes do CIFS: resolução de nome e anúncio de serviços.
 
 ### Instalar o SAMBA
 Modificar o file */etc/samba/smb.conf*, adicionando os diretórios e printers a serem exportados, os direitos de acesso e outros parâmetros do SMABA.
@@ -34,10 +31,10 @@ Modificar o file */etc/samba/smb.conf*, adicionando os diretórios e printers a 
 
 #### Autenticação
 Uso de um sistema de credencias que não o */etc/shadow*: <br />
-• Local <br />
-• Usando LDAP
+• Local. <br />
+• Usando LDAP.
 <br />
-Opção que encripta a troca de password entre o cliente windows e o servidor do SAMBA.
+Opção que encripta a troca de password entre o cliente Windows e o servidor do SAMBA:
 
     encrypt passwords = true
 
