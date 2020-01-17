@@ -10,7 +10,7 @@ Procura lenta.
 Software específico para a leitura/escrita.
 
 ## Full backups
-Inclui todo o conteúdo do filesystem
+Inclui todo o conteúdo do filesystem.
 
 ## Backup incremental
 Inclui só files alterados desde o último backup.
