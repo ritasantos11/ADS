@@ -38,7 +38,7 @@ Os PVs (physical volumes) são a base e representam os discos físicos. Os PVs s
 	$ sudo lvcreate -L 100G -n web1 DEMO
 	Logical volume "web1" created
 
-### #Criar /dev/DEMO/web1-snap como um snapshot do /dev/DEMO/web1
+#### Criar /dev/DEMO/web1-snap como um snapshot do /dev/DEMO/web1
 	$ sudo lvcreate -L 100G -s -n web1-snap DEMO/web1
 
 O LVM não sabe nada sobre o coneúdo dos seus volumes, logo deve-se ajustar o size dos volumes e dos filesystems. Para reduzir o size, faz-se primeiro no filesystem e para aumentar no volume.
