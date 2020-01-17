@@ -9,7 +9,7 @@ Os relógios têm de ser sincronizados: todos devem marcar as mesmas horas no me
 <br />
 1 linha com data e hora, tipo e severidade do evento, entre outros detalhes relevantes.
 <br />
-Os files logs que são administrados pelo *syslog* (logger de eventos do sistem) contêm eventos de múltiplas fontes.
+Os files logs que são administrados pelo *syslog* (logger de eventos do sistema) contêm eventos de múltiplas fontes.
 <br />
 Os files logs encontram-se em */var/log*. Mas podem ser definidas pelas aplicações: */var/log/samba*.
 
