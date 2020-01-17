@@ -75,7 +75,7 @@ Permite monitorizar e configurar a “vigilância” pelo próprio sistema do di
 <br />
 O software standard para disputas SMART nos sistemas unix e linux é o pacote *smartmontools*.
 
-#### *smartmontools*
+### *smartmontools*
 Usa o daemon *smartd* e o utilitário *smartctl*.
 
 ## Disk Partitions
