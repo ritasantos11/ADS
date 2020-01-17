@@ -33,7 +33,7 @@ Quando o kernel executa um file executável com os seus bits de permissão *setu
 <br />
 *setuid*: usado em files executáveis. O user corre o programa como se fosse o dono dele.
 <br />
-*setgid*: usado em diretórios e files.
+*setgid*: usado em diretórios e files. Quando definido num dir, o bit setgid faz com que os files desse dir assumam o grupo do dir, em vez do grupo default dos users que criaram os files.
 <br />
 Os users devem poder alterar as suas passwords. Mas como as passwords são guardadas no file /etc/shadow, os users precisam de um comando *setuid* *passwd* para aceder.
 <br />
