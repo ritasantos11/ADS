@@ -35,7 +35,7 @@ Apesar dos device drivers serem parte do kernel e não processos de user, o driv
 <br />
 O acesso ao driver pelo espaço do user é feito pelos dispositivos (que são vistos como files) que estão em */dev*.
 
-### */dev/*
+### */dev*
 O kernel mapeia operações nestes files em chamadas ao código do driver.
 <br />
 Tem um número major e minor, que são usados pelo kernel para mapear as referências do device file no driver correspondente: <br />
