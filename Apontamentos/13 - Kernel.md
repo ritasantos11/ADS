@@ -69,7 +69,7 @@ As modificações diretas não são mantidas após reninciar.
 Usar o comando *sysctl*.
 
 ## Construir o Kernel
-• É possível fazer download da dource, configurar e fazer make.
+• É possível fazer download da source, configurar e fazer make.
 <br />
 • Pode ser necessário construir dirvers com patches. Necessário o código fonte, mas não construir todo o kernel.
 
@@ -94,6 +94,6 @@ Info sobre os dispositivos e as suas características.
 • *lsusb* <br />
 • *lspci* <br />
 • *lspcu* <br />
-• *lsscsi* (necessário instalar pacote lsscsi) <br />
-• *lsdev* (necessário instalar pacote procinfo) <br />
-• *lshw* (necessário instalar pacote lshw)
+• *lsscsi* (necessário instalar pacote *lsscsi*) <br />
+• *lsdev* (necessário instalar pacote *procinfo*) <br />
+• *lshw* (necessário instalar pacote *lshw*)
