@@ -27,7 +27,7 @@ Linux tem FUSE (File system in USEr space), UIO (Userspace I/O), FUSD (Framework
 ## Device driver
 Porgrama que gere a interação do sistema com um tipo específico de hardware.
 <br />
-O driver traduz entre os comandos de hardware compreendidos pelo dispositivo e a interface de programação usada pelo kernel.
+O driver traduz as instruções de I/O para que o dispositivo entenda.
 <br />
 A camada driver ajuda o kernel a ficar razoavelmente independente do dispositivo.
 <br />
