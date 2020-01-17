@@ -25,7 +25,7 @@ Também guarda info adicional sobre as contas que não foram guardadas no */etc/
 O name do login é o mesmo que está no */etc/passwd*.
 
 ## */etc/group*
-Este file contém os nomes dos grupos e a lista dos sues membros.
+Este file contém os nomes dos grupos e a lista dos seus membros.
 <br />
 O comando useradd por default coloca os users nos seus grupos pessoais.
 <br />
