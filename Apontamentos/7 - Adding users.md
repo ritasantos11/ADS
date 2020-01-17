@@ -7,7 +7,7 @@ O file contém um x no campo da password encriptada no Linux, Solaris e HP-UX e 
 <br />
 As passwords encriptadas são guardadas no ficheiro */etc/shadow*.
 <br />
-Se as contas dos users forem partilhadas através do LDAP, o file passwd pode conter entradas que começam por + ou -. Servem para dizer ao sistema como integrar os dados desse serviço (LDAP) com o conteúdo do */etc/passwd*.
+Se as contas dos users forem partilhadas através do LDAP, o file */etc/passwd* pode conter entradas que começam por + ou -. Servem para dizer ao sistema como integrar os dados desse serviço (LDAP) com o conteúdo do */etc/passwd*.
 <br />
 Por definição, o root tem UID 0.
 <br />
