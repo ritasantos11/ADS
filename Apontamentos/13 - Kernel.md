@@ -43,7 +43,7 @@ Tem um número major e minor, que são usados pelo kernel para mapear as referê
 • Minor: define a instância específica.
 
 ### Tipos de device files
-• Bloco (b): xlido ou escrito em blocos de bytes. <br />
+• Bloco (b): lido ou escrito em blocos de bytes. <br />
 • Caracter (c): lido ou escrito byte a byte.
 
 ### Pseudo dispositivos
