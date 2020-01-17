@@ -45,6 +45,11 @@ Nível 0: full backup.
 • O *restore* irá recuperar files que foram apagados. <br />
 • O uso de tapes implica que o seu tamanho seja tido em conta.
 
+## Notas
+Quantos mais backups se fazem menos dados serão perdidos se o sistema crashar. No entanto, os backups usam muitos recursos e tempo do sistema.
+<br />
+Deve-se fazer mais ou menos backups conforme o uso do sistem: fazer backups regularmente aos ficheiros que são usados constantemente, por exemplo os diretórios home dos utilizadores.
+
 ### *tar*
 Permite ler mais do que um ficheiro e colocá-lo num arquivo (ex: tape). E copiar diretórios.
 <br />
