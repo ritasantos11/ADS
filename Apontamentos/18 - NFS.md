@@ -42,10 +42,9 @@ Não é utilizado para controlo de acesso: para controlo de acesso são utilizad
 Pode-se alterar o UID e GID default para o root no file exports.
 
 ### *root squash*
-Utilizador root é mapeado no utilizador nobody (utilizador anónimo do cliente).
+Utilizador root é mapeado no utilizador nobody (utilizador anónimo do cliente): é o default.
 <br />
-Existe a possibilidade de fazer o mesmo para todos os
-utilizadores, ou seja, mapear os UIDs dos users para UIDs de users anónimos no cliente: *all_squash*
+Existe a possibilidade de fazer o mesmo para todos os utilizadores, ou seja, mapear os UIDs dos users para UIDs de users anónimos no cliente: *all_squash*.
 
 ### State
 Um cliente deve montar um NFS filesystem antes de usá-lo, assim como um cliente deve montar um filesystem armazenado num disco local.
