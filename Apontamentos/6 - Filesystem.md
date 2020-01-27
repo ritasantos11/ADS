@@ -80,6 +80,8 @@ Quando definidos em files executáveis, esses bits permitem que os programas ace
 Bit com o valor octal 1000.
 <br />
 Se o sticky bit estiver definido num dir, o filesystem não permitirá que qualquer pessoa apague ou renomeie os files a não ser que seja o owner do dir, o owner do file ou o superuser. Ter permissão de escrita não é suficente.
+<br>
+O dir /tmp contém files temporários criados por vários users. Para que não seja possível qualquer user apagar/renomear files temporários doutros users, o dir /tmp tem o sticky bit ativo.
 
 ### *chmod*: change permissions
 O comando *chmod* altera as permissões dum file.
