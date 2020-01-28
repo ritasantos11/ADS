@@ -37,7 +37,7 @@ Mantém estado: mantém info sobre locks e files abertos.
 Mapeia utilizadores do cliente em utilizadores do servidor: <br />
 • Servidor utiliza o */etc/passwd* local para mapear UID e GID em user@server. <br />
 • Cliente mapeia user usando */etc/passwd* local para um UID. <br />
-Não é utilizado para controlo de acesso: para controlo de acesso são utilizados os UID e GID diretamente.
+Não é utilizado para autenticação nem controlo de acesso: para controlo de acesso são utilizados os UID e GID diretamente.
 <br />
 Pode-se alterar o UID e GID default para o root no file exports.
 
