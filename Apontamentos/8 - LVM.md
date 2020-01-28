@@ -45,7 +45,7 @@ O LVM não sabe nada sobre o coneúdo dos seus volumes, logo deve-se ajustar o s
 #### EX: Aumentar size:
 • verificar se o volume tem free space. <br />
 • unmount filesystem. <br />
-• usar *lvresize* para adicioanr espaço ao volume lógico. <br />
+• usar *lvresize* para adicionar espaço ao volume lógico. <br />
 • ajustar size do filesystem: *resize2fs*. <br />
 • mount filesystem. <br />
 
