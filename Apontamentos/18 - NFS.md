@@ -67,17 +67,17 @@ Um server com NFS exporta um diretório quando coloca o diretório disponível p
 <br />
 Os scripts de início devem correr os daemons automáticamente se houver exports configurados.
 
-### *exportfs -a*
-Exporta o filesystem indicado no file */etc/exports*.
-
-### */etc/exports*
-Lista de dirs exportados e opções associadas.
+### Editar */etc/exports*
+Lista de dirs a exportar e opções associadas.
 <br />
 Filesystems listados sem hosts especificados são montados por todas as máquinas (security hole).
 <br />
 Dar acesso a /home a todos os hosts numa LAN como 192.168.0.0:
 
 	/home 192.168.0.0/24(rw,sync)
+
+### Correr *exportfs -a*
+Exporta o filesystem indicado no file */etc/exports*.
 
 ## Client side NFS
 *mount*: hostname:dir.
