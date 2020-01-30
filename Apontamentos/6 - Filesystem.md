@@ -49,7 +49,7 @@ Contém files cujo diretório pai não pode ser determinado, colocados lá pelo 
 • Link simbólico (l).
 
 ### Inodes
-Estrutura de dados que guarda info básica sobre um file normal, um dirou outro objeto do filesystem.
+Estrutura de dados que guarda info básica sobre um file normal, um dir ou outro objeto do filesystem.
 
 ### Link Simbólico
 Link para o file original.
