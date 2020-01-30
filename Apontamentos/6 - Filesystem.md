@@ -69,7 +69,7 @@ Quando o kernel, enquanto procura por um pathname, encontra um link simbólico, 
 Criação: *ln -s*
 
 ### Hard link
-Cópia do file original. Guardd o conteúdo do file original.
+Cópia do file original. Guarda o conteúdo do file original.
 <br>
 Se se apagar ou se mover o file original, o hard link continua com o conteúdo desse file original.
 <br>
