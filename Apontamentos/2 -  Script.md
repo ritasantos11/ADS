@@ -1,8 +1,8 @@
 
 Cada processo tem pelo menos 3 canais de comunicação: *STDIN* (0), *STDOUT* (1) e *STDERR* (2).
-<br />
+<br>
 Normalmente, *STDIN* lê do terminal e o *STDOUT* e *STDERR* escreveM para o ecrã.
-<br />
+<br>
 Maior parte dos comandos lêem o input do *STDIN* e escrevem o seu output para o *STDOUT* e as mensagens de erro para o *STDERR*.
 
 	< conecta o STDIN do comando ao conteúdo dum ficheiro.
@@ -10,17 +10,17 @@ Maior parte dos comandos lêem o input do *STDIN* e escrevem o seu output para o
 	> substitui o conteúdo dum ficheiro existente e >> adiciona ao ficheiro.
 
 Para redirecionar o *STDOUT* e o *STDERR* para o mesmo sítio usa-se *>&*.
-<br />
+<br>
 Para redirecionar apenas o *STDERR* usa-se *2>*.
-<br /><br />
+<br><br>
 Para conectar o *STDOUT* de um comando ao *STDIN* de outro comando usa-se o *|*.
-<br />
+<br>
 Para executar um comando só se o comando anterior completar com sucesso, usa-se *&&* para separar os comandos.
-<br />
+<br>
 Para executar um comando só se o anterior falhar, usa-se *||* para separar os comandos.
-<br /><br />
+<br><br>
 Para ir buscar um valor a uma variável, usa-se o *$*. Nome de variáveis: Case Sensitive.
-<br />
+<br>
 Ex: o *echo* imprime o conteúdo da variável var
 
 	var='ola'
@@ -48,35 +48,35 @@ Descobre os ficheiros por nome.
 	$ find [where to start searching from] [expression determines what to find] [-options] [what to find]
 
 • *-o*: ou
-<br />
+<br>
 • *-atime n*: accedido n dias atrás
-<br />
+<br>
 • *-mtime n*: modificado n dias atrás
-<br />
+<br>
 • *-size n*: tem n blocos de tamanho (1 bloco = 512 bytes) (+5M: maior que 5M)
-<br />
+<br>
 • *-type c*: “ficheiro” é do tipo: f=regular, d=diretório, etc
-<br />
+<br>
 • *-fstype type*: tipo de sistema de ficheiros: 4.2 ou nfs, etc
-<br />
+<br>
 • *-name nome*: nome do ficheiro é nome
-<br />
+<br>
 • *-user usr*: dono do ficheiro é usr
-<br />
+<br>
 • *-group grp*: grupo dono do ficheiro é grp
-<br />
+<br>
 • *-perm p*: permissões do ficheiro são p
-<br />
+<br>
 • *-print*: escreve o caminho do ficheiro que está a ser avaliado
-<br />
+<br>
 • *-ls*: versão detalhada (ls -l) do comando print
-<br />
+<br>
 • *-exec cmd*: executa o comando sobre o ficheiro
-<br />
+<br>
 • *-ok cmd*: o mesmo que o anterior, só que pergunta antes de executar o comando
-<br />
+<br>
 • *-xdev*: Restringe a pesquisa ao sistema de ficheiros da pasta inicial que serve de raiz à pesquisa
-<br />
+<br>
 • *-prune*: Não desce abaixo da pasta encontrada
 
 ### *awk*
@@ -89,14 +89,14 @@ Descobre os ficheiros por nome.
 
 ### *xargs*
 Automatiza a aplicação de comandos sobre um grupo de objetos.
-<br />
+<br>
 Normalmente elemento final de uma pipe para aplicar repetidamente um comando aos objetos produzidos pela pipe.
 
 ### *cut*
 Separa linhas em campos.
-<br />
+<br>
 Imprime partes selecionadas de cada linha do input.
-<br />
+<br>
 O delimiter default é o tab.
 
 ### *sort*
@@ -126,16 +126,16 @@ Conta linhas, palavras e caracteres num ficheiro.
 
 ### *tee*
 Copia input para 2 sítios.
-<br />
+<br>
 Copia input para o STDOUT e para o ficheiro especificado no comando.
-<br />
+<br>
 Copia o output de *cat* para o *file* e para o *wc*:
 
 	$ cat /etc/passwd | tee file | wc -l
 
 ### *head* e *tail*
 Lê o início e o fim do ficheiro respetivamente.
-<br />
+<br>
 Default: 10 linhas
 
 ### *tail -f*
@@ -146,7 +146,7 @@ Procura texto no input dado e imprime as linhas q correspondem ao que se está a
 
 ### *df*
 Report file system disk space usage.
-<br />
+<br>
 *-h*:  print sizes in powers of 1024.
 
 

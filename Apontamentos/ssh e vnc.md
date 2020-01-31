@@ -1,17 +1,17 @@
 ## SSH
 Secure Shell
-<br />
+<br>
 Estabelece uma ligação a uma máquina usando protocolo de cifra e autenticação.
-<br />
+<br>
 Substituto de telnet (que usa protocolo de comunicação plain-text).
-<br />
+<br>
 Arquitetura cliente-servidor
-<br /><br />
+<br><br>
 Objetivos podem ser:
 •Obter uma shell na máquina remota.
-<br />
+<br>
 •Executar um comando.
-<br />
+<br>
 •Obter um túnel para outra ligação.
 
 
@@ -20,12 +20,12 @@ Protocolos permitem o envio de desktop gráfico para clientes remotos.
 
 ### VNC
 Usa passwords diferentes das da conta na máquina remota
-<br />
+<br>
 Pode-se usar a ligação direta ou através de túnel ssh (preferível, pois mais seguro):
-<br />
+<br>
 •construindo os túneis como visto anteriormente
-<br />
+<br>
 •ou usando a opção via
-<br /><br />
+<br><br>
 
 Usou-se o remote viwer.

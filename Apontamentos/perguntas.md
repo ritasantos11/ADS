@@ -8,7 +8,5 @@ Porque neste ficheiro encontram-se as passwords encriptadas de todos os utilizad
 Este ficheiro contém outras informações relativas a cada user, não contendo as passwords.
 
 #### Quais são as contas com password no /etc/shadow?
-
-    Diferentes de * e ! no 2ºcampo.
-    Sendo que ! significa que a conta está bloquada, porque ainda não se atribuiu passowrd a essa conta.
+Diferentes de * e ! no 2ºcampo. Sendo que ! significa que a conta está bloquada, porque ainda não se atribuiu passowrd a essa conta.
     
