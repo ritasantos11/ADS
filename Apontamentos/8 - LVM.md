@@ -67,4 +67,4 @@ Utiliza COW (Copy On Write): apenas copia o orignal quando este é alterado.
 
 A snapshot pode ser montada.
 <br />
-No LV criado para a snapshot são guardadas as mudançãs no sistema original. O tamanho alocado deve ser suficiente para todas as mudanças.
+No LV criado para a snapshot são guardadas as mudanças no sistema original. O tamanho alocado deve ser suficiente para todas as mudanças.
