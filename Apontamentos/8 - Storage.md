@@ -81,9 +81,9 @@ Usa o daemon *smartd* e o utilitário *smartctl*.
 ## Disk Partitions
 • Ter um dispositvo de backup do root que se pode inicializar se algo de errado ocorrer na partição normal do root. Idealmente, o backup do root fica num disco diferente do root normal para proteger de corrupção e problemas de hardware. Um backup do root no mesmo disco não tem qualquer valor.
 <br>
-• Como a partição do root é duplicada, deve ser pequena para não ocupar tanto espaço haver 2 cópias. Por isso é que */usr* (que contém as librarias e dados do sistema) está num volume separado.
+• Como a partição do root é duplicada, deve ser pequena para não ocupar tanto espaço haver 2 cópias. Por isso é que */usr* está num volume separado.
 <br>
-• Ter */tmp* numa partilão separada	limita o encher do */*.
+• Ter */tmp* numa partição separada	limita o encher do */*.
 <br>
 • Como */var* guarda os files de log, */var* tem de estar noutra partição para limitarr o */*.
 <br>
