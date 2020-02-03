@@ -1,5 +1,5 @@
 ## Log files
-Ficheiros que mantêm registo de informações importantes: ataques e ameaças ao servidor, tais como ataque a rede, problemas decorrente no desktop e alterações numa determinada base de dados, etc.
+Ficheiros que mantêm registo de informações importantes: ataques e ameaças ao servidor, tais como ataque a rede, problemas decorrentes no desktop e alterações numa determinada base de dados, etc.
 <br>
 O registo e a recolha dos dados são procedimentos fundamentais para a realização do controle e de auditorias de segurança numa determinada empresa.
 <br>
