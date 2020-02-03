@@ -12,7 +12,7 @@ Ao contrário do NFS, que requer suporte ao nível do kernel, SAMBA não requer 
 • Impressão por rede (*smbd*). <br>
 • Autenticação e autorização (*smbd*). <br>
 • Resolução de nome (*nmbd*). <br>
-• Anuncio de serviços (*nmbd*).
+• Anúncio de serviços (*nmbd*).
 
 ### daemon *smbd*
 Após autenticação corre como o user que o invoca.
