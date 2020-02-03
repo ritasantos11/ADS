@@ -1,7 +1,7 @@
 ## SAMBA
 Servidor CIF para Linux.
 <br>
-Não serve apenas aqruivos de servidor através do CIFS, mas também pode executar as funções básicas  de um controlador do Windows Active Directory.
+Não serve apenas arquivos de servidor através do CIFS, mas também pode executar as funções básicas  de um controlador do Windows Active Directory.
 <br>
 Como controlador de domínio, o SAMBA suporta recursos avançados, como logins de domínio do Windows, perfis de user móvel do Windows e spool de impressões CIFS.
 <br>
