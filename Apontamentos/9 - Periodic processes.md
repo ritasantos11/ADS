@@ -53,10 +53,10 @@ Remover o *crontab* do user *rita*:
     crontab -r rita
 
 ### Files de configuração
-• */etc/cron.allow*:  se existir apenas utilizadores listado no ficheiro podem aceder ao *crontab*. O *cron.deny* é ignorado. <br>
+• */etc/cron.allow*:  se existir, apenas utilizadores listado no ficheiro podem aceder ao *crontab*. O *cron.deny* é ignorado. <br>
 • */etc/cron.deny*: se existir (e cron.allow não existir),
 utilizadores listados não podem aceder ao *crontab*. <br>
-• Se nenhum dos ficheiros existir apenas utilizadores com super privilégios podem aceder ao *crontab*.
+• Se nenhum dos ficheiros existir, apenas utilizadores com super privilégios podem aceder ao *crontab*.
 
 ### *anacron*
 Executa comandos periódicamente, mas não necessariamente às
