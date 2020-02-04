@@ -25,7 +25,7 @@ Alguns dos serviços correm em user-space.
 Linux tem FUSE (File system in USEr space), UIO (Userspace I/O), FUSD (Framework for User-Space Devices) (abandonado?) e outros.
 
 ## Device driver
-Porgrama que gere a interação do sistema com um tipo específico de hardware.
+Programa que gere a interação do sistema com um tipo específico de hardware.
 <br>
 O driver traduz as instruções de I/O para que o dispositivo entenda.
 <br>
