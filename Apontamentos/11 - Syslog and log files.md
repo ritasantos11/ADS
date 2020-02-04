@@ -25,7 +25,7 @@ Sistema usado por defeito em linux. <br>
 • Daemon: *rsyslogd*. <br>
 • Bibliotecas: *syslog*. <br>
 • Linha de comando: *logger*. <br>
-Objetivos do *rsyslog*: <br>
+Objetivos: <br>
 • Receber mensagem de log e guardá-las nos locais “apropriados”: na configuração estipular esses locais.
 
 ## *journalctl*
